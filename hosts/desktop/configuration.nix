@@ -48,7 +48,7 @@
   services.xserver.desktopManager.xfce.enable = true;
 
   # Configure keymap in X11
-  services.xserver = { layout = "pt"; xkbVariant = ""; };
+  services.xserver = { xkb.layout = "pt"; xkb.variant = ""; };
 
   # Configure console keymap
   console.keyMap = "pt-latin1";

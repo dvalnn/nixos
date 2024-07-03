@@ -4,9 +4,11 @@
 
 { config, pkgs, inputs, ... }:
 
-{ imports =
+{ 
+  imports = 
     [ # Include the results of the hardware scan.
-      /etc/nixos/hardware-configuration.nix ];
+      ./hardware-configuration.nix
+    ];
 
   # Bootloader.
   boot.loader.grub.enable = true; boot.loader.grub.device = "/dev/sda"; 

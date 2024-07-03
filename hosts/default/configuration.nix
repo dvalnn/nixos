@@ -95,6 +95,7 @@
     packages = with pkgs; [
       firefox
       neovim
+      gh
     ];
   };
 

@@ -1,10 +1,13 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
-{
+let 
+	user = "dvalinn";
+	nvimConfig = import ./../../modules/home-manager/nvim/nvim.nix;
+in {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "dvalinn";
-  home.homeDirectory = "/home/dvalinn";
+  home.username = user;
+  home.homeDirectory = "/home/${user}";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -18,11 +21,13 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-  	libgcc
-  	rustup
-	go
 
-	alacritty
+	go
+	rustup
+	python3
+	nodejs_22
+
+  	alacritty
 
 	ripgrep
 	repgrep
@@ -72,7 +77,6 @@
   #  /etc/profiles/per-user/dvalinn/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    EDITOR = "vim";
   };
 
   # Let Home Manager install and manage itself.
@@ -81,7 +85,10 @@
   # git configuration
   programs.git = {
   	enable = true;
-	userName = "dvalinn";
+	userName = user;
 	userEmail = "tiago.andre.amorim@gmail.com";
   };
+
+  programs.neovim = nvimConfig pkgs;
+
 }

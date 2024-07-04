@@ -15,6 +15,7 @@
       specialArgs = {inherit inputs;};
       modules = [
         ./hosts/laptop/configuration.nix
+	./modules/home-manager/nvim/nvim.nix
          inputs.home-manager.nixosModules.default
       ];
     };

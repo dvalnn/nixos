@@ -1,10 +1,21 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
-{
+let 
+	user = "dvalinn";
+in {
+
+	import [
+
+		
+
+
+	]
+
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "dvalinn";
-  home.homeDirectory = "/home/dvalinn";
+  home.username = user;
+  home.homeDirectory = "/home/${user}";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -17,21 +28,22 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
-    pkgs.libgcc
-    pkgs.rustup
-    pkgs.go
-    pkgs.python3
+  home.packages = with pkgs; [
 
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # pkgs.hello
+	go
+	rustup
+	python3
+	nodejs_22
 
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
+  	alacritty
+
+	ripgrep
+	repgrep
+	fd
+
+	unzip
+
+	(nerdfonts.override {fonts = ["JetBrainsMono"]; })
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
@@ -73,14 +85,16 @@
   #  /etc/profiles/per-user/dvalinn/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    EDITOR = "vim";
   };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  # git configuration
   programs.git = {
   	enable = true;
-	  userName = "dvalinn";
-	  userEmail = "tiago.andre.amorim@gmail.com";
+	userName = user;
+	userEmail = "tiago.andre.amorim@gmail.com";
   };
+
 }

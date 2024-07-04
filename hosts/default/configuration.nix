@@ -98,11 +98,6 @@
     ];
   };
 
-  home-manager = {
-	extraSpecialArgs = {inherit inputs;};
-	users = { "dvalinn" = import ./home.nix; };
-  };
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 

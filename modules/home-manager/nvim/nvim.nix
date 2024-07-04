@@ -1,14 +1,13 @@
 
-pkgs:
+{pkgs, ...}:
 {
-	enable = true;
-	vimAlias = true;
+	#enable = true;
+	#vimAlias = true;
 
-	extraLuaConfig = builtins.readFile ./config.lua;
+	#extraLuaConfig = builtins.readFile ./config.lua;
 
-	plugins = with pkgs.vimPlugins; [
+	#plugins = with pkgs.vimPlugins; [
 
-	];
-
+	#];
 }
 

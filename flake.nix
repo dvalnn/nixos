@@ -10,22 +10,26 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
-    nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./hosts/laptop/configuration.nix
-	./modules/home-manager/nvim/nvim.nix
-         inputs.home-manager.nixosModules.default
-      ];
-    };
+  outputs = { self, nixpkgs, home-manager, ... } @ inputs: {
+    nixosConfigurations = {
 
-    nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./hosts/desktop/configuration.nix
-	 inputs.home-manager.nixosModules.default
-      ];
-    };
-  };
+    	default = nixpkgs.lib.nixosSystem {
+
+			specialArgs = {inherit inputs;};
+			modules = [
+				./hosts/default
+
+				home-manager.nixosModules.home-manager{
+					home-manager.useGlobalPkgs = true;
+					home-manager.useUserPackages = true;
+
+					home-manager.extraSpecialArgs = inputs;
+					home.manager.users.dvalinn = import ./home;
+
+				}
+			];
+
+		};
+    	
+	};
 }

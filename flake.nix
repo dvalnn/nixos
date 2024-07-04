@@ -15,7 +15,7 @@
       specialArgs = {inherit inputs;};
       modules = [
         ./hosts/laptop/configuration.nix
-         inputs.home-manager.nixosModules.laptop
+         inputs.home-manager.nixosModules.default
       ];
     };
 
@@ -23,7 +23,7 @@
       specialArgs = {inherit inputs;};
       modules = [
         ./hosts/desktop/configuration.nix
-	 inputs.home-manager.nixosModules.desktop
+	 inputs.home-manager.nixosModules.default
       ];
     };
   };

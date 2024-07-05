@@ -8,91 +8,78 @@ in {
     ./nvim
   ];
 
+  home.username = user;
+  home.homeDirectory = "/home/${user}";
 
-  home = {
+  home.packages = with pkgs; [
+    go
+    rustup
+    python3
+    nodejs_22
 
-        # Home Manager needs a bit of information about you and the paths it should
-        # manage.
-        username = user;
-        homeDirectory = "/home/${user}";
+    alacritty
 
-        packages = with pkgs; [
-          go
-          rustup
-          python3
-          nodejs_22
+    ripgrep
+    repgrep
+    fd
 
-          alacritty
+    unzip
+  ];
 
-          ripgrep
-          repgrep
-          fd
+  # Home Manager is pretty good at managing dotfiles. The primary way to manage
+  # plain files is through 'home.file'.
+  home.file = {
+      # # Building this configuration will create a copy of 'dotfiles/screenrc' in
+      # # the Nix store. Activating the configuration will then make '~/.screenrc' a
+      # # symlink to the Nix store copy.
+      # ".screenrc".source = dotfiles/screenrc;
 
-          unzip
-
-          nvd
-          nix-output-monitor
-        ];
-
-        # Home Manager is pretty good at managing dotfiles. The primary way to manage
-        # plain files is through 'home.file'.
-        file = {
-            # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-            # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-            # # symlink to the Nix store copy.
-            # ".screenrc".source = dotfiles/screenrc;
-
-            # # You can also set the file content immediately.
-            # ".gradle/gradle.properties".text = ''
-            #   org.gradle.console=verbose
-            #   org.gradle.daemon.idletimeout=3600000
-            # '';
-          };
+      # # You can also set the file content immediately.
+      # ".gradle/gradle.properties".text = ''
+      #   org.gradle.console=verbose
+      #   org.gradle.daemon.idletimeout=3600000
+      # '';
+    };
 
 
-        # Home Manager can also manage your environment variables through
-        # 'home.sessionVariables'. These will be explicitly sourced when using a
-        # shell provided by Home Manager. If you don't want to manage your shell
-        # through Home Manager then you have to manually source 'hm-session-vars.sh'
-        # located at either
-        #
-        #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-        #
-        # or
-        #
-        #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-        #
-        # or
-        #
-        #  /etc/profiles/per-user/dvalinn/etc/profile.d/hm-session-vars.sh
-        #
-        sessionVariables = {
+  # Home Manager can also manage your environment variables through
+  # 'home.sessionVariables'. These will be explicitly sourced when using a
+  # shell provided by Home Manager. If you don't want to manage your shell
+  # through Home Manager then you have to manually source 'hm-session-vars.sh'
+  # located at either
+  #
+  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
+  #
+  # or
+  #
+  #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
+  #
+  # or
+  #
+  #  /etc/profiles/per-user/dvalinn/etc/profile.d/hm-session-vars.sh
+  #
+  home.sessionVariables = {
+  };
+
+  # This value determines the Home Manager release that your configuration is
+  # compatible with. This helps avoid breakage when a new Home Manager release
+  # introduces backwards incompatible changes.
+  #
+  # You should not change this value, even if you update Home Manager. If you do
+  # want to update the value, then make sure to first check the Home Manager
+  # release notes.
+  home.stateVersion = "24.05"; # Please read the comment before changing.
 
 
-        };
+  programs = {
+    # Let Home Manager install and manage itself.
+    home-manager.enable = true;
 
-        # This value determines the Home Manager release that your configuration is
-        # compatible with. This helps avoid breakage when a new Home Manager release
-        # introduces backwards incompatible changes.
-        #
-        # You should not change this value, even if you update Home Manager. If you do
-        # want to update the value, then make sure to first check the Home Manager
-        # release notes.
-        stateVersion = "24.05"; # Please read the comment before changing.
-      };
+    git = {
+      enable = true;
+      userName = user;
+      userEmail = "tiago.andre.amorim@gmail.com";
+    };
+  };
 
-
-      programs = {
-        # Let Home Manager install and manage itself.
-        home-manager.enable = true;
-
-
-        git = {
-          enable = true;
-          userName = user;
-          userEmail = "tiago.andre.amorim@gmail.com";
-        };
-
-
-      };
-    }
+}

@@ -7,8 +7,8 @@
 
         extraLuaConfig = ''
         ${builtins.readFile ./lua/config.lua}
-        ${builtins.readFile ./lua/treesitter.lua}
         ${builtins.readFile ./lua/nvim-tree.lua}
+        ${builtins.readFile ./lua/treesitter.lua}
         '';
 
 
@@ -18,7 +18,6 @@
 
             # Color scheme
             {
-                
                 plugin = catppuccin-nvim;
                 config = "colorscheme catppuccin";
             }
@@ -30,7 +29,9 @@
             # Better nix file support
             vim-nix
 
-            nvim-treesitter
+            ( nvim-treesitter.withPlugins( 
+              p: [p.c p.cpp p.rust p.go p.lua p.nix p.markdown])
+            )
         ];
     };
 }

@@ -2,6 +2,7 @@ local o = vim.opt
 local g = vim.g
 
 g.mapleader = ' '
+g.maplocalleader = ' '
 
 -- Undo Files
 o.undofile = true
@@ -34,7 +35,8 @@ o.viminfofile = "NONE"
 
 -- Misc Quality of Life
 o.smartcase = true
-o.ttimeoutlen = 5
+o.timeoutlen = 3000
+o.ttimeoutlen = 100
 o.incsearch = true
 o.hidden = true
 o.shortmess = "atI"

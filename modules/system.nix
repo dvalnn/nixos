@@ -21,6 +21,7 @@ in{
     pciutils # lspci
     usbutils # lsusb
 
+    # nh dependencies / add-ons
     nvd
     nix-output-monitor
   ];

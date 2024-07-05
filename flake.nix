@@ -19,7 +19,7 @@
 				modules = [
 					# Not specifying the file, makes nix search for a default.nix
 					# in this case ./hosts/default/default.nix must be present
-					./hosts/default
+					./hosts/nix-laptop
 
 					home-manager.nixosModules.home-manager {
 						home-manager.useGlobalPkgs = true;

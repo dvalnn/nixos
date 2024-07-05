@@ -6,9 +6,7 @@ in{
     isNormalUser = true;
     description = "Tiago Amorim";
     extraGroups = [ "networkmanager" "wheel" ];
-    openssh.authorizedKeys.keys = [
-
-    ];
+    openssh.authorizedKeys.keys = [ ];
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -70,31 +68,6 @@ in{
 
   # Enable CUPS to print documents
   services.printing.enable = true;
-
-  fonts = {
-    packages = with pkgs; [
-      #icon fonts
-      material-design-icons
-
-      #normal fonts
-      noto-fonts
-      noto-fonts-cjk
-      noto-fonts-emoji
-
-      #nerdfonts
-      (nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
-    ];
-
-    # use user fonts instead of default ones
-    enableDefaultPackages = false;
-
-    fontconfig.defaultFonts = {
-      serif = ["Noto Serif" "Noto Color Emoji"];
-      sansSerif = ["Noto Sans" "Noto Color Emoji"];
-      monospace = ["JetBrainsMono Nerd Font" "Noto Color Emoji"];
-      emoji = ["Noto Color Emoji"];
-    };
-  };
 
   # Audio
   sound.enable = true;

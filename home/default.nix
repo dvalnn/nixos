@@ -18,12 +18,14 @@ in {
     nodejs_22
 
     alacritty
+    kitty
 
     ripgrep
     repgrep
     fd
 
     unzip
+    firefox
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

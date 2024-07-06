@@ -2,11 +2,13 @@
 {
   programs.helix = {
     enable = true;
+    defaultEditor = true;
 
     extraPackages = with pkgs; [
       # Language Servers
       nil # nix 
       gopls
+      taplo # TOML
       lua-language-server
       python312Packages.python-lsp-server
       libgcc

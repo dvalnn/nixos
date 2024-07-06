@@ -74,5 +74,5 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
   template = "❯❯ "
 
 
-[[pallete]]
-  flamingo = "#f2cdcd"
+[pallete]
+flamingo = "#f2cdcd"

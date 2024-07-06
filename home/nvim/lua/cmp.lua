@@ -7,5 +7,10 @@ require'cmp'.setup {
 
     sources = {
       { name = 'luasnip' },
+      -- more sources
     },
   }
+
+require("luasnip.loaders.from_vscode").lazy_load()
+
+-- TODO: add keymaps from lazy vim distro

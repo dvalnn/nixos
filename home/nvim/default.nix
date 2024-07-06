@@ -4,6 +4,16 @@
     enable = true;
     vimAlias = true;
 
+    extraPackages = with pkgs; [
+      # Language servers
+      nixd # nix
+      gopls
+      lua-language-server
+      python312Packages.python-lsp-server
+      libgcc
+      libclang
+    ];
+
     extraLuaConfig = ''
       ${builtins.readFile ./lua/config.lua}
       ${builtins.readFile ./lua/nvim-tree.lua}
@@ -16,7 +26,6 @@
 
       vim.defer_fn(defered, 70)
     '';
-
 
     plugins = with pkgs.vimPlugins; [
         # Add indentation lines
@@ -47,12 +56,7 @@
         nvim-cmp
         luasnip
         cmp_luasnip
+        friendly-snippets
     ];
   };
-
-  # LSP servers
-  home.packages = with pkgs; [
-    nixd
-    lua-language-server
-  ];
 }

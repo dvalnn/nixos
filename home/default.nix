@@ -27,6 +27,7 @@ in {
     bat
     jq
     fd
+    gh
 
     # TUI apps
     gotop
@@ -34,6 +35,8 @@ in {
 
     # GUI apps
     firefox
+    discord
+    spotify
   ];
 
   home.file = { 

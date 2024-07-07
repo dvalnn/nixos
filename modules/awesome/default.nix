@@ -2,6 +2,8 @@
 {
   environment.systemPackages = with pkgs;[
     xorg.xinit
+    xorg.xrandr
+    arandr
   ];
 
   services.xserver = {
@@ -10,11 +12,6 @@
       layout = "pt";
       variant = "";
     };
-
-    resolutions = [{
-      x = 1920;
-      y = 1080;
-    }];
 
     windowManager = {
       awesome = {
@@ -26,4 +23,5 @@
       };
     };
   };
+
 }

@@ -6,6 +6,7 @@ in {
     ./nvim
     ./helix
     ./shell
+    ./awesomewm
   ];
 
   home.username = user;

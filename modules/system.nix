@@ -6,10 +6,12 @@ in{
     isNormalUser = true;
     description = "Tiago Amorim";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
     openssh.authorizedKeys.keys = [ ];
   };
 
   nixpkgs.config.allowUnfree = true;
+  programs.zsh.enable = true;
 
   environment.systemPackages = with pkgs; [
     vim

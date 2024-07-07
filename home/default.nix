@@ -2,7 +2,6 @@
 let 
   user = "dvalinn";
 in {
-
   imports = [
     ./nvim
     ./helix
@@ -14,16 +13,26 @@ in {
 
   home.packages = with pkgs; [
     # Language ToolChains
-    go
-    rustup
     python3
-    nodejs_22
+    rustup
+    go
     
+    # Cli tools
+    bunyan-rs
     ripgrep
     repgrep
+    xclip
+    unzip
+    less
+    bat
+    jq
     fd
 
-    unzip
+    # TUI apps
+    gotop
+    lazygit
+
+    # GUI apps
     firefox
   ];
 

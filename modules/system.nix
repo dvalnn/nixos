@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: 
+{ pkgs, ... }: 
 let 
   username = "dvalinn";
 in{
@@ -42,9 +42,7 @@ in{
       # Alternative nixpkgs mirrors
     ];
 
-    trusted-public-keys = [
-
-    ];
+    trusted-public-keys = [ ];
 
     builders-use-substitutes = true;
   };

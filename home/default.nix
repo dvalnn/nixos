@@ -6,7 +6,6 @@ in {
     ./nvim
     ./helix
     ./shell
-    ./awesomewm
   ];
 
   home.username = user;
@@ -37,7 +36,13 @@ in {
     firefox
   ];
 
-  home.file = { };
+  home.file = { 
+    ".config/awesome" = {
+      source = ./../modules/awesome/lua;
+      recursive = true;
+    };
+  };
+
   home.sessionVariables = { };
 
   # This value determines the Home Manager release that your configuration is

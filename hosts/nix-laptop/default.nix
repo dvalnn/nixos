@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{ ... }:
 
 {
   imports =
@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ./../../modules/system.nix
       ./../../modules/stylix.nix
+      ./../../modules/awesome
     ];
 
   # Bootloader.
@@ -29,19 +30,6 @@
 
   # Enable bluetooth
   hardware.bluetooth.enable = true;
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the XFCE Desktop Environment.
-  services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.desktopManager.xfce.enable = true;
-
-  # Configure keymap in X11
-  services.xserver = {
-    xkb.layout = "pt";
-    xkb.variant = "";
-  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;

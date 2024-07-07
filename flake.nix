@@ -11,29 +11,39 @@
   };
 
   outputs = { self, nixpkgs, ... } @ inputs: {
-    nixosConfigurations = 
-    let mods = [
-      ./hosts/nix-laptop
-
-      inputs.stylix.nixosModules.stylix
-
-      inputs.home-manager.nixosModules.home-manager {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-
-        home-manager.extraSpecialArgs = inputs;
-        home-manager.users.dvalinn = import ./home/default.nix;
-      } ];
-
-    in {
+    nixosConfigurations = {
       nix-laptop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
-        modules = mods;
+        modules =[
+      	  ./hosts/nix-laptop
+
+	  inputs.home-manager.nixosModules.home-manager {
+		home-manager.useGlobalPkgs = true;
+		home-manager.useUserPackages = true;
+
+		home-manager.extraSpecialArgs = inputs;
+		home-manager.users.dvalinn = import ./home/default.nix;
+	      }
+
+    	  inputs.stylix.nixosModules.stylix
+	];
       };
 
       nix-desktop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
-        modules = mods;
+        modules =[
+      	  ./hosts/nix-desktop
+
+	  inputs.home-manager.nixosModules.home-manager {
+		home-manager.useGlobalPkgs = true;
+		home-manager.useUserPackages = true;
+
+		home-manager.extraSpecialArgs = inputs;
+		home-manager.users.dvalinn = import ./home/default.nix;
+	      }
+
+    	  inputs.stylix.nixosModules.stylix
+	];
       };
     };
   };

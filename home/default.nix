@@ -38,7 +38,7 @@ in {
 
   home.file = { 
     ".config/awesome" = {
-      source = ./../modules/awesome/lua;
+      source = ./../modules/awesome/config;
       recursive = true;
     };
   };

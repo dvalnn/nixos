@@ -1,6 +1,22 @@
 {
     "diagnostics.globals": [
         "vim",
-        "bufnr"
+        "bufnr",
+        "awesome",
+        "terminal",
+        "editor",
+        "editor_cmd",
+        "modkey",
+        "myawesomemenu",
+        "mykeyboardlayout",
+        "mylauncher",
+        "mymainmenu",
+        "mytextclock",
+        "client",
+        "screen",
+        "root",
+        "globalkeys",
+        "clientkeys",
+        "clientbuttons"
     ]
 }

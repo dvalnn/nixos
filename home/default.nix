@@ -21,6 +21,8 @@ in {
     sccache
     sqlx-cli
     cargo-watch
+    podman
+    podman-tui
 
     # Cli tools
     bunyan-rs
@@ -45,7 +47,6 @@ in {
     firefox
     discord
     spotify
-    ferdium
 
     # File management
     xfce.thunar

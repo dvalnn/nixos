@@ -1,5 +1,4 @@
-{...}:
-{ 
+{...}:{ 
   programs.zsh = {
     enable = true;
     autocd = true;
@@ -43,6 +42,9 @@
       gp = "git push";
       gs = "git status";
       gcam = "git commit -a -m";
+
+      tree = "eza --tree";
+      fetch = "fastfetch";
 
       cat = "bat";
       xclipc = "xclip -selection c";

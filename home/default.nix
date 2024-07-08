@@ -16,15 +16,23 @@ in {
     python3
     rustup
     go
-    
+
+    # dev tools
+    sccache
+    sqlx-cli
+    cargo-watch
+
     # Cli tools
     bunyan-rs
+    fastfetch
     ripgrep
     repgrep
     xclip
     unzip
     less
+    dust
     bat
+    eza
     jq
     fd
     gh
@@ -37,6 +45,9 @@ in {
     firefox
     discord
     spotify
+
+    # File management
+    xfce.thunar
   ];
 
   home.file = { 
@@ -46,7 +57,9 @@ in {
     };
   };
 
-  home.sessionVariables = { };
+  home.sessionVariables = { 
+    "RUSTC_WRAPPER" = "${pkgs.sccache}";
+  };
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -65,6 +78,15 @@ in {
       enable = true;
       userName = user;
       userEmail = "tiago.andre.amorim@gmail.com";
+    };
+
+    ranger = {
+      enable = true;
+    };
+
+    zellij = {
+      enable = true;
+      enableZshIntegration = true;
     };
   };
 }

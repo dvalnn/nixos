@@ -18,7 +18,6 @@ in {
     go
 
     # dev tools
-    sccache
     sqlx-cli
     cargo-watch
     podman
@@ -60,7 +59,6 @@ in {
   };
 
   home.sessionVariables = { 
-    "RUSTC_WRAPPER" = "${pkgs.sccache}";
   };
 
   # This value determines the Home Manager release that your configuration is

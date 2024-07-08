@@ -45,6 +45,7 @@ in {
     firefox
     discord
     spotify
+    ferdium
 
     # File management
     xfce.thunar
@@ -86,7 +87,7 @@ in {
 
     zellij = {
       enable = true;
-      enableZshIntegration = true;
+      # enableZshIntegration = true;
     };
   };
 }

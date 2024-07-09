@@ -12,6 +12,9 @@ in {
   home.homeDirectory = "/home/${user}";
 
   home.packages = with pkgs; [
+    # misc packages
+    libnotify
+
     # dev tools
     python3
     alejandra

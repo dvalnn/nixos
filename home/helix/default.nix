@@ -9,10 +9,11 @@
       nil # nix 
       gopls
       taplo # TOML
-      lua-language-server
-      python312Packages.python-lsp-server
       libgcc
       libclang
+      rust-analyzer
+      lua-language-server
+      python312Packages.python-lsp-server
     ];
 
     languages = {

@@ -6,6 +6,7 @@ in {
     ./nvim
     ./helix
     ./shell
+    ./tmux
   ];
 
   home.username = user;
@@ -14,17 +15,12 @@ in {
   home.packages = with pkgs; [
     # Language ToolChains
     python3
-    rustup
-    go
 
     # dev tools
-    sqlx-cli
-    cargo-watch
     podman
     podman-tui
 
     # Cli tools
-    bunyan-rs
     fastfetch
     ripgrep
     repgrep
@@ -34,6 +30,7 @@ in {
     dust
     bat
     eza
+    fzf
     jq
     fd
     gh
@@ -84,9 +81,6 @@ in {
       enable = true;
     };
 
-    zellij = {
-      enable = true;
-      # enableZshIntegration = true;
-    };
+
   };
 }

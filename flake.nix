@@ -17,12 +17,12 @@
         modules =[
       	  ./hosts/nix-laptop
 
-	  inputs.home-manager.nixosModules.home-manager {
-		home-manager.useGlobalPkgs = true;
-		home-manager.useUserPackages = true;
+    	  inputs.home-manager.nixosModules.home-manager {
+      		home-manager.useGlobalPkgs = true;
+      		home-manager.useUserPackages = true;
 
-		home-manager.extraSpecialArgs = inputs;
-		home-manager.users.dvalinn = import ./home/default.nix;
+      		home-manager.extraSpecialArgs = inputs;
+      		home-manager.users.dvalinn = import ./home/default.nix;
 	      }
 
     	  inputs.stylix.nixosModules.stylix
@@ -34,12 +34,12 @@
         modules =[
       	  ./hosts/nix-desktop
 
-	  inputs.home-manager.nixosModules.home-manager {
-		home-manager.useGlobalPkgs = true;
-		home-manager.useUserPackages = true;
+    	  inputs.home-manager.nixosModules.home-manager {
+      		home-manager.useGlobalPkgs = true;
+      		home-manager.useUserPackages = true;
 
-		home-manager.extraSpecialArgs = inputs;
-		home-manager.users.dvalinn = import ./home/default.nix;
+      		home-manager.extraSpecialArgs = inputs;
+      		home-manager.users.dvalinn = import ./home/default.nix;
 	      }
 
     	  inputs.stylix.nixosModules.stylix

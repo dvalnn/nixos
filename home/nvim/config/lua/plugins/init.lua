@@ -1,2 +1,2 @@
 require("plugins.cmp")
-require("plugin.nvim-tree")
+require("plugins.nvim-tree")

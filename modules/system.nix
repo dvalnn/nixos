@@ -1,13 +1,12 @@
-{ pkgs, ... }: 
-let 
+{pkgs, ...}: let
   username = "dvalinn";
-in{
+in {
   users.users.dvalinn = {
     isNormalUser = true;
     description = "Tiago Amorim";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     shell = pkgs.zsh;
-    openssh.authorizedKeys.keys = [ ];
+    openssh.authorizedKeys.keys = [];
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -42,7 +41,7 @@ in{
       # Alternative nixpkgs mirrors
     ];
 
-    trusted-public-keys = [ ];
+    trusted-public-keys = [];
 
     builders-use-substitutes = true;
   };
@@ -72,7 +71,7 @@ in{
   # Audio
   sound.enable = true;
   hardware.pulseaudio.enable = false;
-  security.rtkit.enable =true;
+  security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa = {

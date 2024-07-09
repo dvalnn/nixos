@@ -1,6 +1,5 @@
-{pkgs, ...}:
-{
-  environment.systemPackages = with pkgs;[
+{pkgs, ...}: {
+  environment.systemPackages = with pkgs; [
     xorg.xinit
     xorg.xrandr
   ];
@@ -16,11 +15,10 @@
       awesome = {
         enable = true;
         noArgb = false;
-        luaModules = with pkgs.lua54Packages;[
+        luaModules = with pkgs.lua54Packages; [
           vicious # modular widget library
         ];
       };
     };
   };
-
 }

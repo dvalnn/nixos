@@ -1,5 +1,4 @@
-{...}:
-{
+{...}: {
   programs.alacritty = {
     enable = true;
 
@@ -18,7 +17,7 @@
         dynamic_title = true;
         opacity = 1.0;
         padding = {
-          x = 15;            
+          x = 15;
           y = 15;
         };
       };

@@ -1,18 +1,15 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ ... }:
-
-{
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./../../modules/system.nix
-      ./../../modules/stylix.nix
-      ./../../modules/awesome
-      ./../../modules/steam
-    ];
+{...}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./../../modules/system.nix
+    ./../../modules/stylix.nix
+    ./../../modules/awesome
+    ./../../modules/steam
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -30,22 +27,21 @@
 
   # Open ports in the firewall.
   networking.firewall.enable = true;
-  networking.firewall.allowedTCPPorts = [  ];
-  networking.firewall.allowedUDPPorts = [  ];
+  networking.firewall.allowedTCPPorts = [];
+  networking.firewall.allowedUDPPorts = [];
 
   # xserver settings
-  services.xserver = 
-  {
+  services.xserver = {
     videoDrivers = ["nvidia"];
 
     displayManager = {
       lightdm.enable = true;
       # session commands are executed just after wm starts
       sessionCommands = ''
-      xrandr \
-      --output DP-0  --mode 1920x1080 --rate 144 --pos 1920x0 --rotate normal \
-      --output DP-4 --primary --mode 1920x1080 --rate 144 --pos 0x0 --rotate normal \
-       '';
+        xrandr \
+        --output DP-0  --mode 1920x1080 --rate 144 --pos 1920x0 --rotate normal \
+        --output DP-4 --primary --mode 1920x1080 --rate 144 --pos 0x0 --rotate normal \
+      '';
     };
   };
 

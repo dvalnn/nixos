@@ -1,4 +1,4 @@
-{...}:{ 
+{...}: {
   programs.zsh = {
     enable = true;
     autocd = true;
@@ -44,7 +44,7 @@
       gcam = "git commit -a -m";
 
       ls = "eza --group-directories-first";
-      lsd ="eza -d .* --group-directories-first";
+      lsd = "eza -d .* --group-directories-first";
 
       tree = "eza --tree";
       fetch = "fastfetch";
@@ -53,5 +53,4 @@
       xclipc = "xclip -selection c";
     };
   };
-
- }
+}

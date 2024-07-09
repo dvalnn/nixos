@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-let 
+{pkgs, ...}: let
   user = "dvalinn";
 in {
   imports = [
@@ -13,10 +12,9 @@ in {
   home.homeDirectory = "/home/${user}";
 
   home.packages = with pkgs; [
-    # Language ToolChains
-    python3
-
     # dev tools
+    python3
+    alejandra
     podman
     podman-tui
 
@@ -46,16 +44,20 @@ in {
 
     # File management
     xfce.thunar
+
+    #scripts
+    (pkgs.writeShellScriptBin "rebuild"
+      ''${builtins.readFile ./scripts/rebuild.sh}'')
   ];
 
-  home.file = { 
+  home.file = {
     ".config/awesome" = {
       source = ./../modules/awesome/config;
       recursive = true;
     };
   };
 
-  home.sessionVariables = { 
+  home.sessionVariables = {
   };
 
   # This value determines the Home Manager release that your configuration is
@@ -80,7 +82,5 @@ in {
     ranger = {
       enable = true;
     };
-
-
   };
 }

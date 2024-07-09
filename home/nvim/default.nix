@@ -1,6 +1,5 @@
-{pkgs, ... }: 
-{
-  home.file = { 
+{pkgs, ...}: {
+  home.file = {
     ".config/nvim" = {
       source = ./config;
       recursive = true;
@@ -40,8 +39,10 @@
       vim-nix
 
       # Treesitter and language grammar packs
-      ( nvim-treesitter.withPlugins( 
-        p: [p.c p.cpp p.rust p.go p.lua p.nix p.markdown])
+      (
+        nvim-treesitter.withPlugins (
+          p: [p.c p.cpp p.rust p.go p.lua p.nix p.markdown]
+        )
       )
 
       #LSP

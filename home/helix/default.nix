@@ -1,12 +1,11 @@
-{pkgs, ...}:
-{
+{pkgs, ...}: {
   programs.helix = {
     enable = true;
     defaultEditor = true;
 
     extraPackages = with pkgs; [
       # Language Servers
-      nil # nix 
+      nil # nix
       gopls
       taplo # TOML
       libgcc
@@ -17,8 +16,8 @@
     ];
 
     languages = {
-      use-grammars = { 
-        only = [ "rust" "go" "python" "c" "cpp" "nix" "lua" "toml" "yaml" ];
+      use-grammars = {
+        only = ["rust" "go" "python" "c" "cpp" "nix" "lua" "toml" "yaml"];
       };
     };
 
@@ -26,7 +25,7 @@
       # NOTE: theme value is currently being set by stylix
       # theme = "catppuccin-mocha"
 
-      editor ={
+      editor = {
         true-color = true;
         cursorline = true;
         color-modes = true;

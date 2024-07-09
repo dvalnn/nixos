@@ -1,5 +1,8 @@
-{pkgs, lib, ...}:
 {
+  pkgs,
+  lib,
+  ...
+}: {
   stylix.enable = true;
 
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
@@ -8,7 +11,7 @@
 
   stylix.fonts = {
     monospace = {
-      package = pkgs.nerdfonts.override{fonts = ["JetBrainsMono"];};
+      package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
       name = "JetBrainsMono Nerd Font";
     };
     sansSerif = {
@@ -24,5 +27,4 @@
       name = "Noto Color Emoji";
     };
   };
-
 }

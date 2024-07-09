@@ -43,6 +43,9 @@
       gs = "git status";
       gcam = "git commit -a -m";
 
+      ls = "eza --group-directories-first";
+      lsd ="eza -d .* --group-directories-first";
+
       tree = "eza --tree";
       fetch = "fastfetch";
 

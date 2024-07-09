@@ -33,42 +33,23 @@
   networking.firewall.allowedTCPPorts = [  ];
   networking.firewall.allowedUDPPorts = [  ];
 
-  services.xserver.videoDrivers = ["nvidia"];
-  hardware.nvidia.modesetting.enable = true;
-
   # xserver settings
   services.xserver = 
   {
-    xrandrHeads = [
-      {
-        output = "DP-0";
-        primary = true;
-        monitorConfig = ''
-          Identifier     "Monitor0"
-        	ModelName      "Acer KG271 A"
-          Horizsync       180.0 - 180.0
-          VertRefresh     30.0 - 144.0
-          Option         "DPMS" "true"
-        '';
-      }
-      {
-        output = "DP-4";
-        monitorConfig = ''
-          Indentifier    "Monitor1"
-          ModelName      "Asustek Computer Inc VG248"
-          HorizSync       193.0 - 193.0
-          VertRefresh     48.0 - 165.0
-          Option         "DPMS"
-        '';
-      }
-    ];
+    videoDrivers = ["nvidia"];
 
-    screenSection = ''
-      DefaultDepth   24
-      Option         "metamodes"  "DP-4: 1920x1080_144 +1920+0, DP-0: 1920x1080_144 +0+0 {AllowGSYNCCompatible=On}"
-      '';
+    displayManager = {
+      lightdm.enable = true;
+      # session commands are executed just after wm starts
+      sessionCommands = ''
+      xrandr \
+      --output DP-0  --mode 1920x1080 --rate 144 --pos 1920x0 --rotate normal \
+      --output DP-4 --primary --mode 1920x1080 --rate 144 --pos 0x0 --rotate normal \
+       '';
+    };
   };
 
+  hardware.nvidia.modesetting.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

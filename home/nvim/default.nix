@@ -1,5 +1,12 @@
 {pkgs, ... }: 
 {
+  home.file = { 
+    ".config/nvim" = {
+      source = ./config;
+      recursive = true;
+    };
+  };
+
   programs.neovim = {
     enable = true;
     vimAlias = true;
@@ -8,55 +15,43 @@
       # Language servers
       nixd # nix
       gopls
-      lua-language-server
-      python312Packages.python-lsp-server
       libgcc
       libclang
+      rust-analyzer
+      lua-language-server
+      python312Packages.python-lsp-server
     ];
 
-    extraLuaConfig = ''
-      ${builtins.readFile ./lua/config.lua}
-      ${builtins.readFile ./lua/nvim-tree.lua}
-      ${builtins.readFile ./lua/treesitter.lua}
-
-      local function defered()
-          ${builtins.readFile ./lua/lsp.lua}
-          ${builtins.readFile ./lua/cmp.lua}
-      end
-
-      vim.defer_fn(defered, 70)
-    '';
-
     plugins = with pkgs.vimPlugins; [
-        # Add indentation lines
-        indentLine
+      # Add indentation lines
+      indentLine
 
-        # Color scheme
-        {
-            plugin = catppuccin-nvim;
-            config = "colorscheme catppuccin";
-        }
+      #tmux integration
+      vim-tmux-navigator
 
-        # File tree
-        nvim-web-devicons
-        nvim-tree-lua
+      # Color scheme
+      catppuccin-nvim
 
-        # Better nix file support
-        vim-nix
+      # File tree
+      nvim-web-devicons
+      nvim-tree-lua
 
-        # Treesitter and language grammar packs
-        ( nvim-treesitter.withPlugins( 
-          p: [p.c p.cpp p.rust p.go p.lua p.nix p.markdown])
-        )
+      # Better nix file support
+      vim-nix
 
-        #LSP
-        nvim-lspconfig
+      # Treesitter and language grammar packs
+      ( nvim-treesitter.withPlugins( 
+        p: [p.c p.cpp p.rust p.go p.lua p.nix p.markdown])
+      )
 
-        # Completion
-        nvim-cmp
-        luasnip
-        cmp_luasnip
-        friendly-snippets
+      #LSP
+      nvim-lspconfig
+
+      # Completion
+      luasnip
+      nvim-cmp
+      cmp_luasnip
+      friendly-snippets
     ];
   };
 }

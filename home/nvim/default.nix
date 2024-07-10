@@ -29,6 +29,10 @@
       indentLine # vertical indentation guides
       catppuccin-nvim # color scheme (default mocha)
 
+      # props to ThePrimeagen
+      harpoon2
+      undotree
+
       # File tree
       nvim-web-devicons
       nvim-tree-lua

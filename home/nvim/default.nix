@@ -13,6 +13,7 @@
     extraPackages = with pkgs; [
       # Language servers
       nil # nix
+      taplo # TOML
       gopls
       libgcc
       libclang

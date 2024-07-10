@@ -1,4 +1,6 @@
 require("after.plugin.cmp")
+require("after.plugin.harpoon")
 require("after.plugin.nvim-tree")
 require("after.plugin.telescope")
+require("after.plugin.undotree")
 require("after.lang")

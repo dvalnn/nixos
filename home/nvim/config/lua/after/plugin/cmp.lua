@@ -12,5 +12,4 @@ require'cmp'.setup {
   }
 
 require("luasnip.loaders.from_vscode").lazy_load()
-
 -- TODO: add keymaps from lazy vim distro

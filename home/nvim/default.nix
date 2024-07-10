@@ -12,7 +12,7 @@
 
     extraPackages = with pkgs; [
       # Language servers
-      nixd # nix
+      nil # nix
       gopls
       libgcc
       libclang
@@ -27,6 +27,7 @@
 
       # user interface
       indentLine # vertical indentation guides
+      lualine-nvim
       catppuccin-nvim # color scheme (default mocha)
 
       # props to ThePrimeagen
@@ -51,14 +52,19 @@
       # language support
       vim-nix
 
-      #LSP
+      #LSP and completion
+      lsp-zero-nvim
       nvim-lspconfig
-
-      # Completion
       luasnip
+      
+      cmp-nvim-lsp
+      cmp-buffer
+      cmp-path
+      cmp-cmdline
       nvim-cmp
-      cmp_luasnip
-      friendly-snippets
+
+      rustaceanvim # rust specific features
+      crates-nvim
     ];
   };
 }

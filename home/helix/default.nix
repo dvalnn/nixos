@@ -1,23 +1,16 @@
 {pkgs, ...}: {
   programs.helix = {
     enable = true;
-    defaultEditor = true;
 
     extraPackages = with pkgs; [
       # Language Servers
       nil # nix
-      gopls
-      taplo # TOML
-      libgcc
-      libclang
-      rust-analyzer
       lua-language-server
-      python312Packages.python-lsp-server
     ];
 
     languages = {
       use-grammars = {
-        only = ["rust" "go" "python" "c" "cpp" "nix" "lua" "toml" "yaml"];
+        only = ["nix" "lua"];
       };
     };
 

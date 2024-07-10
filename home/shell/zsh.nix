@@ -51,6 +51,11 @@
 
       cat = "bat";
       xclipc = "xclip -selection c";
+
+      init-c = "nix flake init -t github:nix-community/templates#c";
+      init-go = "nix flake init -t github:nix-community/templates#go";
+      init-rust = "nix flake init -t github:nix-community/templates#rust";
+      init-python = "nix flake init -t github:nix-community/templates#python";
     };
   };
 }

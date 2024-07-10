@@ -85,5 +85,11 @@ in {
     ranger = {
       enable = true;
     };
+
+    direnv = {
+      enable = true;
+      enableZshIntegration = true;
+      nix-direnv.enable = true;
+    };
   };
 }

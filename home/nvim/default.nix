@@ -15,10 +15,6 @@
       # Language servers
       nil # nix
       taplo # TOML
-      gopls
-      libgcc
-      libclang
-      rust-analyzer
       lua-language-server
       python312Packages.python-lsp-server
     ];
@@ -44,7 +40,7 @@
       plenary-nvim
       telescope-nvim
 
-            # Treesitter and language grammar packs
+      # Treesitter and language grammar packs
       (
         nvim-treesitter.withPlugins (
           p: [p.c p.cpp p.rust p.go p.lua p.nix p.markdown]
@@ -58,7 +54,7 @@
       lsp-zero-nvim
       nvim-lspconfig
       luasnip
-      
+
       cmp-nvim-lsp
       cmp-buffer
       cmp-path

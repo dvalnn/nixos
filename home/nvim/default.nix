@@ -22,28 +22,30 @@
     ];
 
     plugins = with pkgs.vimPlugins; [
-      # Add indentation lines
-      indentLine
-
-      #tmux integration
+      # tmux integration
       vim-tmux-navigator
 
-      # Color scheme
-      catppuccin-nvim
+      # user interface
+      indentLine # vertical indentation guides
+      catppuccin-nvim # color scheme (default mocha)
 
       # File tree
       nvim-web-devicons
       nvim-tree-lua
 
-      # Better nix file support
-      vim-nix
+      # Telescope
+      plenary-nvim
+      telescope-nvim
 
-      # Treesitter and language grammar packs
+            # Treesitter and language grammar packs
       (
         nvim-treesitter.withPlugins (
           p: [p.c p.cpp p.rust p.go p.lua p.nix p.markdown]
         )
       )
+
+      # language support
+      vim-nix
 
       #LSP
       nvim-lspconfig

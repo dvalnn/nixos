@@ -1,7 +1,7 @@
 local o = vim.opt
 local g = vim.g
 
-colorscheme catppuccin
+vim.cmd.colorscheme("catppuccin")
 
 -- leader
 g.mapleader = ' '

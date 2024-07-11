@@ -23,10 +23,15 @@
       # tmux integration
       vim-tmux-navigator
 
+      # mini library
+      mini-nvim
+
       # user interface
       indentLine # vertical indentation guides
       lualine-nvim
+      gitsigns-nvim
       catppuccin-nvim # color scheme (default mocha)
+      todo-comments-nvim
 
       # props to ThePrimeagen
       harpoon2
@@ -41,11 +46,8 @@
       telescope-nvim
 
       # Treesitter and language grammar packs
-      (
-        nvim-treesitter.withPlugins (
-          p: [p.c p.cpp p.rust p.go p.lua p.nix p.markdown]
-        )
-      )
+      ( nvim-treesitter.withPlugins (
+          p: [p.c p.cpp p.rust p.go p.lua p.nix p.markdown]))
 
       # language support
       vim-nix

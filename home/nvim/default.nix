@@ -19,13 +19,11 @@
       python312Packages.python-lsp-server
     ];
 
-    # TODO: add persistance and starter page
     plugins = with pkgs.vimPlugins; [
-      # tmux integration
-      vim-tmux-navigator
-
-      # mini library
+      # misc
       mini-nvim
+      persistence-nvim
+      vim-tmux-navigator
 
       # user interface
       indentLine # vertical indentation guides
@@ -43,15 +41,14 @@
       nvim-tree-lua
 
       # Telescope
-      plenary-nvim
+      plenary-nvim # telescope dependency
+      dressing-nvim # better telescope ui
       telescope-nvim
+      telescope-fzf-native-nvim
 
       # Treesitter and language grammar packs
       ( nvim-treesitter.withPlugins (
           p: [p.c p.cpp p.rust p.go p.lua p.nix p.markdown]))
-
-      # language support
-      vim-nix
 
       #LSP and completion
       lsp-zero-nvim
@@ -66,6 +63,8 @@
 
       rustaceanvim # rust specific features
       crates-nvim
+
+      vim-nix # better nix language support
     ];
   };
 }

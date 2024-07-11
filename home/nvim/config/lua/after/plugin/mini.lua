@@ -41,5 +41,12 @@ require "mini.surround".setup {}
 
 require "mini.operators".setup {}
 
+require "mini.comment".setup {}
+
 -- general workflow
 require "mini.jump2d".setup{}
+
+-- require "mini.clue".setup{}
+
+-- user interface
+require "mini.starter".setup{}

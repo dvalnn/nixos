@@ -7,18 +7,12 @@ local function opts(desc)
     }
 end
 
-local function nvimTreeOpen()
-    local api = require "nvim-tree.api"
-    api.tree.toggle() -- open/focus the tree
-end
-
 local function custom_on_attach(bufnr)
     local api = require "nvim-tree.api"
     --default mappings
     api.config.mappings.default_on_attach(bufnr)
+    vim.keymap.set('n', 'R', vim.cmd.NvimTreeRefresh, opts('Refresh'))
 end
-
-vim.keymap.set('n', '<leader>e', nvimTreeOpen, opts('Open/Focus Tree'))
 
 require("nvim-tree").setup({
     disable_netrw = true,
@@ -37,3 +31,10 @@ require("nvim-tree").setup({
 
     on_attach = custom_on_attach,
 })
+
+local function nvimTreeOpen()
+    local api = require "nvim-tree.api"
+    api.tree.toggle() -- open/focus the tree
+end
+
+vim.keymap.set('n', '<leader>e', nvimTreeOpen, opts("Toggle"))

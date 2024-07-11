@@ -31,7 +31,7 @@ o.cursorline = true
 o.number = true
 o.relativenumber = true
 o.scrolloff = 8
-o.colorcolumn = "80"
+-- o.colorcolumn = "80"
 o.signcolumn = "yes"
 
 -- Remove viminfo file

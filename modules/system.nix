@@ -4,7 +4,7 @@ in {
   users.users.dvalinn = {
     isNormalUser = true;
     description = "Tiago Amorim";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "gamemode"];
     shell = pkgs.zsh;
     openssh.authorizedKeys.keys = [];
   };

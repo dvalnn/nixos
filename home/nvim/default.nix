@@ -19,6 +19,7 @@
       python312Packages.python-lsp-server
     ];
 
+    # TODO: add persistance and starter page
     plugins = with pkgs.vimPlugins; [
       # tmux integration
       vim-tmux-navigator

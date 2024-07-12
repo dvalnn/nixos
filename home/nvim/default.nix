@@ -30,7 +30,6 @@
       lualine-nvim
       vim-startify # starter page
       gitsigns-nvim
-      bufferline-nvim # buffers and tabs
       catppuccin-nvim # color scheme (default mocha)
       todo-comments-nvim
 

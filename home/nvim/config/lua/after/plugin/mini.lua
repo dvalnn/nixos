@@ -48,5 +48,3 @@ require "mini.jump".setup{}
 
 require "mini.jump2d".setup{}
 
--- user interface
-require "mini.starter".setup{}

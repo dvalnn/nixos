@@ -13,14 +13,12 @@ lsp_zero.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts("Code action"))
     vim.keymap.set("n", "<leader>R", function() vim.lsp.buf.rename() end, opts("Rename"))
     vim.keymap.set("n", "<leader>cf", function() vim.lsp.buf.format() end, opts("Format buffer"))
+    vim.keymap.set('n', '<leader>cs', builtin.lsp_document_symbols, opts("Find git files"))
 
     vim.keymap.set("n", "gd", function() builtin.lsp_definitions({ reuse_win = true }) end, opts("Goto definition"))
     vim.keymap.set("n", "gr", function() builtin.lsp_references({ reuse_win = true }) end, opts("Goto references"))
-    -- vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>", opts("Goto references"))
     vim.keymap.set("n", "gi", function() builtin.lsp_implementations({ reuse_win = true }) end, opts("Goto Implementation"))
     vim.keymap.set("n", "gt", function() builtin.lsp_type_definitions({ reuse_win = true }) end, opts("Goto Type Definition"))
-
-    vim.keymap.set('n', '<leader>ss', builtin.lsp_document_symbols, opts("Find git files"))
 end)
 
 require 'lspconfig'.lua_ls.setup {}

@@ -35,8 +35,8 @@ o.scrolloff = 8
 o.signcolumn = "yes"
 
 -- Remove viminfo file
-o.viminfo = ""
-o.viminfofile = "NONE"
+-- o.viminfo = ""
+-- o.viminfofile = "NONE"
 
 --search
 o.hlsearch = false

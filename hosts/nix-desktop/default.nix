@@ -1,7 +1,7 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{...}: {
+{config, ...}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -45,7 +45,23 @@
     };
   };
 
-  hardware.nvidia.modesetting.enable = true;
+ hardware = {
+    opengl = { # https://nixos.wiki/wiki/Nvidia
+      enable = true;
+      driSupport32Bit = true;
+    };
+
+    nvidia = {
+      modesetting.enable = true;
+      powerManagement.enable = false;
+      powerManagement.finegrained = false;
+
+      open = false;
+      nvidiaSettings = true;
+      forceFullCompositionPipeline = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+    };
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

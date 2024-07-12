@@ -44,9 +44,9 @@ require "mini.operators".setup {}
 require "mini.comment".setup {}
 
 -- general workflow
-require "mini.jump2d".setup{}
+require "mini.jump".setup{}
 
--- require "mini.clue".setup{}
+require "mini.jump2d".setup{}
 
 -- user interface
 require "mini.starter".setup{}

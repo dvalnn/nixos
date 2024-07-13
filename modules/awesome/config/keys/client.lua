@@ -1,10 +1,11 @@
 local gears = require("gears")
 local awful = require("awful")
 
-return gears.table.join(
+local mod_key = require("keys").mod.mod_key
 
+return gears.table.join(
     awful.key(
-        { modkey }, "f",
+        { mod_key }, "f",
         function(c)
             c.fullscreen = not c.fullscreen
             c:raise()
@@ -16,7 +17,7 @@ return gears.table.join(
     ),
 
     awful.key(
-        { modkey, }, "q",
+        { mod_key, }, "q",
         function(c)
             c:kill()
         end,
@@ -26,7 +27,7 @@ return gears.table.join(
         }),
 
     awful.key(
-        { modkey, "Control" }, "space",
+        { mod_key, "Control" }, "space",
         awful.client.floating.toggle,
         {
             description = "toggle floating",
@@ -35,7 +36,7 @@ return gears.table.join(
     ),
 
     awful.key(
-        { modkey, "Control" },
+        { mod_key, "Control" },
         "Return",
         function(c)
             c:swap(awful.client.getmaster())
@@ -47,7 +48,7 @@ return gears.table.join(
     ),
 
     awful.key(
-        { modkey, }, "o",
+        { mod_key, }, "o",
         function(c)
             c:move_to_screen()
         end,
@@ -58,7 +59,7 @@ return gears.table.join(
     ),
 
     awful.key(
-        { modkey, }, "t",
+        { mod_key, }, "t",
         function(c)
             c.ontop = not c.ontop
         end,
@@ -68,7 +69,8 @@ return gears.table.join(
         }
     ),
 
-    awful.key({ modkey, }, "n",
+    awful.key(
+        { mod_key, }, "n",
         function(c)
             -- The client currently has the input focus, so it cannot be
             -- minimized, since minimized clients can't have the focus.
@@ -80,7 +82,8 @@ return gears.table.join(
         }
     ),
 
-    awful.key({ modkey, }, "m",
+    awful.key(
+        { mod_key, }, "m",
         function(c)
             c.maximized = not c.maximized
             c:raise()
@@ -92,7 +95,7 @@ return gears.table.join(
     ),
 
     awful.key(
-        { modkey, "Control" }, "m",
+        { mod_key, "Control" }, "m",
         function(c)
             c.maximized_vertical = not c.maximized_vertical
             c:raise()
@@ -104,7 +107,7 @@ return gears.table.join(
     ),
 
     awful.key(
-        { modkey, "Shift" }, "m",
+        { mod_key, "Shift" }, "m",
         function(c)
             c.maximized_horizontal = not c.maximized_horizontal
             c:raise()

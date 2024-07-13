@@ -5,7 +5,7 @@ local awful = require("awful")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 
-local mod_key = require("keys").mod.mod_key
+local mod_key = require("keys.mod").mod_key
 local apps = require("settings").default_apps
 
 local mymainmenu = require "widgets".right_click_menu

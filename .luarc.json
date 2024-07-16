@@ -3,20 +3,15 @@
         "vim",
         "bufnr",
         "awesome",
-        "terminal",
-        "editor",
-        "editor_cmd",
-        "modkey",
-        "myawesomemenu",
-        "mykeyboardlayout",
-        "mylauncher",
-        "mymainmenu",
-        "mytextclock",
         "client",
         "screen",
         "root",
-        "globalkeys",
-        "clientkeys",
-        "clientbuttons"
+        "keyboardlayout",
+        "spr",
+        "arrl_ld",
+        "arrl_dl",
+        "clock",
+        "fsicon",
+        "mailicon"
     ]
 }

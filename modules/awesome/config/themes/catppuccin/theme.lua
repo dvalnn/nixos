@@ -1,12 +1,10 @@
-local theme                                     = {}
 local gears                                     = require("gears")
 local awful                                     = require("awful")
 local wibox                                     = require("wibox")
 local dpi                                       = require("beautiful.xresources").apply_dpi
-local os                                        = os
 local my_table                                  = awful.util.table or gears.table -- 4.{0,1} compatibility
 
--- local theme_assets                              = require("beautiful.theme_assets")
+local theme                                     = {}
 
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/catppuccin"
 theme.wallpaper                                 = theme.dir .. "/wall.png"
@@ -76,87 +74,74 @@ theme.titlebar_maximized_button_focus_inactive  = theme.dir .. "/icons/titlebar/
 theme.titlebar_maximized_button_normal_inactive = theme.dir .. "/icons/titlebar/maximized_normal_inactive.png"
 
 function theme.at_screen_connect(s)
-  -- If wallpaper is a function, call it with the screen
-  local wallpaper = theme.wallpaper
-  if type(wallpaper) == "function" then
-    wallpaper = wallpaper(s)
-  end
-  gears.wallpaper.maximized(wallpaper, s, true)
+    -- If wallpaper is a function, call it with the screen
+    local wallpaper = theme.wallpaper
+    if type(wallpaper) == "function" then
+        wallpaper = wallpaper(s)
+    end
+    gears.wallpaper.maximized(wallpaper, s, true)
 
-  -- Tags
-  awful.tag(awful.util.tagnames, s, awful.layout.layouts)
+    -- Tags
+    awful.tag(awful.util.tagnames, s, awful.layout.layouts)
 
-  -- We need one layoutbox per screen.
-  s.mylayoutbox = awful.widget.layoutbox(s)
-  s.mylayoutbox:buttons(my_table.join(
-    awful.button({}, 1, function() awful.layout.inc(1) end),
-    awful.button({}, 2, function() awful.layout.set(awful.layout.layouts[1]) end),
-    awful.button({}, 3, function() awful.layout.inc(-1) end),
-    awful.button({}, 4, function() awful.layout.inc(1) end),
-    awful.button({}, 5, function() awful.layout.inc(-1) end)))
-  -- Create a taglist widget
-  s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, awful.util.taglist_buttons)
+    -- We need one layoutbox per screen.
+    s.mylayoutbox = awful.widget.layoutbox(s)
+    s.mylayoutbox:buttons(my_table.join(
+        awful.button({}, 1, function() awful.layout.inc(1) end),
+        awful.button({}, 2, function() awful.layout.set(awful.layout.layouts[1]) end),
+        awful.button({}, 3, function() awful.layout.inc(-1) end),
+        awful.button({}, 4, function() awful.layout.inc(1) end),
+        awful.button({}, 5, function() awful.layout.inc(-1) end)))
+    -- Create a taglist widget
+    s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, awful.util.taglist_buttons)
 
-  -- Create a tasklist widget
-  s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, awful.util.tasklist_buttons)
+    -- Create a tasklist widget
+    s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, awful.util.tasklist_buttons)
 
-  -- Create the wibox
-  s.mywibox = awful.wibar({
-    position = "bottom",
-    screen = s,
-    height = dpi(18),
-    bg = theme.bg_normal,
-    fg = theme
-        .fg_normal
-  })
+    -- Create the wibox
+    s.mywibox = awful.wibar({
+        position = "bottom",
+        screen = s,
+        height = dpi(18),
+        bg = theme.bg_normal,
+        fg = theme
+            .fg_normal
+    })
 
-  -- Add widgets to the wibox
-  s.mywibox:setup {
-    layout = wibox.layout.align.horizontal,
-    { -- Left widgets
-      layout = wibox.layout.fixed.horizontal,
-      --spr,
-      s.mytaglist,
-      s.mypromptbox,
-      spr,
-    },
-    s.mytasklist, -- Middle widget
-    {             -- Right widgets
-      layout = wibox.layout.fixed.horizontal,
-      wibox.widget.systray(),
-      keyboardlayout,
-      spr,
-      arrl_ld,
-      arrl_dl,
-      arrl_ld,
-      wibox.container.background(mailicon, theme.bg_focus),
-      arrl_dl,
-      arrl_ld,
-      arrl_dl,
-      arrl_ld,
-      wibox.container.background(fsicon, theme.bg_focus),
-      arrl_dl,
-      arrl_ld,
-      arrl_dl,
-      clock,
-      spr,
-      arrl_ld,
-      wibox.container.background(s.mylayoutbox, theme.bg_focus),
-    },
-  }
+    -- Add widgets to the wibox
+    s.mywibox:setup {
+        layout = wibox.layout.align.horizontal,
+        { -- Left widgets
+            layout = wibox.layout.fixed.horizontal,
+            --spr,
+            s.mytaglist,
+            s.mypromptbox,
+            spr,
+        },
+        s.mytasklist, -- Middle widget
+        {         -- Right widgets
+            layout = wibox.layout.fixed.horizontal,
+            wibox.widget.systray(),
+            keyboardlayout,
+            spr,
+            arrl_ld,
+            arrl_dl,
+            arrl_ld,
+            wibox.container.background(mailicon, theme.bg_focus),
+            arrl_dl,
+            arrl_ld,
+            arrl_dl,
+            arrl_ld,
+            wibox.container.background(fsicon, theme.bg_focus),
+            arrl_dl,
+            arrl_ld,
+            arrl_dl,
+            clock,
+            spr,
+            arrl_ld,
+            wibox.container.background(s.mylayoutbox, theme.bg_focus),
+        },
+    }
 end
-
--- local taglist_square_size = dpi(4)
--- theme.taglist_squares_sel = theme_assets.taglist_squares_sel(
---   taglist_square_size, theme.fg_normal
--- )
-
--- theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
---   taglist_square_size, theme.fg_normal
--- )
-
--- theme.awesome_icon = theme_assets.awesome_icon(
---   theme.menu_height, theme.bg_focus, theme.fg_focus
--- )
 
 return theme

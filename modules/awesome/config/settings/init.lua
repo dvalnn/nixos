@@ -5,6 +5,7 @@ return {
     },
 
     default_apps = {
+        screenshot = "flameshot gui",
         terminal = "alacritty",
         browser = "firefox",
         editor = "nvim",

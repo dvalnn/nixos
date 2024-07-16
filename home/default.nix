@@ -14,6 +14,7 @@ in {
   home.packages = with pkgs; [
     # misc packages
     libnotify
+    flameshot
 
     # dev tools
     python3

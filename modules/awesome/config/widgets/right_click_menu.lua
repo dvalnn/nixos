@@ -2,9 +2,9 @@ local awful = require("awful")
 local beautiful = require("beautiful")
 local hotkeys_popup = require("awful.hotkeys_popup")
 
-local apps = require "settings".default_apps
+local apps = require ("settings").default_apps
 
-local myawesomemenu = {
+local menu = {
     {
         "hotkeys",
         function()
@@ -29,7 +29,7 @@ local myawesomemenu = {
 
 local right_click_menu = awful.menu({
     items = {
-        { "awesome",       myawesomemenu, beautiful.awesome_icon },
+        { "awesome",       menu, beautiful.awesome_icon },
         { "open terminal", apps.terminal }
     }
 })

@@ -22,8 +22,8 @@ end)
 client.connect_signal(
     "request::titlebars",
     function(c)
-        local titlebar = require("widgets").titlebar(c)
-        awful.titlebar(c):setup(titlebar)
+        local titlebar = require("modules.titlebar")
+        awful.titlebar(c):setup(titlebar(c))
     end
 )
 

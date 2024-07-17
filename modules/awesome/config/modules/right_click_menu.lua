@@ -27,11 +27,9 @@ local menu = {
     },
 }
 
-local right_click_menu = awful.menu({
+return awful.menu({
     items = {
         { "awesome",       menu, beautiful.awesome_icon },
         { "open terminal", apps.terminal }
     }
 })
-
-return right_click_menu

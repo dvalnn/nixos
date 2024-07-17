@@ -36,7 +36,7 @@ awful.layout.layouts        = {
 
 awful.util.tagnames         = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }
 awful.util.taglist_buttons  = buttons.taglist
-awful.util.tasklist_buttons = buttons.tasklist
+awful.util.tasklist_buttons = buttons.tasklist.default
 
 require("client.signals")
 require("screen")

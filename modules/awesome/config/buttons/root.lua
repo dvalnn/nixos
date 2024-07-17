@@ -1,7 +1,7 @@
 local gears = require("gears")
 local awful = require("awful")
 
-local right_click_menu = require("widgets").right_click_menu
+local right_click_menu = require("modules.right_click_menu")
 
 return gears.table.join(
     awful.button(

@@ -4,7 +4,9 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 
 local buttons = require("buttons")
-local widgets = require("widgets")
+
+local taskbar = require("modules.taskbar")
+local menu = require("modules.right_click_menu")
 
 local function set_wallpaper(s)
     -- Wallpaper
@@ -62,7 +64,7 @@ local function on_screen_connect(s)
             awful.widget.launcher(
                 {
                     image = beautiful.awesome_icon,
-                    menu = widgets.right_click_menu
+                    menu = menu
                 }
             ),
             s.mytaglist,
@@ -77,6 +79,8 @@ local function on_screen_connect(s)
             s.mylayoutbox,
         },
     }
+
+    -- taskbar(s, 0)
 end
 
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)

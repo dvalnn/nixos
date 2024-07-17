@@ -12,6 +12,9 @@
         "arrl_dl",
         "clock",
         "fsicon",
-        "mailicon"
+        "mailicon",
+        "bgl",
+        "bl",
+        "mouse"
     ]
 }

@@ -11,10 +11,11 @@
     nitrogen # wallpaper browser and setter
     playerctl # used for the music player widget
     redshift # bluelight filter widget
-    Scrot # screenshot tool
-    Gpick # color picker
+    scrot # screenshot tool
+    gpick # color picker
 
-    nerdfonts.override {fonts = ["JetBrainsMono" "Ubuntu Nerd Font" "CaskaydiaCove Nerd Font"];}
+    # nerdfonts.override {fonts = ["JetBrainsMono" "Ubuntu" "CaskaydiaCove"];}
+    nerdfonts
     papirus-icon-theme
   ];
 
@@ -29,8 +30,8 @@
       awesome = {
         enable = true;
         noArgb = false;
-        luaModules = with pkgs.lua54Packages; [
-        ];
+        # luaModules = with pkgs.lua54Packages; [
+        # ];
       };
     };
   };

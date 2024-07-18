@@ -1,6 +1,8 @@
 local gears = require("gears")
 local awful = require("awful")
 
+local modkey = require("keys.mod").mod_key
+
 return gears.table.join(
     awful.button(
         {}, 1,

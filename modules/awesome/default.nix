@@ -15,9 +15,8 @@
       awesome = {
         enable = true;
         noArgb = false;
-        luaModules = with pkgs.lua54Packages; [
-          vicious # modular widget library
-        ];
+        # luaModules = with pkgs.lua54Packages; [
+        # ];
       };
     };
   };

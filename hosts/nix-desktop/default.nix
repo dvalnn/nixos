@@ -6,7 +6,6 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./../common.nix
-    ./../../modules/awesome
   ];
 
   networking.hostName = "nix-desktop"; # Define your hostname.
@@ -20,6 +19,12 @@
 
   # xserver settings
   services.xserver = {
+    enable = true;
+    xkb = {
+      layout = "pt";
+      variant = "";
+    };
+
     videoDrivers = ["nvidia"];
 
     displayManager = {

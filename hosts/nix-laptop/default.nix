@@ -6,7 +6,6 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./../common.nix
-    ./../../modules/awesome
   ];
   networking.hostName = "nix-laptop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.

@@ -5,7 +5,6 @@ local beautiful = require("beautiful")
 
 local buttons = require("buttons")
 
-local taskbar = require("modules.taskbar")
 local menu = require("modules.right_click_menu")
 
 local function set_wallpaper(s)

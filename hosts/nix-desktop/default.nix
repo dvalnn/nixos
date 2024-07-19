@@ -6,10 +6,9 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./../../modules/system.nix
-    ./../../modules/stylix.nix
     ./../../modules/awesome
-    ./../../modules/steam
   ];
+  nixpkgs.config.allowUnfree = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -45,8 +44,9 @@
     };
   };
 
- hardware = {
-    opengl = { # https://nixos.wiki/wiki/Nvidia
+  hardware = {
+    opengl = {
+      # https://nixos.wiki/wiki/Nvidia
       enable = true;
       driSupport32Bit = true;
     };
@@ -62,6 +62,10 @@
       package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
   };
+
+  # Module configuration options
+  autoStyling.enable = true;
+  gaming.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

@@ -48,8 +48,9 @@
       telescope-fzf-native-nvim
 
       # Treesitter and language grammar packs
-      ( nvim-treesitter.withPlugins (
-          p: [p.c p.cpp p.rust p.go p.lua p.nix p.markdown]))
+      (nvim-treesitter.withPlugins (
+        p: [p.c p.cpp p.rust p.go p.lua p.nix p.markdown]
+      ))
 
       #LSP and completion
       lsp-zero-nvim

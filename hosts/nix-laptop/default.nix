@@ -9,6 +9,7 @@
     ./../../modules/stylix.nix
     ./../../modules/awesome
   ];
+  nixpkgs.config.allowUnfree = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;

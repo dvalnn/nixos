@@ -1,4 +1,8 @@
-{pkgs, user, ...}: {
+{
+  pkgs,
+  user,
+  ...
+}: {
   imports = [
     ./windowManagers
     ./nvim
@@ -9,8 +13,6 @@
 
   home.username = user.name;
   home.homeDirectory = "/home/${user.name}";
-
-  awesomeWM.enable = true;
 
   home.packages = with pkgs; [
     # misc packages
@@ -88,4 +90,3 @@
     };
   };
 }
-

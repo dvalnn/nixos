@@ -3,5 +3,6 @@
     ./gaming
     ./system
     ./stylix.nix
+    ./windowManagers/awesome.nix
   ];
 }

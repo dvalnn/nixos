@@ -20,15 +20,17 @@
   # xserver settings
   services.xserver = {
     enable = true;
+    videoDrivers = ["nvidia"];
+
     xkb = {
       layout = "pt";
       variant = "";
     };
 
-    videoDrivers = ["nvidia"];
-
     displayManager = {
       lightdm.enable = true;
+      defaultSession = "none+awesome";
+
       # session commands are executed just after wm starts
       sessionCommands = ''
         xrandr \

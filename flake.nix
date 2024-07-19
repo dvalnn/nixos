@@ -25,10 +25,18 @@
     };
 
     stylix = inputs.stylix.nixosModules.stylix;
+
+    user = {
+      name = "dvalinn";
+      description = "Tiago Amorim";
+    };
   in {
     nixosConfigurations = {
       nix-laptop = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+        specialArgs = {
+          inherit inputs;
+          user = user;
+        };
         modules = [
           ./hosts/nix-laptop
           home-manager
@@ -38,7 +46,10 @@
       };
 
       nix-desktop = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+        specialArgs = {
+          inherit inputs;
+          user = user;
+        };
         modules = [
           ./hosts/nix-desktop
           ./nixosModules

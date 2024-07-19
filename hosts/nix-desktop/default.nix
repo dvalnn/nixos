@@ -5,14 +5,9 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./../../modules/system.nix
+    ./../common.nix
     ./../../modules/awesome
   ];
-  nixpkgs.config.allowUnfree = true;
-
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nix-desktop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -20,12 +15,6 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
-
-  # Open ports in the firewall.
-  networking.firewall.enable = true;
   networking.firewall.allowedTCPPorts = [];
   networking.firewall.allowedUDPPorts = [];
 
@@ -64,7 +53,6 @@
   };
 
   # Module configuration options
-  autoStyling.enable = true;
   gaming.enable = true;
 
   # This value determines the NixOS release from which the default

@@ -1,64 +1,31 @@
 {
-  pkgs,
   user,
   ...
 }: {
   imports = [
-    ./windowManagers
-    ./nvim
-    ./helix
-    ./shell
-    ./tmux
+    ./cliPrograms
+    ./windowManagers/awesome
+    ./otherPackages.nix
   ];
+
+  programs.git = {
+    enable = true;
+    userName = user.name;
+    userEmail = user.email;
+  };
+
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
+  };
+
+  cliPrograms.enable = true;
 
   home.username = user.name;
   home.homeDirectory = "/home/${user.name}";
 
-  home.packages = with pkgs; [
-    # misc packages
-    libnotify
-    flameshot
-
-    # dev tools
-    python3
-    alejandra
-    podman
-    podman-tui
-
-    # Cli tools
-    fastfetch
-    ripgrep
-    repgrep
-    xclip
-    unzip
-    less
-    dust
-    bat
-    eza
-    fzf
-    jq
-    fd
-    gh
-
-    # TUI apps
-    gotop
-    lazygit
-
-    # GUI apps
-    firefox
-    discord
-    spotify
-
-    # File management
-    xfce.thunar
-
-    #scripts
-    (pkgs.writeShellScriptBin "rebuild"
-      ''${builtins.readFile ./scripts/rebuild.sh}'')
-  ];
-
-  home.sessionVariables = {
-  };
+  home.sessionVariables = {};
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -69,24 +36,6 @@
   # release notes.
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
-  programs = {
-    # Let Home Manager install and manage itself.
-    home-manager.enable = true;
-
-    git = {
-      enable = true;
-      userName = user.name;
-      userEmail = user.email;
-    };
-
-    ranger = {
-      enable = true;
-    };
-
-    direnv = {
-      enable = true;
-      enableZshIntegration = true;
-      nix-direnv.enable = true;
-    };
-  };
+  # Let Home Manager install and manage itself.
+  programs.home-manager.enable = true;
 }

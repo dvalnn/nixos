@@ -23,14 +23,17 @@
 
     home-manager = inputs.home-manager.nixosModules.home-manager;
     home-manager-opts = {
-      home-manager.useGlobalPkgs = true;
-      home-manager.useUserPackages = true;
+      home-manager = {
+        useGlobalPkgs = true;
+        useUserPackages = true;
 
-      home-manager.extraSpecialArgs = {
-        inherit inputs;
-        inherit user;
+        extraSpecialArgs = {
+          inherit inputs;
+          inherit user;
+        };
+
+        users.${user.name} = import ./homeManagerModules;
       };
-      home-manager.users.${user.name} = import ./homeManagerModules;
     };
 
     stylix = inputs.stylix.nixosModules.stylix;

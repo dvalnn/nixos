@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   nixpkgs.config.allowUnfree = true;
 
   # Bootloader.
@@ -31,5 +31,9 @@
   console.keyMap = "pt-latin1";
 
   autoStyling.enable = true;
-  awesomeWM.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    xorg.xinit
+    xorg.xrandr
+  ];
 }

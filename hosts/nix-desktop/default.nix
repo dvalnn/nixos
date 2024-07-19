@@ -7,7 +7,6 @@
     ./hardware-configuration.nix
     ./../common.nix
   ];
-
   networking.hostName = "nix-desktop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -26,18 +25,18 @@
       layout = "pt";
       variant = "";
     };
+  };
 
-    displayManager = {
-      lightdm.enable = true;
-      defaultSession = "none+awesome";
-
-      # session commands are executed just after wm starts
-      sessionCommands = ''
-        xrandr \
-        --output DP-0  --mode 1920x1080 --rate 144 --pos 1920x0 --rotate normal \
-        --output DP-4 --primary --mode 1920x1080 --rate 144 --pos 0x0 --rotate normal \
-      '';
-    };
+  awesomeWM.enable = true;
+  services.xserver.displayManager = {
+    lightdm.enable = true;
+    defaultSession = "none+awesome";
+    # session commands are executed just after wm starts
+    sessionCommands = ''
+      xrandr \
+      --output DP-0  --mode 1920x1080 --rate 144 --pos 1920x0 --rotate normal \
+      --output DP-4 --primary --mode 1920x1080 --rate 144 --pos 0x0 --rotate normal \
+    '';
   };
 
   hardware = {

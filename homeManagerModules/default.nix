@@ -1,12 +1,12 @@
-{
-  user,
-  ...
-}: {
+{user, ...}: {
   imports = [
     ./cliPrograms
     ./windowManagers/awesome
+    ./windowManagers/hyprland
     ./otherPackages.nix
   ];
+
+  hyprland.enable = true;
 
   programs.git = {
     enable = true;

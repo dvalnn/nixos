@@ -27,7 +27,9 @@
     };
   };
 
+  hyprland.enable = true;
   awesomeWM.enable = true;
+
   services.xserver.displayManager = {
     lightdm.enable = true;
     defaultSession = "none+awesome";

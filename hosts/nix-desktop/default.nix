@@ -31,7 +31,7 @@
   awesomeWM.enable = true;
 
   services.xserver.displayManager = {
-    lightdm.enable = true;
+    sddm.enable = true;
     defaultSession = "none+awesome";
     # session commands are executed just after wm starts
     sessionCommands = ''

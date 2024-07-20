@@ -5,41 +5,39 @@
   inputs,
   ...
 }: {
+  imports = [
+    ./input.nix
+    ./keys.nix
+    ./lookAndFeel.nix
+    ./monitor.nix
+    ./programs.nix
+    ./rules.nix
+  ];
+
   options = {
     hyprland.enable = lib.mkEnableOption "enable hyprland window manager";
   };
 
   config = lib.mkIf config.hyprland.enable {
+    services.dunst.enable = true; # notification deamon
+    programs.wofi.enable = true; # rofi launcher for wayland
+
     wayland.windowManager.hyprland = {
       enable = true;
 
-      plugins = with inputs.hyprland-plugins.packages."${pkgs.system}"; [
-        borders-plus-plus
-      ];
+      # plugins = with inputs.hyprland-plugins.packages."${pkgs.system}"; [
+      #   borders-plus-plus
+      # ];
 
       settings = {
-        "plugin:borders-plus-plus" = {
-          add_borders = 1;
+        #############################
+        ### ENVIRONMENT VARIABLES ###
+        #############################
 
-          "col.border_1" = "rgb(ffffff)";
-          "col.border_2" = "rgb(2222ff)";
-
-          border_size_1 = 10;
-          border_size_2 = -1;
-
-          natural_rounding = "yes";
-        };
-
-        decoration = {
-          shadow_offset = "0 5";
-        };
-
-        "$mod" = "SUPER";
-
-        bindm = [
-          "$mod, mouse:272, movewindow"
-          "$mod, mouse:273, resizewindow"
-          "$mod ALT, mouse:272, resizewindow"
+        # See https://wiki.hyprland.org/Configuring/Environment-variables/
+        env = [
+          "XCURSOR_SIZE,24"
+          "HYPRCURSOR_SIZE,24"
         ];
       };
     };

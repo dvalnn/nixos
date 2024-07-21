@@ -17,7 +17,7 @@
       "$mainMod, O, togglesplit," # dwindle
       "$mainMod, V, togglefloating,"
 
-      # Move focus with mainMod + arrow keys 
+      # Move focus with mainMod + arrow keys
       "$mainMod, left, movefocus, l"
       "$mainMod, right, movefocus, r"
       "$mainMod, up, movefocus, u"

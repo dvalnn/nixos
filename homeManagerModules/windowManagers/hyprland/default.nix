@@ -2,16 +2,16 @@
   pkgs,
   lib,
   config,
-  inputs,
+  # inputs,
   ...
 }: {
   imports = [
-    ./input.nix
-    ./keys.nix
-    ./lookAndFeel.nix
-    ./monitor.nix
-    ./programs.nix
-    ./rules.nix
+    ./hyprconf/input.nix
+    ./hyprconf/keys.nix
+    ./hyprconf/lookAndFeel.nix
+    ./hyprconf/monitor.nix
+    ./hyprconf/programs.nix
+    ./hyprconf/rules.nix
   ];
 
   options = {
@@ -19,6 +19,10 @@
   };
 
   config = lib.mkIf config.hyprland.enable {
+    home.packages = with pkgs; [
+      ags
+    ];
+
     services.dunst.enable = true; # notification deamon
     programs.wofi.enable = true; # rofi launcher for wayland
 

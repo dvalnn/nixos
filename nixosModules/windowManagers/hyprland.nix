@@ -1,4 +1,10 @@
-{pkgs, lib, config, inputs,...}: {
+{
+  pkgs,
+  lib,
+  config,
+  inputs,
+  ...
+}: {
   options = {
     hyprland.enable = lib.mkEnableOption "enable hyprland window manager";
   };

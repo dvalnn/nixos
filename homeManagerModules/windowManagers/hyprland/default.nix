@@ -2,7 +2,7 @@
   pkgs,
   lib,
   config,
-  # inputs,
+  inputs,
   ...
 }: {
   imports = [
@@ -12,6 +12,8 @@
     ./hyprconf/monitor.nix
     ./hyprconf/programs.nix
     ./hyprconf/rules.nix
+
+    inputs.ags.homeManagerModules.default
   ];
 
   options = {
@@ -26,7 +28,9 @@
     programs.ags = {
       enable = true;
       configDir = ./ags;
-      extraPackages = [];
+      extraPackages = [
+        pkgs.pamixer
+      ];
     };
 
     wayland.windowManager.hyprland = {

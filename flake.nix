@@ -19,6 +19,9 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Wayland widgets lib
+    ags.url = "github:Aylur/ags";
   };
 
   outputs = {

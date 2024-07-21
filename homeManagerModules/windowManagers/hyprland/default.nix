@@ -19,12 +19,15 @@
   };
 
   config = lib.mkIf config.hyprland.enable {
-    home.packages = with pkgs; [
-      ags
-    ];
 
     services.dunst.enable = true; # notification deamon
     programs.wofi.enable = true; # rofi launcher for wayland
+
+    programs.ags = {
+      enable = true;
+      configDir = ./ags;
+      extraPackages = [];
+    };
 
     wayland.windowManager.hyprland = {
       enable = true;

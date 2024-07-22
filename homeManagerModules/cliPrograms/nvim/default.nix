@@ -59,7 +59,7 @@
 
         # Treesitter and language grammar packs
         (nvim-treesitter.withPlugins (
-          p: [p.c p.cpp p.rust p.go p.lua p.nix p.markdown]
+          p: [p.c p.cpp p.rust p.go p.lua p.nix p.markdown p.javascript]
         ))
 
         #LSP and completion

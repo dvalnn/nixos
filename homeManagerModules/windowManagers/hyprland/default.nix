@@ -21,16 +21,45 @@
   };
 
   config = lib.mkIf config.hyprland.enable {
-
     services.dunst.enable = true; # notification deamon
     programs.wofi.enable = true; # rofi launcher for wayland
+    programs.swaylock.enable = true; # lockscreen manager
 
     programs.ags = {
       enable = true;
       configDir = ./ags;
-      extraPackages = [
-        pkgs.pamixer
+      extraPackages = with pkgs; [
+        libdbusmenu-gtk3
+        gtksourceview
+        webkitgtk
+        accountsservice
       ];
+    };
+
+    home.packages = with pkgs; [
+      gvfs # virtual filesystem support
+
+      pamixer # volume and stuff
+      brightnessctl # brightness/backlight control
+
+      swappy # wayland screenshot editor
+      grimblast # wayland screenshot cli
+
+      wl-clipboard # clipboard utilities
+
+      inputs.swww.packages.${pkgs.system}.swww # wayland wallpaper daemon
+    ];
+
+    home.file = {
+      ".config/swww" = {
+        source = ./swww;
+        recursive = true;
+      };
+
+      ".config/rofi" = {
+        source = ./wofi;
+        recursive = true;
+      };
     };
 
     wayland.windowManager.hyprland = {
@@ -41,10 +70,6 @@
       # ];
 
       settings = {
-        #############################
-        ### ENVIRONMENT VARIABLES ###
-        #############################
-
         # See https://wiki.hyprland.org/Configuring/Environment-variables/
         env = [
           "XCURSOR_SIZE,24"

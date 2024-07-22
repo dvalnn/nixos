@@ -6,6 +6,7 @@
   ...
 }: {
   imports = [
+    ./hyprconf/autostart.nix
     ./hyprconf/input.nix
     ./hyprconf/keys.nix
     ./hyprconf/lookAndFeel.nix

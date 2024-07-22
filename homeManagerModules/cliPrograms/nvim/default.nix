@@ -40,8 +40,10 @@
         lualine-nvim
         vim-startify # starter page
         gitsigns-nvim
-        catppuccin-nvim # color scheme (default mocha)
         todo-comments-nvim
+
+        catppuccin-nvim
+        gruvbox-nvim 
 
         # props to ThePrimeagen
         harpoon2

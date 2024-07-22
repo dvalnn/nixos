@@ -21,7 +21,8 @@
         yank
         sensible
         continuum
-        catppuccin
+        # catppuccin
+        gruvbox
         vim-tmux-navigator
 
         {

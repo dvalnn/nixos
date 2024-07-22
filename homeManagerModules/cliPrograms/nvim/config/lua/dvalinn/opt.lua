@@ -33,6 +33,7 @@ o.relativenumber = true
 o.scrolloff = 8
 -- o.colorcolumn = "80"
 o.signcolumn = "yes"
+o.background = "dark"
 
 -- Remove viminfo file
 -- o.viminfo = ""

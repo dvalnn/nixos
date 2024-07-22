@@ -10,7 +10,7 @@ in {
     autoStyling = {
       enable = lib.mkEnableOption "enables stylix auto styling";
       colorScheme = lib.mkOption {default = catppuccin;};
-      image = lib.mkOption {default = ./default.nix;};
+      image = lib.mkOption {default = ./default.png;};
     };
   };
 

@@ -56,18 +56,21 @@ function Sidebar() {
   })
 }
 
-export default Widget.Window({
-  name: 'sidebar',
-  layer: 'overlay',
-  anchor: ['left', 'top', 'bottom'],
-  margins: [0, 0, 0, -1],
-  child: Widget.Box({
-    css: `padding: 0.1px;`,
-    child: Widget.Revealer({
-      revealChild: revealSidebar.bind(),
-      transition: 'slide_right',
-      transitionDuration: 100,
-      child: Sidebar()
+export default function(monitor = 0) {
+    return Widget.Window({
+        monitor,
+        name: 'sidebar',
+        layer: 'overlay',
+        anchor: ['left', 'top', 'bottom'],
+        margins: [0, 0, 0, -1],
+        child: Widget.Box({
+            css: `padding: 0.1px;`,
+            child: Widget.Revealer({
+                revealChild: revealSidebar.bind(),
+                transition: 'slide_right',
+                transitionDuration: 100,
+                child: Sidebar()
+            })
+        })
     })
-  })
-})
+}

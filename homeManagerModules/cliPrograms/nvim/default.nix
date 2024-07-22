@@ -43,7 +43,7 @@
         todo-comments-nvim
 
         catppuccin-nvim
-        gruvbox-nvim 
+        gruvbox-nvim
 
         # props to ThePrimeagen
         harpoon2

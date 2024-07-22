@@ -1,20 +1,21 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
-STATES_PATH=$HOME/.config/ags/.states.json
+# STATES_PATH=$HOME/.config/ags/.states.json
+STATES_PATH=$HOME/nixos/homeManagerModules/windowManagers/hyprland/ags/.states.json
 
 case $1 in
   toggle)
     bash ~/.config/ags/shared/scripts/wallpapers.sh close
-    bash ~/.config/ags/shared/scripts/applauncher.sh close
-    bash ~/.config/ags/shared/scripts/commands.sh close
+    # bash ~/.config/ags/shared/scripts/applauncher.sh close
+    # bash ~/.config/ags/shared/scripts/commands.sh close
 
     echo `cat $STATES_PATH | jq -c '.reveal_sidebar |= not'` > $STATES_PATH
   ;;
 
   open)
     bash ~/.config/ags/shared/scripts/wallpapers.sh close
-    bash ~/.config/ags/shared/scripts/applauncher.sh close
-    bash ~/.config/ags/shared/scripts/commands.sh close
+    # bash ~/.config/ags/shared/scripts/applauncher.sh close
+    # bash ~/.config/ags/shared/scripts/commands.sh close
 
     echo `cat $STATES_PATH | jq -c '.reveal_sidebar = true'` > $STATES_PATH
   ;;

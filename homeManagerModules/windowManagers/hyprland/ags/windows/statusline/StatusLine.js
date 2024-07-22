@@ -197,16 +197,19 @@ function StatusLine() {
   })
 }
 
-export default Widget.Window({
-  name: 'line',
-  layer: 'top',
-  exclusivity: 'exclusive',
-  anchor: ['left', 'right', 'bottom'],
-  keymode: mode.bind().transform(m => m === 'normal' ? 'none' : 'exclusive'),
-  child: StatusLine().on('key-press-event', (_, event) => {
-    const key = event.get_keyval()[1]
+export default function(monitor = 0) { 
+    return Widget.Window({
+        monitor,
+        name: 'line',
+        layer: 'top',
+        exclusivity: 'exclusive',
+        anchor: ['left', 'right', 'bottom'],
+        keymode: mode.bind().transform(m => m === 'normal' ? 'none' : 'exclusive'),
+        child: StatusLine().on('key-press-event', (_, event) => {
+            const key = event.get_keyval()[1]
 
-    if (mode.value === 'appLauncher') appLauncherInput(key)
-    if (mode.value === 'commandLauncher') commandLauncherInput(key)
-  })
-})
+            if (mode.value === 'appLauncher') appLauncherInput(key)
+            if (mode.value === 'commandLauncher') commandLauncherInput(key)
+        })
+    }) 
+}

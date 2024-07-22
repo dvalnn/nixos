@@ -145,31 +145,34 @@ function Wallpapers() {
   })
 }
 
-export default Widget.Window({
-  name: 'wallpapers',
-  layer: 'overlay',
-  keymode: revealWallpapers.bind().transform(r => r ? 'exclusive' : 'none'),
-  child: Widget.Box({
-    css: `padding: 0.1px`,
-    child: Widget.Revealer({
-      revealChild: revealWallpapers.bind(),
-      transition: 'none',
-      child: Wallpapers()
-    })
-  }).on('key-press-event', (_, event) => {
-    const key = event.get_keyval()[1]
+export default function(monitor = 0){
+    return Widget.Window({
+        monitor,
+        name: 'wallpapers',
+        layer: 'overlay',
+        keymode: revealWallpapers.bind().transform(r => r ? 'exclusive' : 'none'),
+        child: Widget.Box({
+            css: `padding: 0.1px`,
+            child: Widget.Revealer({
+                revealChild: revealWallpapers.bind(),
+                transition: 'none',
+                child: Wallpapers()
+            })
+        }).on('key-press-event', (_, event) => {
+            const key = event.get_keyval()[1]
 
-    switch (key) {
-      case Gdk.KEY_Escape:
-        revealWallpapers.value = false
-        break
-      case Gdk.KEY_Up:
-        prev()
-        break
-      case Gdk.KEY_Tab:
-      case Gdk.KEY_Down:
-        next()
-        break
-    }
-  })
-})
+            switch (key) {
+                case Gdk.KEY_Escape:
+                    revealWallpapers.value = false
+                    break
+                case Gdk.KEY_Up:
+                    prev()
+                    break
+                case Gdk.KEY_Tab:
+                case Gdk.KEY_Down:
+                    next()
+                    break
+            }
+        })
+    })
+}

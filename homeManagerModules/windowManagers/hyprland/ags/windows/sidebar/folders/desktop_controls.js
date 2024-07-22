@@ -7,9 +7,9 @@ const volume = Variable(0, {
   poll: [1000, `pamixer --get-volume`, vol => parseInt(vol)]
 })
 
-const brightness = Variable(0, {
-  poll: [1000, `brightnessctl -m -d intel_backlight`, bright => parseInt(bright.split(',')[3].replace('%', ''))]
-})
+// const brightness = Variable(0, {
+//   poll: [1000, `brightnessctl -m -d intel_backlight`, bright => parseInt(bright.split(',')[3].replace('%', ''))]
+// })
 
 export default {
   type: 'dir',
@@ -52,25 +52,25 @@ export default {
           Widget.Label(']')
         ]
       })
-    },
-    bright: {
-      type: 'widget',
-      icon: '󰃠',
-      widget: Widget.Box({
-        homogeneous: false,
-        children: [
-          Widget.Label('['),
-          Widget.Slider({
-            drawValue: false,
-            hexpand: true,
-            value: brightness.bind(),
-            min: 0,
-            max: 100,
-            onChange: ({ value }) => Utils.exec(`brightnessctl s ${value}%`)
-          }),
-          Widget.Label(']')
-        ]
-      })
     }
+    // bright: {
+    //   type: 'widget',
+    //   icon: '󰃠',
+    //   widget: Widget.Box({
+    //     homogeneous: false,
+    //     children: [
+    //       Widget.Label('['),
+    //       Widget.Slider({
+    //         drawValue: false,
+    //         hexpand: true,
+    //         value: brightness.bind(),
+    //         min: 0,
+    //         max: 100,
+    //         onChange: ({ value }) => Utils.exec(`brightnessctl s ${value}%`)
+    //       }),
+    //       Widget.Label(']')
+    //     ]
+    //   })
+    // }
   }
 }

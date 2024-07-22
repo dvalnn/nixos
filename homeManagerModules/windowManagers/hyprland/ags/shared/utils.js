@@ -1,6 +1,6 @@
 const Hyprland = await Service.import('hyprland')
 
-const STATES_PATH = `${App.configDir}/.states.json`
+const STATES_PATH = `~/nixos/homeManagerModules/windowManagers/hyprland/ags/.states.json`
 
 /**
  * Manage state on ~/.config/ags/.states.json

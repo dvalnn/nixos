@@ -2,7 +2,7 @@
   wayland.windowManager.hyprland.settings = {
     exec-once = [
       "ags"
-      "swww-deamon"
+      "~/.config/hypr/scripts/wallpaperdaemon.sh"
     ];
   };
 }

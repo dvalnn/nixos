@@ -1,6 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
-STATES_PATH=$HOME/.config/ags/.states.json
+# STATES_PATH=$HOME/.config/ags/.states.json
+STATES_PATH=$HOME/nixos/homeManagerModules/windowManagers/hyprland/ags/.states.json
 
 mode=$1
 if [ -z $mode ]; then

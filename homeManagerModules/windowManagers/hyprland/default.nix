@@ -22,32 +22,31 @@
   };
 
   config = lib.mkIf config.hyprland.enable {
-    services.dunst.enable = true; # notification deamon
-    programs.wofi.enable = true; # rofi launcher for wayland
+    # services.dunst.enable = true; # notification deamon
+    programs.wofi.enable = true; # app menu
     programs.swaylock.enable = true; # lockscreen manager
 
     programs.ags = {
       enable = true;
       configDir = ./ags;
       extraPackages = with pkgs; [
+        gvfs # virtual filesystem support
         libdbusmenu-gtk3
         gtksourceview
         webkitgtk
         accountsservice
-      ];
-    };
+    ];
+  };
 
-    home.packages = with pkgs; [
-      gvfs # virtual filesystem support
-
+  home.packages = with pkgs; [
       pamixer # volume and stuff
       brightnessctl # brightness/backlight control
 
       swappy # wayland screenshot editor
       grimblast # wayland screenshot cli
-
       wl-clipboard # clipboard utilities
 
+      rofi-wayland # app menu
       inputs.swww.packages.${pkgs.system}.swww # wayland wallpaper daemon
     ];
 
@@ -58,7 +57,12 @@
       };
 
       ".config/rofi" = {
-        source = ./wofi;
+        source = ./rofi;
+        recursive = true;
+      };
+
+      ".config/hypr/scripts" = {
+        source = ./hyprconf/scripts;
         recursive = true;
       };
     };

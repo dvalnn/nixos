@@ -1,5 +1,8 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    #network management
+    networkmanagerapplet
+
     # screenshot
     flameshot
 

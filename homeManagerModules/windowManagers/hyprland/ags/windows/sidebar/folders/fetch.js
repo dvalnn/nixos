@@ -6,7 +6,7 @@
 
 function getUptime() {
   return Utils.exec(
-    `script -qc "uptime -p | awk '{print $2, $3}' | cut -d ',' -f1" /dev/null`
+    `script -qc "uptime | awk '{print $2, $3}' | cut -d ',' -f1" /dev/null`
   )
 }
 

@@ -1,6 +1,7 @@
 const Hyprland = await Service.import('hyprland')
 
-const STATES_PATH = `~/nixos/homeManagerModules/windowManagers/hyprland/ags/.states.json`
+const STATES_PATH = `/home/dvalinn/nixos/homeManagerModules/windowManagers/hyprland/ags/.states.json`
+// const STATES_PATH = `${App.configDir}/.states.json`
 
 /**
  * Manage state on ~/.config/ags/.states.json
@@ -10,23 +11,29 @@ const STATES_PATH = `~/nixos/homeManagerModules/windowManagers/hyprland/ags/.sta
  * @returns {Object}
  */
 export function state(key, value) {
-  const state = Variable(value)
+    const state = Variable(value)
 
-  Utils.monitorFile(STATES_PATH, (file, event) => {
-    if (event === 0) {
-      const states = JSON.parse(Utils.readFile(file))
-      state.value = states[key]
+    const updateState = (file) => {
+        const states = JSON.parse(Utils.readFile(file))
+        state.value = states[key]
+        // console.log(`key, state: ${key}, ${state.value}`)
+        return state.value
     }
-  })
 
-  state.connect('changed', ({ value }) => {
-    const states = JSON.parse(Utils.readFile(STATES_PATH))
-    states[key] = value
+    Utils.monitorFile(STATES_PATH, (file, event) => {
+        if (event === 0) {
+            updateState(file)
+        }
+    })
 
-    Utils.writeFile(JSON.stringify(states), STATES_PATH)
-  })
+    state.connect('changed', ({ value }) => {
+        const states = JSON.parse(Utils.readFile(STATES_PATH))
+        states[key] = value
 
-  return state
+        Utils.writeFile(JSON.stringify(states), STATES_PATH)
+    })
+
+    return state
 }
 
 export function debounce({ called, fn }, delay = 30) {

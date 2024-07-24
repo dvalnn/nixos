@@ -25,10 +25,7 @@ in {
 
   hyprland.enable = true;
   autoStyling.colorScheme = gruvbox-dark-medium;
-  services.xserver.displayManager = {
-    sddm.enable = true;
-    defaultSession = "hyprland";
-  };
+  services.xserver.displayManager.defaultSession = "hyprland";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

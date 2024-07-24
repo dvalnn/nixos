@@ -4,7 +4,7 @@
       source = ./config;
       recursive = true;
     };
-  
+
     ".config/rofi/gruvbox.rasi".source = ./rofi/gruvbox.rasi;
   };
 
@@ -21,4 +21,6 @@
     xsel
     slock
   ];
+
+  # services.picom.enable = true; #TODO: place this under enable option
 }

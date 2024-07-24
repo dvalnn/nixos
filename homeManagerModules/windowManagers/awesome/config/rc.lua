@@ -27,6 +27,7 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 
 require("awful.hotkeys_popup.keys")
 
+local dpi     = require("beautiful.xresources").apply_dpi
 local mytable = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 -- }}}
@@ -112,33 +113,36 @@ local editor                           = os.getenv("EDITOR") or "nvim"
 local browser                          = "firefox"
 local printscreen_area                 = "flameshot gui"
 local rofi_theme                       = os.getenv("HOME") .. "/.config/rofi/gruvbox.rasi"
-local scrlocker = "slock"
+local scrlocker                        = "slock" -- TODO: debug not working
+local edge_rounding_radius             = 0
+local gap_dpi                          = 5
 
 awful.util.terminal                    = terminal
 awful.util.tagnames                    = { "1", "2", "3", "4", "5" }
 awful.layout.layouts                   = {
     awful.layout.suit.floating,
-    awful.layout.suit.tile,
+    lain.layout.centerwork,
     awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
-    awful.layout.suit.tile.top,
-    --awful.layout.suit.fair,
-    --awful.layout.suit.fair.horizontal,
-    --awful.layout.suit.spiral,
-    --awful.layout.suit.spiral.dwindle,
-    --awful.layout.suit.max,
-    --awful.layout.suit.max.fullscreen,
-    --awful.layout.suit.magnifier,
-    --awful.layout.suit.corner.nw,
-    --awful.layout.suit.corner.ne,
-    --awful.layout.suit.corner.sw,
-    --awful.layout.suit.corner.se,
-    --lain.layout.cascade,
-    --lain.layout.cascade.tile,
-    --lain.layout.centerwork,
-    --lain.layout.centerwork.horizontal,
-    --lain.layout.termfair,
-    --lain.layout.termfair.center
+    awful.layout.suit.spiral.dwindle,
+
+    -- awful.layout.suit.tile,
+    -- awful.layout.suit.tile.bottom,
+    -- awful.layout.suit.tile.top,
+    -- awful.layout.suit.fair,
+    -- awful.layout.suit.fair.horizontal,
+    -- awful.layout.suit.spiral,
+    -- awful.layout.suit.max,
+    -- awful.layout.suit.max.fullscreen,
+    -- awful.layout.suit.magnifier,
+    -- awful.layout.suit.corner.nw,
+    -- awful.layout.suit.corner.ne,
+    -- awful.layout.suit.corner.sw,
+    -- awful.layout.suit.corner.se,
+    -- lain.layout.cascade,
+    -- lain.layout.cascade.tile,
+    -- lain.layout.centerwork.horizontal,
+    -- lain.layout.termfair,
+    -- lain.layout.termfair.center
 }
 
 lain.layout.termfair.nmaster           = 3
@@ -180,7 +184,10 @@ awful.util.tasklist_buttons            = mytable.join(
 )
 
 beautiful.init(string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme))
-
+beautiful.useless_gap = dpi(gap_dpi)
+beautiful.notification_shape = function(cr, w, h)
+    gears.shape.rounded_rect(cr, w, h, edge_rounding_radius)
+end
 -- }}}
 
 -- {{{ Menu
@@ -731,7 +738,7 @@ awful.rules.rules = {
     {
         rule_any = { type = { "normal", "dialog" }
         },
-        properties = { titlebars_enabled = true }
+        properties = { titlebars_enabled = false }
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
@@ -745,10 +752,14 @@ awful.rules.rules = {
 
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function(c)
+    -- Set rounded corners on windows
+    c.shape = function(cr, w, h)
+        gears.shape.rounded_rect(cr, w, h, edge_rounding_radius)
+    end
+
     -- Set the windows at the slave,
     -- i.e. put it at the end of others instead of setting it master.
     -- if not awesome.startup then awful.client.setslave(c) end
-
     if awesome.startup
         and not c.size_hints.user_position
         and not c.size_hints.program_position then

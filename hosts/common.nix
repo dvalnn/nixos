@@ -36,4 +36,9 @@
     xorg.xinit
     xorg.xrandr
   ];
+
+  services.xserver.displayManager.sddm = {
+    enable = true;
+    theme = "maldives";
+  };
 }

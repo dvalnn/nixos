@@ -3,6 +3,7 @@
     ./misc.nix
     ./nh.nix
     ./packages.nix
+    ./picom.nix
     ./ssh.nix
     ./user.nix
   ];

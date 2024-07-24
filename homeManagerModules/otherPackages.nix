@@ -6,22 +6,15 @@
     # screenshot
     flameshot
 
-    # dev tools
-    alejandra
-    lazygit
-    podman
-    podman-tui
-
-    # terminal file manager
-    ranger
-
     # other Cli tools
+    alejandra # nix formatter
     fastfetch
     ripgrep
     repgrep
+    lazygit
     xclip
     unzip
-    gotop
+    btop
     less
     dust
     bat
@@ -37,6 +30,7 @@
     spotify
 
     # File management
+    yazi
     xfce.thunar
   ];
 }

@@ -106,10 +106,13 @@ local chosen_theme                     = themes[7]
 local modkey                           = "Mod4"
 local altkey                           = "Mod1"
 local terminal                         = "alacritty"
-local vi_focus                         = true  -- vi-like client focus https://github.com/lcpz/awesome-copycats/issues/275
-local cycle_prev                       = true  -- cycle with only the previously focused client or all https://github.com/lcpz/awesome-copycats/issues/274
+local vi_focus                         = true -- vi-like client focus https://github.com/lcpz/awesome-copycats/issues/275
+local cycle_prev                       = true -- cycle with only the previously focused client or all https://github.com/lcpz/awesome-copycats/issues/274
 local editor                           = os.getenv("EDITOR") or "nvim"
 local browser                          = "firefox"
+local printscreen_area                 = "flameshot gui"
+local rofi_theme                       = os.getenv("HOME") .. "/.config/rofi/gruvbox.rasi"
+local scrlocker = "slock"
 
 awful.util.terminal                    = terminal
 awful.util.tagnames                    = { "1", "2", "3", "4", "5" }
@@ -220,9 +223,6 @@ awful.util.mymainmenu.wibox:connect_signal("mouse::leave", function()
 end)
 --]]
 
--- Set the Menubar terminal for applications that require it
---menubar.utils.terminal = terminal
-
 -- }}}
 
 -- {{{ Screen
@@ -275,7 +275,7 @@ globalkeys = mytable.join(
         { description = "destroy all notifications", group = "hotkeys" }),
     -- Take a screenshot
     -- https://github.com/lcpz/dots/blob/master/bin/screenshot
-    awful.key({ altkey }, "p", function() os.execute("screenshot") end,
+    awful.key({}, "Print", function() awful.spawn(printscreen_area) end,
         { description = "take a screenshot", group = "hotkeys" }),
 
     -- X screen locker
@@ -454,12 +454,14 @@ globalkeys = mytable.join(
             beautiful.volume.update()
         end,
         { description = "volume up", group = "hotkeys" }),
+
     awful.key({ altkey }, "Down",
         function()
             os.execute(string.format("amixer -q set %s 1%%-", beautiful.volume.channel))
             beautiful.volume.update()
         end,
         { description = "volume down", group = "hotkeys" }),
+
     awful.key({ altkey }, "m",
         function()
             os.execute(string.format("amixer -q set %s toggle",
@@ -467,12 +469,14 @@ globalkeys = mytable.join(
             beautiful.volume.update()
         end,
         { description = "toggle mute", group = "hotkeys" }),
+
     awful.key({ altkey, "Control" }, "m",
         function()
             os.execute(string.format("amixer -q set %s 100%%", beautiful.volume.channel))
             beautiful.volume.update()
         end,
         { description = "volume 100%", group = "hotkeys" }),
+
     awful.key({ altkey, "Control" }, "0",
         function()
             os.execute(string.format("amixer -q set %s 0%%", beautiful.volume.channel))
@@ -530,25 +534,12 @@ globalkeys = mytable.join(
     awful.key({ modkey }, "b", function() awful.spawn(browser) end,
         { description = "run browser", group = "launcher" }),
 
-    -- Default
-    --[[ Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"}),
-    --]]
-    --[[ dmenu
-    awful.key({ modkey }, "x", function ()
-            os.execute(string.format("dmenu_run -i -fn 'Monospace' -nb '%s' -nf '%s' -sb '%s' -sf '%s'",
-            beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus))
-        end,
-        {description = "show dmenu", group = "launcher"}),
-    --]]
-    -- alternatively use rofi, a dmenu-like application with more features
-    -- check https://github.com/DaveDavenport/rofi for more details
     -- rofi
-    awful.key({ modkey }, "p", function ()
-            os.execute(string.format("rofi -show %s", 'drun'))
+    awful.key({ modkey }, "p", function()
+            os.execute(string.format("rofi -show %s -theme", 'drun', rofi_theme))
         end,
-        {description = "show rofi", group = "launcher"}),
+        { description = "show rofi", group = "launcher" }),
+
     -- Prompt
     awful.key({ modkey }, "r", function() awful.screen.focused().mypromptbox:run() end,
         { description = "run prompt", group = "launcher" }),

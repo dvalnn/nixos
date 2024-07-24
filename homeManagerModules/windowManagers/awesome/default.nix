@@ -3,6 +3,9 @@
     ".config/awesome" = {
       source = ./config;
       recursive = true;
+  
+    ".config/rofi" = {
+      source = ./rofi;
     };
   };
 

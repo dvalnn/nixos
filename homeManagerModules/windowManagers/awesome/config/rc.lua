@@ -369,7 +369,7 @@ globalkeys = mytable.join(
         { description = "cycle with previous/go back", group = "client" }),
 
     -- Show/hide wibox
-    awful.key({ modkey }, "b", function()
+    awful.key({ modkey, "Shift" }, "b", function()
             for s in screen do
                 s.mywibox.visible = not s.mywibox.visible
                 if s.mybottomwibox then
@@ -527,7 +527,7 @@ globalkeys = mytable.join(
         { description = "copy gtk to terminal", group = "hotkeys" }),
 
     -- User programs
-    awful.key({ modkey }, "q", function() awful.spawn(browser) end,
+    awful.key({ modkey }, "b", function() awful.spawn(browser) end,
         { description = "run browser", group = "launcher" }),
 
     -- Default
@@ -545,9 +545,8 @@ globalkeys = mytable.join(
     -- alternatively use rofi, a dmenu-like application with more features
     -- check https://github.com/DaveDavenport/rofi for more details
     -- rofi
-    awful.key({ modkey }, "x", function ()
-            os.execute(string.format("rofi -show %s -theme %s",
-            'run', 'dmenu'))
+    awful.key({ modkey }, "p", function ()
+            os.execute(string.format("rofi -show %s", 'drun'))
         end,
         {description = "show rofi", group = "launcher"}),
     -- Prompt
@@ -576,7 +575,7 @@ clientkeys = mytable.join(
             c:raise()
         end,
         { description = "toggle fullscreen", group = "client" }),
-    awful.key({ modkey, "Shift" }, "c", function(c) c:kill() end,
+    awful.key({ modkey }, "q", function(c) c:kill() end,
         { description = "close", group = "client" }),
     awful.key({ modkey, "Control" }, "space", awful.client.floating.toggle,
         { description = "toggle floating", group = "client" }),

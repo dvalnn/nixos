@@ -35,10 +35,7 @@ in {
 
   autoStyling.enable = true;
   autoStyling.colorScheme = gruvbox-dark-medium;
-
-  hyprland.enable = true;
   awesomeWM.enable = true;
-
   services.xserver.displayManager = {
     sddm.enable = true;
     defaultSession = "none+awesome";

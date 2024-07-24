@@ -35,10 +35,10 @@
         gtksourceview
         webkitgtk
         accountsservice
-    ];
-  };
+      ];
+    };
 
-  home.packages = with pkgs; [
+    home.packages = with pkgs; [
       pamixer # volume and stuff
       brightnessctl # brightness/backlight control
 

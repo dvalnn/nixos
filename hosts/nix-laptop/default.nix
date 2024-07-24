@@ -1,7 +1,9 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{...}: {
+{pkgs, ...}: let
+  gruvbox-dark-medium = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+in {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -21,11 +23,11 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
-  # Enable AwesomeWM
-  awesomeWM.enable = true;
+  hyprland.enable = true;
+  autoStyling.colorScheme = gruvbox-dark-medium;
   services.xserver.displayManager = {
-    lightdm.enable = true;
-    defaultSession = "none+awesome";
+    sddm.enable = true;
+    defaultSession = "hyprland";
   };
 
   # This value determines the NixOS release from which the default

@@ -3,10 +3,9 @@
     ".config/awesome" = {
       source = ./config;
       recursive = true;
-  
-    ".config/rofi" = {
-      source = ./rofi;
     };
+  
+    ".config/rofi/gruvbox.rasi".source = ./rofi/gruvbox.rasi;
   };
 
   # Rice dependencies

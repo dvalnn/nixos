@@ -61,6 +61,7 @@
         };
         modules = [
           ./hosts/nix-laptop
+          ./nixosModules
           home-manager
           home-manager-opts
           stylix

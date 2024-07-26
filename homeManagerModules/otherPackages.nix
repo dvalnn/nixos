@@ -5,7 +5,7 @@
 
     # screenshot
     flameshot
-    
+
     # app launcher
     rofi
 

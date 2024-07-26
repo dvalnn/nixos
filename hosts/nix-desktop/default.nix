@@ -33,11 +33,15 @@ in {
     };
   };
 
-  autoStyling.enable = true;
-  autoStyling.colorScheme = gruvbox-dark-medium;
+  autoStyling = {
+    enable = true;
+    colorScheme = gruvbox-dark-medium;
+  };
 
-  # picom.enable = true;
   awesomeWM.enable = true;
+
+  services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;
 
   services.xserver.displayManager = {
     defaultSession = "none+awesome";

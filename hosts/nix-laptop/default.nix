@@ -24,10 +24,9 @@ in {
   services.libinput.enable = true;
 
   awesomeWM.enable = true;
-  services.xserver.enable = true;
   autoStyling.colorScheme = gruvbox-dark-medium;
   services.desktopManager.plasma6.enable = true;
-  services.xserver.displayManager.defaultSession = "none+awesome";
+  services.displayManager.defaultSession = "none+awesome";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

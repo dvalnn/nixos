@@ -22,28 +22,14 @@ in {
   networking.firewall.allowedTCPPorts = [];
   networking.firewall.allowedUDPPorts = [];
 
-  # xserver settings
-  services.xserver = {
-    enable = true;
-    videoDrivers = ["nvidia"];
-
-    xkb = {
-      layout = "pt";
-      variant = "";
-    };
-  };
-
-  autoStyling = {
-    enable = true;
-    colorScheme = gruvbox-dark-medium;
-  };
+  # enable nvidia drivers for x11 and wayland
+  services.xserver.videoDrivers = ["nvidia"];
 
   awesomeWM.enable = true;
+  autoStyling.colorScheme = gruvbox-dark-medium;
 
-  services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
-
-  services.xserver.displayManager = {
+  services.displayManager = {
     defaultSession = "none+awesome";
     # session commands are executed just after wm starts
     sessionCommands = ''

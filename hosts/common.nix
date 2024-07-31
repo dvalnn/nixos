@@ -37,5 +37,12 @@
     xorg.xrandr
   ];
 
-  services.xserver.displayManager.sddm.enable = true;
+  services.xserver = {
+    enable = true;
+    xkb = {
+      layout = "pt";
+      variant = "";
+    };
+  };
+  services.displayManager.sddm.enable = true;
 }

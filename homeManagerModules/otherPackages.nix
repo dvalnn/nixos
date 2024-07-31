@@ -6,9 +6,6 @@
     # screenshot
     flameshot
 
-    # app launcher
-    rofi
-
     # other Cli tools
     alejandra # nix formatter
     fastfetch

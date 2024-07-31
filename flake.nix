@@ -36,50 +36,46 @@
       email = "tiago.andre.amorim@gmail.com";
     };
 
-    home-manager = inputs.home-manager.nixosModules.home-manager;
-    home-manager-opts = {
-      home-manager = {
-        useGlobalPkgs = true;
-        useUserPackages = true;
+    commonModules = homeConfigPath: [
+      ./nixosModules
+      inputs.stylix.nixosModules.stylix
 
-        extraSpecialArgs = {
-          inherit inputs;
-          inherit user;
+      inputs.home-manager.nixosModules.home-manager
+      {
+        home-manager = {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+
+          extraSpecialArgs = {
+            inherit inputs user;
+          };
+
+          users.${user.name} = import homeConfigPath;
         };
-
-        users.${user.name} = import ./homeManagerModules;
-      };
-    };
-
-    stylix = inputs.stylix.nixosModules.stylix;
+      }
+    ];
   in {
     nixosConfigurations = {
       nix-laptop = nixpkgs.lib.nixosSystem {
         specialArgs = {
-          inherit inputs;
-          inherit user;
+          inherit inputs user;
         };
-        modules = [
-          ./hosts/nix-laptop
-          ./nixosModules
-          home-manager
-          home-manager-opts
-          stylix
-        ];
+        modules =
+          [
+            ./hosts/nix-laptop
+          ]
+          ++ commonModules ./homeManagerModules/laptop.nix;
       };
 
       nix-desktop = nixpkgs.lib.nixosSystem {
         specialArgs = {
-          inherit inputs;
-          inherit user;
+          inherit inputs user;
         };
-        modules = [
-          ./hosts/nix-desktop
-          ./nixosModules
-          home-manager
-          home-manager-opts
-          stylix
-        ];
+        modules =
+          [
+            ./hosts/nix-desktop
+          ]
+          ++ commonModules ./homeManagerModules/desktop.nix;
       };
     };
   };

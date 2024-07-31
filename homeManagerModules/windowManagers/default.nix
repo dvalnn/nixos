@@ -1,0 +1,8 @@
+{
+  ...
+}:{
+  imports = [
+    ./awesome
+    ./hyprland
+  ];
+}

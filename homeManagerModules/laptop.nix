@@ -5,5 +5,4 @@
   ];
 
   awesomeWM.enable = true;
-  # hyprland.enable = true;
 }

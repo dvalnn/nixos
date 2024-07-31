@@ -23,11 +23,11 @@ in {
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
-  hyprland.enable = true;
+  awesomeWM.enable = true;
   services.xserver.enable = true;
   autoStyling.colorScheme = gruvbox-dark-medium;
   services.desktopManager.plasma6.enable = true;
-  services.xserver.displayManager.defaultSession = "hyprland";
+  services.xserver.displayManager.defaultSession = "none+awesome";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

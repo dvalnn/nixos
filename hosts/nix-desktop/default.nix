@@ -28,7 +28,6 @@ in {
   awesomeWM.enable = true;
   autoStyling.colorScheme = gruvbox-dark-medium;
 
-  services.desktopManager.plasma6.enable = true;
   services.xserver.displayManager = {
     defaultSession = "none+awesome";
     # session commands are executed just after wm starts

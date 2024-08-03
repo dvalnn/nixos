@@ -26,7 +26,8 @@
 
     # GUI apps
     firefox
-    discord
+    google-chrome # sometimes its usefull
+    vesktop # alternative discord client
     spotify
 
     # File management

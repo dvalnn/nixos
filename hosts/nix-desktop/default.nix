@@ -29,7 +29,7 @@ in {
   autoStyling.colorScheme = gruvbox-dark-medium;
 
   services.desktopManager.plasma6.enable = true;
-  services.displayManager = {
+  services.xserver.displayManager = {
     defaultSession = "none+awesome";
     # session commands are executed just after wm starts
     sessionCommands = ''

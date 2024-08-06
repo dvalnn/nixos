@@ -23,6 +23,9 @@
     # ./direnv.nix
     ./fzf.nix
     ./zoxide.nix
+
+    # custom scripts
+    ./scripts/rebuild.nix
   ];
 
   options = {

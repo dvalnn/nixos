@@ -8,12 +8,18 @@
   };
 
   config = lib.mkIf config.zoxide.enable {
-    programs.fzf= {
+    programs.fzf = {
       enable = true;
-      enableZshIntegration = if config.zsh.enable then true else false;
+      enableZshIntegration =
+        if config.zsh.enable
+        then true
+        else false;
       tmux = {
-        enableShellIntegration = if config.tmux.enable then true else false;
-        shellIntegrationOptions = [ 
+        enableShellIntegration =
+          if config.tmux.enable
+          then true
+          else false;
+        shellIntegrationOptions = [
           "-p" # run in popup mode
         ]; # see fzf-tmux --help for available options
       };

@@ -21,9 +21,10 @@ lsp_zero.on_attach(function(client, bufnr)
     vim.keymap.set("n", "gt", function() builtin.lsp_type_definitions({ reuse_win = true }) end, opts("Goto Type Definition"))
 end)
 
-require 'lspconfig'.lua_ls.setup {}
-require 'lspconfig'.nil_ls.setup {} -- nix
+require 'lspconfig'.zls.setup {} -- zig
 require 'lspconfig'.taplo.setup {}  -- TOML
 require 'lspconfig'.pylsp.setup {}  -- python
 require 'lspconfig'.gopls.setup {}  -- go
-require 'lspconfig'.clangd.setup {}
+require 'lspconfig'.lua_ls.setup {} -- lua 
+require 'lspconfig'.nil_ls.setup {} -- nix
+require 'lspconfig'.clangd.setup {} -- c / cpp

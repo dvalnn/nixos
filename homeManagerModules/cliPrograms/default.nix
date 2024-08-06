@@ -21,6 +21,7 @@
     # tools
     # ./git.nix
     # ./direnv.nix
+    ./fzf.nix
     ./zoxide.nix
   ];
 
@@ -41,5 +42,6 @@
     # git.enable = lib.mkDefault true;
     # direnv.enable = lib.mkDefault true;
     zoxide.enable = lib.mkDefault true;
+    fzf.enable = lib.mkDefault true;
   };
 }

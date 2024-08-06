@@ -19,7 +19,6 @@
     dust
     bat
     eza
-    fzf
     jq
     fd
     gh # github cli

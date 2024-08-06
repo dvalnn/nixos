@@ -63,7 +63,7 @@
 
         init-c = "nix flake init -t github:nix-community/templates#c";
         init-go = "nix flake init -t github:nix-community/templates#go";
-        init-zig = "nix flake init -t github:nix-community/templates#zig";
+        init-zig = "nix flake init -t github:dvalnn/templates#zig"; # custom fork up-to-date with most recent zig version
         init-rust = "nix flake init -t github:nix-community/templates#rust";
         init-python = "nix flake init -t github:nix-community/templates#python";
       };

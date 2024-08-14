@@ -44,5 +44,6 @@
       variant = "";
     };
   };
+
   services.displayManager.sddm.enable = true;
 }

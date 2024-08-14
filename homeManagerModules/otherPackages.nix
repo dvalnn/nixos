@@ -1,36 +1,46 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [
-    #network management
-    networkmanagerapplet
+{
+  pkgs,
+  pkgs-stable,
+  ...
+}: {
+  home.packages =
+    (with pkgs-stable; [
+      spotify
+      google-chrome
+    ])
 
-    # screenshot
-    flameshot
+    ++ 
 
-    # other Cli tools
-    alejandra # nix formatter
-    fastfetch
-    ripgrep
-    repgrep
-    lazygit
-    xclip
-    unzip
-    btop
-    less
-    dust
-    bat
-    eza
-    jq
-    fd
-    gh # github cli
+    (with pkgs; [
+      #network management
+      networkmanagerapplet
 
-    # GUI apps
-    firefox
-    google-chrome # sometimes its usefull
-    vesktop # alternative discord client
-    spotify
+      # screenshot
+      flameshot
 
-    # File management
-    yazi
-    xfce.thunar
-  ];
+      # other Cli tools
+      alejandra # nix formatter
+      fastfetch
+      ripgrep
+      repgrep
+      lazygit
+      xclip
+      unzip
+      btop
+      less
+      dust
+      bat
+      eza
+      jq
+      fd
+      gh # github cli
+
+      # GUI apps
+      firefox
+      vesktop # alternative discord client
+
+      # File management
+      yazi
+      xfce.thunar
+    ]);
 }

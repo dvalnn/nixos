@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixosStable.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
     stylix.url = "github:danth/stylix";
 
@@ -12,6 +12,7 @@
       url = "https://github.com/hyprwm/Hyprland";
       submodules = true;
     };
+
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
@@ -30,15 +31,20 @@
   outputs = {
     self,
     nixpkgs,
+    nixpkgs-stable,
     ...
   } @ inputs: let
+    system = "x86_64-linux";
+    lib = nixpkgs.lib;
+    pkgs-stable = import nixpkgs-stable {inherit system; config.allowUnfree = true;} ;
+
     user = {
       name = "dvalinn";
       description = "Tiago Amorim";
       email = "tiago.andre.amorim@gmail.com";
     };
 
-    commonModules = homeConfigPath: [
+    homeConfig = homeConfigPath: [
       ./nixosModules
       inputs.stylix.nixosModules.stylix
 
@@ -49,7 +55,7 @@
           useUserPackages = true;
 
           extraSpecialArgs = {
-            inherit inputs user;
+            inherit inputs user pkgs-stable;
           };
 
           users.${user.name} = import homeConfigPath;
@@ -58,26 +64,28 @@
     ];
   in {
     nixosConfigurations = {
-      nix-laptop = nixpkgs.lib.nixosSystem {
+      nix-laptop = lib.nixosSystem {
         specialArgs = {
-          inherit inputs user;
+          inherit inputs user pkgs-stable;
         };
+
         modules =
           [
             ./hosts/nix-laptop
           ]
-          ++ commonModules ./homeManagerModules/laptop.nix;
+          ++ homeConfig ./homeManagerModules/laptop.nix;
       };
 
       nix-desktop = nixpkgs.lib.nixosSystem {
         specialArgs = {
-          inherit inputs user;
+          inherit inputs user pkgs-stable;
         };
+
         modules =
           [
             ./hosts/nix-desktop
           ]
-          ++ commonModules ./homeManagerModules/desktop.nix;
+          ++ homeConfig ./homeManagerModules/desktop.nix;
       };
     };
   };

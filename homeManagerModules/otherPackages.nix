@@ -8,10 +8,7 @@
       spotify
       google-chrome
     ])
-
-    ++ 
-
-    (with pkgs; [
+    ++ (with pkgs; [
       #network management
       networkmanagerapplet
 

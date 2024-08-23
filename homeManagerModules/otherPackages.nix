@@ -35,6 +35,8 @@
       # GUI apps
       firefox
       vesktop # alternative discord client
+      stremio
+      obsidian
 
       # File management
       yazi

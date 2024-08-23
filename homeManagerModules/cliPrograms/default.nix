@@ -19,13 +19,14 @@
     ./tmux
 
     # tools
-    # ./git.nix
-    # ./direnv.nix
+    ./git.nix
+    ./direnv.nix
     ./fzf.nix
     ./zoxide.nix
 
     # custom scripts
     ./scripts/rebuild.nix
+    ./scripts/update.nix
   ];
 
   options = {
@@ -42,9 +43,9 @@
 
     tmux.enable = lib.mkDefault true;
 
-    # git.enable = lib.mkDefault true;
-    # direnv.enable = lib.mkDefault true;
-    zoxide.enable = lib.mkDefault true;
     fzf.enable = lib.mkDefault true;
+    git.enable = lib.mkDefault true;
+    direnv.enable = lib.mkDefault true;
+    zoxide.enable = lib.mkDefault true;
   };
 }

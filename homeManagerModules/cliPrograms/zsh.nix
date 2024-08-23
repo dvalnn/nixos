@@ -66,6 +66,8 @@
         init-zig = "nix flake init -t github:dvalnn/templates#zig"; # custom fork up-to-date with most recent zig version
         init-rust = "nix flake init -t github:nix-community/templates#rust";
         init-python = "nix flake init -t github:nix-community/templates#python";
+
+        pyrepl = "nix run nixpkgs#python3"; # run python3 repl
       };
     };
   };

@@ -4,18 +4,6 @@
     ./otherPackages.nix
   ];
 
-  # programs.git = {
-  #   enable = true;
-  #   userName = user.name;
-  #   userEmail = user.email;
-  # };
-
-  # programs.direnv = {
-  #   enable = true;
-  #   enableZshIntegration = true;
-  #   nix-direnv.enable = true;
-  # };
-
   cliPrograms.enable = true;
 
   home.username = user.name;

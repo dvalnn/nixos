@@ -6,6 +6,7 @@
 }: {
   imports = [
     ./steam.nix
+    ./hamachi.nix
   ];
 
   options = {
@@ -13,8 +14,9 @@
   };
 
   config = lib.mkIf config.gaming.enable {
-    steam.enable = true;
-    programs.gamemode.enable = true;
+    steam.enable = lib.mkDefault true;
+    hamachi.enable = lib.mkDefault false;
+    programs.gamemode.enable = lib.mkDefault true;
 
     environment.systemPackages = with pkgs; [
       mangohud # msi afterburner monitor thingy

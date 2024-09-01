@@ -17,6 +17,7 @@
 
     # terminal multiplexers
     ./tmux
+    ./zellij.nix
 
     # tools
     ./git.nix
@@ -42,6 +43,7 @@
     nvim.enable = lib.mkDefault true;
 
     tmux.enable = lib.mkDefault true;
+    zellij.enable = lib.mkDefault false;
 
     fzf.enable = lib.mkDefault true;
     git.enable = lib.mkDefault true;

@@ -4,5 +4,6 @@
     ./system
     ./stylix
     ./windowManagers
+    ./rules
   ];
 }

@@ -13,7 +13,7 @@
     users.users.${user.name} = {
       isNormalUser = true;
       description = user.description;
-      extraGroups = ["networkmanager" "wheel" "gamemode" "docker"];
+      extraGroups = ["networkmanager" "wheel" "gamemode" "docker" "plugdev"];
       openssh.authorizedKeys.keys = [];
       shell = pkgs.zsh;
     };

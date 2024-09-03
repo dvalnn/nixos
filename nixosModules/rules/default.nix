@@ -1,5 +1,9 @@
-{...}: {
-  services.udev.extraRules = ''
-    ${builtins.readFile ./69-probe-rs.rules}
-  '';
+{pkgs, ...}: {
+  services.udev = {
+    packages = with pkgs; [
+      picoprobe-udev-rules # probe-rs udev rules
+    ];
+    extraRules = ''
+    '';
+  };
 }

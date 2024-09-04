@@ -25,7 +25,7 @@ in {
 
   awesomeWM.enable = true;
   autoStyling.colorScheme = gruvbox-dark-medium;
-  # services.desktopManager.plasma6.enable = true;
+  services.desktopManager.plasma6.enable = true;
   services.displayManager.defaultSession = "none+awesome";
 
   # This value determines the NixOS release from which the default

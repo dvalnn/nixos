@@ -1,6 +1,5 @@
 plugins {
     zellij-forgot location="https://github.com/karimould/zellij-forgot/releases/download/0.4.0/zellij_forgot.wasm"
-    compact-bar location="zellij:compact-bar"
 }
 
 keybinds {
@@ -53,13 +52,3 @@ keybinds {
         }
     }
 }
-
-layout {
-  default_tab_template {
-    children
-    pane size=1 borderless=true {
-      plugin location="compact-bar"
-    }
-  }
-}
-

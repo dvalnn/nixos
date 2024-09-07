@@ -43,6 +43,11 @@
           }
         }
       '';
+
+      ".config/zellij/layouts" = {
+        source = ./layouts;
+        recursive = true;
+      };
     };
   };
 }

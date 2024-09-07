@@ -17,7 +17,7 @@
       settings = {
         layout = "compact";
         plugins = {
-          forgot.location = "https://github.com/karimould/zellij-forgot/releases/download/0.4.0/zellij_forgot.wasm";
+          "forgot location=" = "https://github.com/karimould/zellij-forgot/releases/download/0.4.0/zellij_forgot.wasm";
         };
       };
     };

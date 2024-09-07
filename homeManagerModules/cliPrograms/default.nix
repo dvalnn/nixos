@@ -17,7 +17,7 @@
 
     # terminal multiplexers
     ./tmux
-    ./zellij.nix
+    ./zellij
 
     # tools
     ./git.nix

@@ -34,6 +34,7 @@
         mini-nvim
         persistence-nvim
         vim-tmux-navigator
+        zellij-nav-nvim
 
         # user interface
         indentLine # vertical indentation guides

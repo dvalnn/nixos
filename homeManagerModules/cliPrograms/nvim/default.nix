@@ -34,6 +34,7 @@
         mini-nvim
         persistence-nvim
         vim-tmux-navigator
+        zellij-nav-nvim
 
         # user interface
         indentLine # vertical indentation guides
@@ -61,7 +62,7 @@
 
         # Treesitter and language grammar packs
         (nvim-treesitter.withPlugins (
-          p: [p.c p.cpp p.rust p.go p.lua p.nix p.markdown p.javascript p.zig]
+          p: [p.c p.cpp p.rust p.go p.lua p.nix p.markdown p.javascript p.zig p.kdl]
         ))
 
         #LSP and completion

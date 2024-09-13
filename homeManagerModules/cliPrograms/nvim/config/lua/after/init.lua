@@ -8,6 +8,6 @@ require("after.plugin.startify")
 require("after.plugin.telescope")
 require("after.plugin.todo-comments")
 require("after.plugin.undotree")
-require("after.plugin.zellij-nav")
+-- require("after.plugin.zellij-nav")
 
 require("after.lang")

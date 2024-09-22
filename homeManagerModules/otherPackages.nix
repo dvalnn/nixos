@@ -37,6 +37,7 @@
       vesktop # alternative discord client
       stremio
       obsidian
+      vscode-fhs
 
       # File management
       yazi

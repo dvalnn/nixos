@@ -56,6 +56,19 @@ in {
     };
   };
 
+  # TODO: make this a module
+  virtualisation.virtualbox = {
+    host = {
+      enable = true;
+      enableExtensionPack = true;
+    };
+    guest = {
+      enable = true;
+      draganddrop = true;
+    };
+  };
+  users.extraGroups.vboxusers.members = ["dvalinn"];
+
   # Module configuration options
   gaming.enable = true;
 

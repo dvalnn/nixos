@@ -64,7 +64,7 @@ in {
     };
     guest = {
       enable = true;
-      draganddrop = true;
+      dragAndDrop = true;
     };
   };
   users.extraGroups.vboxusers.members = ["dvalinn"];

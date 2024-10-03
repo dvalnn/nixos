@@ -45,6 +45,7 @@
       name = "dvalinn";
       description = "Tiago Amorim";
       email = "tiago.andre.amorim@gmail.com";
+      uid = 1000;
     };
 
     homeConfig = homeConfigPath: [

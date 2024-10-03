@@ -16,6 +16,7 @@
       extraGroups = ["networkmanager" "wheel" "gamemode" "docker" "plugdev"];
       openssh.authorizedKeys.keys = [];
       shell = pkgs.zsh;
+      uid = user.uid;
     };
 
     programs.zsh.enable = true;

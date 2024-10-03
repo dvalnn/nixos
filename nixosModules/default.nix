@@ -5,5 +5,6 @@
     ./stylix
     ./windowManagers
     ./rules
+    ./homelabCifs
   ];
 }

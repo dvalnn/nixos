@@ -20,13 +20,13 @@ in {
       networking.firewall.extraCommands = ''iptables -t raw -A OUTPUT -p udp -m udp --dport 137 -j CT --helper netbios-ns'';
       environment.systemPackages = [pkgs.cifs-utils];
       fileSystems."/home/${user.name}/homelab/shared" = {
-        device = "//omv.home/shared";
+        device = "//192.168.1.56/shared";
         fsType = "cifs";
         options = cifs_opts;
       };
 
       fileSystems."/home/${user.name}/homelab/tiago" = {
-        device = "//omv.home/tiago";
+        device = "//192.168.1.56/tiago";
         fsType = "cifs";
         options = cifs_opts;
       };

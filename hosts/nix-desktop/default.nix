@@ -4,6 +4,7 @@
 {
   config,
   pkgs,
+  user,
   ...
 }: let
   gruvbox-dark-medium = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
@@ -59,15 +60,15 @@ in {
   # TODO: make this a module
   virtualisation.virtualbox = {
     host = {
-      enable = true;
-      enableExtensionPack = true;
+      enable = false;
+      enableExtensionPack = false;
     };
     guest = {
-      enable = true;
+      enable = false;
       dragAndDrop = true;
     };
   };
-  users.extraGroups.vboxusers.members = ["dvalinn"];
+  users.extraGroups.vboxusers.members = [user.name];
 
   # Module configuration options
   gaming.enable = true;

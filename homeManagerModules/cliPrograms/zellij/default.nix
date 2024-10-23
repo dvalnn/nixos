@@ -9,14 +9,9 @@
   };
 
   config = lib.mkIf config.zellij.enable {
-    programs.zellij = let
-      zshIntegration =
-        if config.zsh.enable
-        then true
-        else false;
-    in {
+    programs.zellij = {
       enable = true;
-      enableZshIntegration = lib.mkDefault zshIntegration;
+      enableZshIntegration = lib.mkDefault false;
     };
 
     stylix.targets.zellij.enable = false;

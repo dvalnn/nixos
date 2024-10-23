@@ -9,14 +9,9 @@
   };
 
   config = lib.mkIf config.zoxide.enable {
-    programs.zoxide = let
-      zshIntegration =
-        if config.zsh.enable
-        then true
-        else false;
-    in {
+    programs.zoxide = {
       enable = true;
-      enableZshIntegration = lib.mkDefault zshIntegration;
+      enableZshIntegration = lib.mkDefault true;
     };
   };
 }

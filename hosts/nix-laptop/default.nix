@@ -22,6 +22,7 @@ in {
   hardware.bluetooth.enable = true;
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
+  services.libinput.touchpad.naturalScrolling = true;
 
   awesomeWM.enable = true;
   autoStyling.colorScheme = gruvbox-dark-medium;

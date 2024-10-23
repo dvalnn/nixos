@@ -10,6 +10,7 @@
 
     # terminals
     ./alacritty.nix
+    ./kitty.nix
 
     # editors
     ./nvim
@@ -39,6 +40,7 @@
     ohMyPosh.enable = lib.mkDefault true;
 
     alacritty.enable = lib.mkDefault true;
+    kitty.enable = lib.mkDefault false;
 
     nvim.enable = lib.mkDefault true;
 

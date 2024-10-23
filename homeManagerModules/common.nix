@@ -1,4 +1,8 @@
-{user, ...}: {
+{
+  lib,
+  user,
+  ...
+}: {
   imports = [
     ./cliPrograms
     ./otherPackages.nix
@@ -9,6 +13,10 @@
   # replacing tmux with zellij since tmux leader key is broken atm.
   tmux.enable = false;
   zellij.enable = true;
+  zellij.zshIntegration = lib.mkForce false;
+
+  # trying out kitty
+  kitty.enable = true;
 
   # disable stylix for kde since setting wallpaper is broken
   stylix.targets.kde.enable = false;

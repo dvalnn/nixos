@@ -5,15 +5,18 @@
 }: {
   options = {
     zellij.enable = lib.mkEnableOption "enable zellij";
+    zellij.zshIntegration = lib.mkEnableOption "enable zellij integration with Zsh";
   };
 
   config = lib.mkIf config.zellij.enable {
-    programs.zellij = {
-      enable = true;
-      enableZshIntegration =
+    programs.zellij = let
+      zshIntegration =
         if config.zsh.enable
         then true
         else false;
+    in {
+      enable = true;
+      enableZshIntegration = lib.mkDefault zshIntegration;
     };
 
     stylix.targets.zellij.enable = false;

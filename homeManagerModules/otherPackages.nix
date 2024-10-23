@@ -1,8 +1,5 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    # TODO: extract this into dedicated config
-    kitty
-
     #network management
     networkmanagerapplet
 
@@ -34,6 +31,7 @@
     vscode-fhs
     spotify
     google-chrome
+    mendeley # for master's thesis
 
     # File management
     yazi

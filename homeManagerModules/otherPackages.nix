@@ -4,8 +4,8 @@
     networkmanagerapplet
 
     # feup l2tp vpn
+    networkmanager_strongswan
     networkmanager-l2tp
-    strongswan
     xl2tpd
 
     # screenshot

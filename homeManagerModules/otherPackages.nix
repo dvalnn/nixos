@@ -2,7 +2,11 @@
   home.packages = with pkgs; [
     #network management
     networkmanagerapplet
+
+    # feup l2tp vpn
     networkmanager-l2tp
+    strongswan
+    xl2tpd
 
     # screenshot
     flameshot

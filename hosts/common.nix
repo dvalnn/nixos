@@ -5,6 +5,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Switch from LTS to the latest kernel
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   # Enable networking
   networking.networkmanager.enable = true;
   # Open ports in the firewall.

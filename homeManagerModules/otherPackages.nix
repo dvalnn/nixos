@@ -2,6 +2,7 @@
   home.packages = with pkgs; [
     #network management
     networkmanagerapplet
+    networkmanager-l2tp
 
     # screenshot
     flameshot

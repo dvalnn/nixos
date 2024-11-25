@@ -29,4 +29,3 @@ require 'lspconfig'.lua_ls.setup {} -- lua
 require 'lspconfig'.nil_ls.setup {} -- nix
 require 'lspconfig'.clangd.setup {} -- c / cpp
 require 'lspconfig'.biome.setup {} -- js / ts
-require'lspconfig'.jdtls.setup{} -- java

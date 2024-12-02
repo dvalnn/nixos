@@ -70,7 +70,20 @@
 
         # Treesitter and language grammar packs
         (nvim-treesitter.withPlugins (
-          p: [p.c p.cpp p.rust p.go p.lua p.nix p.markdown p.python p.javascript p.zig p.kdl]
+          p: [
+            p.c
+            p.cpp
+            p.rust
+            p.go
+            p.lua
+            p.nix
+            p.markdown
+            p.python
+            p.javascript
+            p.java
+            p.zig
+            p.kdl
+          ]
         ))
 
         #LSP and completion

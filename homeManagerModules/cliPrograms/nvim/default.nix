@@ -14,13 +14,6 @@
         source = ./config;
         recursive = true;
       };
-      ".config/nvim/lua/after/lang/java.lua".text = ''
-        local config = {
-            cmd = {'${pkgs.jdt-language-server}/bin/jdtls'},
-            root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
-        }
-        require('jdtls').start_or_attach(config)
-      '';
     };
 
     programs.neovim = {
@@ -34,7 +27,6 @@
         taplo # TOML
         lua-language-server
         python312Packages.python-lsp-server
-        jdt-language-server #java
       ];
 
       plugins = with pkgs.vimPlugins; [
@@ -80,7 +72,6 @@
             p.markdown
             p.python
             p.javascript
-            p.java
             p.zig
             p.kdl
           ]
@@ -99,8 +90,6 @@
 
         rustaceanvim # rust specific features
         crates-nvim
-
-        nvim-jdtls # java specific features
 
         vim-nix # better nix language support
       ];

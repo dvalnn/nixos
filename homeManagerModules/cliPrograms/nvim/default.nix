@@ -87,6 +87,7 @@
         cmp-path
         cmp-cmdline
         nvim-cmp
+        copilot-vim
 
         rustaceanvim # rust specific features
         crates-nvim

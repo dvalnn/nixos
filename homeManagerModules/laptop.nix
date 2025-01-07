@@ -4,5 +4,5 @@
     ./windowManagers
   ];
 
-  awesomeWM.enable = true;
+  awesomeWM.enable = false;
 }

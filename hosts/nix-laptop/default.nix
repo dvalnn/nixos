@@ -9,30 +9,34 @@ in {
     ./hardware-configuration.nix
     ./../common.nix
   ];
-  networking.hostName = "nix-laptop"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking = {
+    hostName = "nix-laptop"; # Define your hostname.
+    # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-  networking.firewall.allowedTCPPorts = [];
-  networking.firewall.allowedUDPPorts = [];
+    # Configure network proxy if necessary
+    # networking.proxy.default = "http://user:password@proxy:port/";
+    # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+    firewall.allowedTCPPorts = [];
+    firewall.allowedUDPPorts = [];
+  };
 
   # Enable bluetooth
   hardware.bluetooth.enable = true;
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.libinput.enable = true;
-  services.libinput.touchpad.naturalScrolling = true;
+  services = {
+    # Enable touchpad support (enabled default in most desktopManager).
+    libinput.enable = true;
+    libinput.touchpad.naturalScrolling = true;
+    desktopManager.plasma6.enable = true;
+    #services.displayManager.defaultSession = "none+awesome";
 
-  awesomeWM.enable = true;
-  autoStyling.colorScheme = gruvbox-dark-medium;
-  services.desktopManager.plasma6.enable = true;
-  services.displayManager.defaultSession = "none+awesome";
-
-  services.zerotierone = {
-    enable = true;
-    joinNetworks = [];
+    zerotierone = {
+      enable = true;
+      joinNetworks = [];
+    };
   };
+
+  awesomeWM.enable = false;
+  autoStyling.colorScheme = gruvbox-dark-medium;
 
   homelabCifs.enable = true;
 

@@ -26,7 +26,6 @@
       mpc-cli
       mpd
       scrot
-      unclutter
       xorg.xbacklight
       xsel
       slock

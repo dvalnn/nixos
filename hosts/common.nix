@@ -1,4 +1,8 @@
-{pkgs, user, ...}: {
+{
+  pkgs,
+  user,
+  ...
+}: {
   nixpkgs.config.allowUnfree = true;
 
   # Bootloader.
@@ -67,7 +71,7 @@
   };
 
   virtualisation.docker.enable = true;
-  users.users.${user.name}.extraGroups = [ "docker" ];
+  users.users.${user.name}.extraGroups = ["docker"];
 
   services.displayManager.sddm.enable = true;
 }

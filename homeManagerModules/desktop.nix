@@ -5,5 +5,4 @@
   ];
 
   awesomeWM.enable = true;
-  services.unclutter.enable = true;
 }

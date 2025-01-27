@@ -13,7 +13,8 @@
     ./kitty.nix
 
     # editors
-    ./nvim
+    ./nvim/regular.nix
+    ./nvim/nvf.nix
     ./helix.nix
 
     # terminal multiplexers
@@ -43,6 +44,7 @@
     kitty.enable = lib.mkDefault false;
 
     nvim.enable = lib.mkDefault true;
+    nvf.enable = lib.mkDefault false;
 
     tmux.enable = lib.mkDefault true;
     zellij.enable = lib.mkDefault false;

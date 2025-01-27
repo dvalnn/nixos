@@ -26,6 +26,11 @@
     # Wayland widgets lib
     ags.url = "github:Aylur/ags";
     swww.url = "github:LGFae/swww";
+
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {

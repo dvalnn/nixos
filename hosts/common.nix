@@ -1,6 +1,5 @@
 {
   pkgs,
-  user,
   ...
 }: {
   nixpkgs.config.allowUnfree = true;
@@ -77,7 +76,6 @@
       setSocketVariable = true;
     };
   };
-  users.users.${user.name}.extraGroups = ["docker"];
 
   services.displayManager.sddm.enable = true;
 }

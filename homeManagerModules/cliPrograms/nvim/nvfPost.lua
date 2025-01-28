@@ -1,6 +1,6 @@
 -- Cool remaps I can't do with nvf --
 
-# TODO: add descriptions to all keybinds
+-- TODO: add descriptions to all keybinds
 
 vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])

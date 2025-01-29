@@ -37,7 +37,6 @@
     spotify
     google-chrome
     mendeley # for master's thesis
-    parsec-bin
 
     # File management
     yazi

@@ -56,6 +56,36 @@
           keymaps = [
             # normal mode
             {
+              key = "<C-l>";
+              mode = "n";
+              silent = true;
+              action = "<C-w>l";
+            }
+            {
+              key = "<C-k>";
+              mode = "n";
+              silent = true;
+              action = "<C-w>k";
+            }
+            {
+              key = "<C-j>";
+              mode = "n";
+              silent = true;
+              action = "<C-w>j";
+            }
+            {
+              key = "<C-h>";
+              mode = "n";
+              silent = true;
+              action = "<C-w>h";
+            }
+            {
+              key = "<leader>e";
+              mode = "n";
+              silent = true;
+              action = "<CMD>NvimTreeToggle<CR>";
+            }
+            {
               key = "<C-d>";
               mode = "n";
               silent = true;
@@ -119,7 +149,16 @@
           autocomplete = {
             nvim-cmp = {
               enable = true;
-              sourcePlugins = ["cmp-path" "cmp-buffer" "crates-nvim"];
+              sourcePlugins = [
+                "cmp-path"
+                "cmp-buffer"
+                # TODO: install cmp-cmdline separately
+                # "cmp-cmdline"
+                "cmp-nvim-lsp"
+                "nvim-cmp"
+                "crates-nvim"
+              ];
+
               sources = {
                 buffer = "[Buffer]";
                 path = "[Path]";

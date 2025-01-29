@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  user,
+  ...
+}: {
   nixpkgs.config.allowUnfree = true;
 
   # Bootloader.
@@ -75,4 +79,11 @@
   };
 
   services.displayManager.sddm.enable = true;
+
+  # make the user not have to type the sudo password for poweroff/reboot
+  security.sudo.extraConfig = let
+    systemctl = "/run/current-system/sw/bin/systemctl";
+  in ''
+    ${user.name} ALL=NOPASSWD: ${systemctl} poweroff, ${systemctl} reboot
+  '';
 }

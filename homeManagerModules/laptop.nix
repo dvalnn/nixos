@@ -6,6 +6,6 @@
 
   awesomeWM.enable = false;
 
-  nvim.enable = false;
-  nvf.enable = true;
+  nvim.enable = true;
+  nvf.enable = false;
 }

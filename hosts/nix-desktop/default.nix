@@ -77,6 +77,7 @@ in {
 
   # Module configuration options
   gaming.enable = true;
+  sunshine.enable = true;
   homelabCifs.enable = true;
 
   # This value determines the NixOS release from which the default

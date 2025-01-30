@@ -7,6 +7,7 @@
   imports = [
     ./steam.nix
     ./hamachi.nix
+    ./sunshine.nix
   ];
 
   options = {
@@ -16,6 +17,7 @@
   config = lib.mkIf config.gaming.enable {
     steam.enable = lib.mkDefault true;
     hamachi.enable = lib.mkDefault false;
+    sunshine.enable = lib.mkDefault false;
     programs.gamemode.enable = lib.mkDefault true;
 
     environment.systemPackages = with pkgs; [

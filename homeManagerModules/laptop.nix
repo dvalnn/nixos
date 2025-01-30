@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   imports = [
     ./common.nix
     ./windowManagers
@@ -8,4 +8,8 @@
 
   nvim.enable = false;
   nvf.enable = true;
+
+  home.packages = with pkgs; [
+    moonlight-qt
+  ];
 }

@@ -8,16 +8,12 @@
     networkmanager-l2tp
     xl2tpd
 
-    # screenshot
-    flameshot
-
     # other Cli tools
     alejandra # nix formatter
     fastfetch
     ripgrep
     repgrep
     lazygit
-    xclip
     unzip
     btop
     less
@@ -26,7 +22,6 @@
     eza
     jq
     fd
-    gh # github cli
 
     # GUI apps
     firefox
@@ -37,9 +32,5 @@
     spotify
     google-chrome
     mendeley # for master's thesis
-
-    # File management
-    yazi
-    xfce.thunar
   ];
 }

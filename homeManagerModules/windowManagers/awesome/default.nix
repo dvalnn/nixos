@@ -31,7 +31,5 @@
       slock
       rofi
     ];
-
-    # services.picom.enable = true; #TODO: place this under enable option
   };
 }

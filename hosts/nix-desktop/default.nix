@@ -36,7 +36,8 @@ in {
       --output DP-0  --mode 1920x1080 --rate 144 --pos 1920x0 --rotate normal \
       --output DP-4 --primary --mode 1920x1080 --rate 144 --pos 0x0 --rotate normal \
     '';
-    displayManager.defaultSession = "none+awesome";
+    # displayManager.defaultSession = "none+awesome";
+    desktopManager.plasma6.enable = true;
   };
 
   awesomeWM.enable = true;

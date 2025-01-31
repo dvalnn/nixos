@@ -40,7 +40,7 @@ in {
     desktopManager.plasma6.enable = true;
   };
 
-  awesomeWM.enable = true;
+  awesomeWM.enable = false;
   autoStyling.colorScheme = gruvbox-dark-medium;
 
   hardware = {

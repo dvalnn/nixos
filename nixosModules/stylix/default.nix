@@ -15,27 +15,28 @@ in {
   };
 
   config = lib.mkIf config.autoStyling.enable {
-    stylix.enable = true;
+    stylix = {
+      enable = true;
+      base16Scheme = config.autoStyling.colorScheme;
+      image = config.autoStyling.image;
 
-    stylix.base16Scheme = config.autoStyling.colorScheme;
-    stylix.image = config.autoStyling.image;
-
-    stylix.fonts = {
-      monospace = {
-        package = pkgs.nerd-fonts.jetbrains-mono;
-        name = "JetBrainsMono Nerd Font";
-      };
-      sansSerif = {
-        package = pkgs.noto-fonts;
-        name = "Noto Sans";
-      };
-      serif = {
-        package = pkgs.noto-fonts;
-        name = "Noto Serif";
-      };
-      emoji = {
-        package = pkgs.noto-fonts-emoji;
-        name = "Noto Color Emoji";
+      fonts = {
+        monospace = {
+          package = pkgs.nerd-fonts.jetbrains-mono;
+          name = "JetBrainsMono Nerd Font";
+        };
+        sansSerif = {
+          package = pkgs.noto-fonts;
+          name = "Noto Sans";
+        };
+        serif = {
+          package = pkgs.noto-fonts;
+          name = "Noto Serif";
+        };
+        emoji = {
+          package = pkgs.noto-fonts-emoji;
+          name = "Noto Color Emoji";
+        };
       };
     };
   };

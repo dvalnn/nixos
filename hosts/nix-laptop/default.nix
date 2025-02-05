@@ -27,8 +27,11 @@ in {
     # Enable touchpad support (enabled default in most desktopManager).
     libinput.enable = true;
     libinput.touchpad.naturalScrolling = true;
-    desktopManager.plasma6.enable = true;
-    #services.displayManager.defaultSession = "none+awesome";
+
+    xserver.displayManager.gdm.enable = true;
+    xserver.desktopManager.gnome.enable = true;
+
+    udev.packages = with pkgs; [ gnome-settings-daemon ];
 
     zerotierone = {
       enable = true;
@@ -36,9 +39,7 @@ in {
     };
   };
 
-  awesomeWM.enable = false;
   autoStyling.colorScheme = gruvbox-dark-medium;
-
   homelabCifs.enable = true;
 
   # This value determines the NixOS release from which the default

@@ -37,7 +37,10 @@ in {
       --output DP-4 --primary --mode 1920x1080 --rate 144 --pos 0x0 --rotate normal \
     '';
     # displayManager.defaultSession = "none+awesome";
-    desktopManager.plasma6.enable = true;
+    xserver.displayManager.gdm.enable = true;
+    xserver.desktopManager.gnome.enable = true;
+
+    udev.packages = with pkgs; [ gnome-settings-daemon ];
   };
 
   awesomeWM.enable = false;

@@ -2,6 +2,7 @@
   imports = [
     ./cliPrograms
     ./otherPackages.nix
+    ./gnome.nix
   ];
 
   cliPrograms.enable = true;
@@ -9,12 +10,6 @@
   # replacing tmux with zellij since tmux leader key is broken atm.
   tmux.enable = false;
   zellij.enable = true;
-
-  # trying out kitty
-  kitty.enable = true;
-
-  # disable stylix for kde since setting wallpaper is broken
-  stylix.targets.kde.enable = false;
 
   home.username = user.name;
   home.homeDirectory = "/home/${user.name}";

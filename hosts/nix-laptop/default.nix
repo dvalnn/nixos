@@ -39,6 +39,7 @@ in {
   awesomeWM.enable = false;
   autoStyling.colorScheme = gruvbox-dark-medium;
 
+  gaming.enable = true;
   homelabCifs.enable = true;
 
   # This value determines the NixOS release from which the default

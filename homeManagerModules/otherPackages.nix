@@ -14,6 +14,7 @@
     ripgrep
     repgrep
     lazygit
+    xclip
     unzip
     btop
     less

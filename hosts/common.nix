@@ -37,7 +37,7 @@
   # Keymap configuration for console
   console.keyMap = "pt-latin1";
 
-  autoStyling.enable = true;
+  autoStyling.enable = true; ## stylix module
 
   environment.systemPackages = with pkgs; [
     xorg.xinit

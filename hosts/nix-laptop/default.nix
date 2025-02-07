@@ -28,7 +28,13 @@ in {
     libinput.enable = true;
     libinput.touchpad.naturalScrolling = true;
 
-    xserver.displayManager.gdm.enable = true;
+    xserver.displayManager = {
+      defualtSession = "";
+      gdm = {
+        wayland = false;
+        enable = true;
+      };
+    };
     xserver.desktopManager.gnome.enable = true;
 
     udev.packages = with pkgs; [gnome-settings-daemon];

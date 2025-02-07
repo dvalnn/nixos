@@ -4,10 +4,7 @@
     settings."org/gnome/shell" = {
       disable-user-extensions = false;
       enabled-extensions = with pkgs.gnomeExtensions; [
-        appindicator.extensionUuid
-        tiling-shell.extensionUuid
-        blur-my-shell.extensionUuid
-        tweaks-in-system-menu.extensionUuid
+        system-monitor.extensionUuid
       ];
     };
   };

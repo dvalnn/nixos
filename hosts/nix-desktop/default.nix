@@ -28,19 +28,33 @@ in {
 
   services = {
     # enable nvidia drivers for x11 and wayland
-    xserver.videoDrivers = ["nvidia"];
+    xserver = {
+      videoDrivers = ["nvidia"];
 
-    # session commands are executed just after wm starts
-    xserver.displayManager.sessionCommands = ''
-      xrandr \
-      --output DP-0  --mode 1920x1080 --rate 144 --pos 1920x0 --rotate normal \
-      --output DP-4 --primary --mode 1920x1080 --rate 144 --pos 0x0 --rotate normal \
-    '';
-    # displayManager.defaultSession = "none+awesome";
-    xserver.displayManager.gdm.enable = true;
-    xserver.desktopManager.gnome.enable = true;
+      displayManager = {
+        sessionCommands = ''
+        xrandr \
+        --output DP-0  --mode 1920x1080 --rate 144 --pos 1920x0 --rotate normal \
+        --output DP-4 --primary --mode 1920x1080 --rate 144 --pos 0x0 --rotate normal \
+        '';
+
+        defaultSession = "gnome-xorg";
+        gdm = {
+          enable = true;
+          wayland = false;
+        };
+      };
+
+
+      desktopManager.gnome.enable = true;
+    };
 
     udev.packages = with pkgs; [gnome-settings-daemon];
+
+    zerotierone = {
+      enable = true;
+      joinNetworks = [];
+    };
   };
 
   awesomeWM.enable = false;

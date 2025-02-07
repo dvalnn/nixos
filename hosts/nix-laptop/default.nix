@@ -29,14 +29,13 @@ in {
     libinput.touchpad.naturalScrolling = true;
 
     xserver.displayManager = {
-      defualtSession = "";
+      defaultSession = "gnome-xorg";
       gdm = {
         wayland = false;
         enable = true;
       };
     };
     xserver.desktopManager.gnome.enable = true;
-
     udev.packages = with pkgs; [gnome-settings-daemon];
 
     zerotierone = {

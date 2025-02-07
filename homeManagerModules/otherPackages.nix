@@ -33,5 +33,8 @@
     spotify
     google-chrome
     mendeley # for master's thesis
+
+    # remote desktop
+    rustdesk
   ];
 }

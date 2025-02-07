@@ -1,4 +1,4 @@
-{pkgs, ... }: {
+{pkgs, ...}: {
   dconf = {
     enable = true;
     settings."org/gnome/shell" = {
@@ -17,4 +17,3 @@
     adwaita-icon-theme
   ];
 }
-

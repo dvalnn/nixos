@@ -22,8 +22,8 @@ in {
 
       fonts = {
         monospace = {
-          package = pkgs.nerd-fonts.jetbrains-mono;
-          name = "JetBrainsMono Nerd Font";
+          package = pkgs.nerd-fonts.fira-mono;
+          name = "FiraMono Nerd Font";
         };
         sansSerif = {
           package = pkgs.noto-fonts;

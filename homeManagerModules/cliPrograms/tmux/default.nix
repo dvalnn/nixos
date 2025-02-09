@@ -25,10 +25,10 @@
         gruvbox
         vim-tmux-navigator
 
-        {
-          plugin = resurrect;
-          extraConfig = "set -g @resurrect-strategy-nvim 'session'";
-        }
+        # {
+        #   plugin = resurrect;
+        #   extraConfig = "set -g @resurrect-strategy-nvim 'session'";
+        # }
       ];
     };
   };

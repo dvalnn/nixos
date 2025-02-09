@@ -7,10 +7,6 @@
 
   cliPrograms.enable = true;
 
-  # replacing tmux with zellij since tmux leader key is broken atm.
-  tmux.enable = false;
-  zellij.enable = true;
-
   home.username = user.name;
   home.homeDirectory = "/home/${user.name}";
 

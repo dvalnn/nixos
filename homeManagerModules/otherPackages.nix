@@ -23,6 +23,7 @@
     eza
     jq
     fd
+    gh
 
     # GUI apps
     firefox
@@ -33,6 +34,7 @@
     spotify
     google-chrome
     mendeley # for master's thesis
+    drawio
 
     # remote desktop
     rustdesk

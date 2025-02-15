@@ -3,29 +3,18 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     stylix.url = "github:danth/stylix";
-
-    hyprland = {
-      type = "git";
-      url = "https://github.com/hyprwm/Hyprland";
-      submodules = true;
-    };
-
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # Wayland widgets lib
-    ags.url = "github:Aylur/ags";
-    swww.url = "github:LGFae/swww";
 
     nvf = {
       url = "github:notashelf/nvf";
@@ -36,15 +25,10 @@
   outputs = {
     self,
     nixpkgs,
-    nixpkgs-stable,
+    lix-module,
     ...
   } @ inputs: let
-    system = "x86_64-linux";
     lib = nixpkgs.lib;
-    pkgs-stable = import nixpkgs-stable {
-      inherit system;
-      config.allowUnfree = true;
-    };
 
     user = {
       name = "dvalinn";
@@ -64,7 +48,7 @@
           useUserPackages = true;
 
           extraSpecialArgs = {
-            inherit inputs user pkgs-stable;
+            inherit inputs user;
           };
 
           users.${user.name} = import homeConfigPath;
@@ -75,11 +59,12 @@
     nixosConfigurations = {
       nix-laptop = lib.nixosSystem {
         specialArgs = {
-          inherit inputs user pkgs-stable;
+          inherit inputs user;
         };
 
         modules =
           [
+            lix-module.nixosModules.default
             ./hosts/nix-laptop
           ]
           ++ homeConfig ./homeManagerModules/laptop.nix;
@@ -87,11 +72,12 @@
 
       nix-desktop = nixpkgs.lib.nixosSystem {
         specialArgs = {
-          inherit inputs user pkgs-stable;
+          inherit inputs user;
         };
 
         modules =
           [
+            lix-module.nixosModules.default
             ./hosts/nix-desktop
           ]
           ++ homeConfig ./homeManagerModules/desktop.nix;

@@ -5,7 +5,6 @@
       set -e
       pushd ~/nixos/
       nvim
-      alejandra . &>/dev/null
       git add .
       git diff -U0 *.nix
       echo "NixOS Rebuilding..."

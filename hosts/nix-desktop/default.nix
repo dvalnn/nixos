@@ -30,8 +30,10 @@ in
 
   gnomeDE.enable = true;
   services = {
-    # enable nvidia drivers for x11 and wayland
+    displayManager.defaultSession = "gnome-xorg";
+
     xserver = {
+    # enable nvidia drivers for x11 and wayland
       videoDrivers = [ "nvidia" ];
 
       displayManager = {
@@ -41,7 +43,6 @@ in
           --output DP-4 --primary --mode 1920x1080 --rate 144 --pos 0x0 --rotate normal \
         '';
 
-        defaultSession = "gnome-xorg";
         gdm.wayland = false;
       };
     };

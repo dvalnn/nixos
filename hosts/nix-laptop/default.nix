@@ -1,9 +1,11 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   gruvbox-dark-medium = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
-in {
+in
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -17,8 +19,8 @@ in {
     # Configure network proxy if necessary
     # networking.proxy.default = "http://user:password@proxy:port/";
     # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-    firewall.allowedTCPPorts = [];
-    firewall.allowedUDPPorts = [];
+    firewall.allowedTCPPorts = [ ];
+    firewall.allowedUDPPorts = [ ];
   };
 
   # Enable bluetooth
@@ -37,7 +39,7 @@ in {
 
     zerotierone = {
       enable = true;
-      joinNetworks = [];
+      joinNetworks = [ ];
     };
   };
 

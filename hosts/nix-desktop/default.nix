@@ -6,9 +6,11 @@
   pkgs,
   user,
   ...
-}: let
+}:
+let
   gruvbox-dark-medium = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
-in {
+in
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -22,14 +24,14 @@ in {
     # Configure network proxy if necessary
     # proxy.default = "http://user:password@proxy:port/";
     # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-    firewall.allowedTCPPorts = [];
-    firewall.allowedUDPPorts = [];
+    firewall.allowedTCPPorts = [ ];
+    firewall.allowedUDPPorts = [ ];
   };
 
   services = {
     # enable nvidia drivers for x11 and wayland
     xserver = {
-      videoDrivers = ["nvidia"];
+      videoDrivers = [ "nvidia" ];
 
       displayManager = {
         sessionCommands = ''
@@ -48,11 +50,11 @@ in {
       desktopManager.gnome.enable = true;
     };
 
-    udev.packages = with pkgs; [gnome-settings-daemon];
+    udev.packages = with pkgs; [ gnome-settings-daemon ];
 
     zerotierone = {
       enable = true;
-      joinNetworks = [];
+      joinNetworks = [ ];
     };
   };
 
@@ -90,7 +92,7 @@ in {
       dragAndDrop = true;
     };
   };
-  users.extraGroups.vboxusers.members = [user.name];
+  users.extraGroups.vboxusers.members = [ user.name ];
 
   # Module configuration options
   gaming.enable = true;

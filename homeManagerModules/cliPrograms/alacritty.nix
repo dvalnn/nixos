@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     alacritty.enable = lib.mkEnableOption "enable alacritty terminal";
   };

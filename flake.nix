@@ -15,73 +15,67 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nvf = {
-      url = "github:notashelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    lix-module,
-    ...
-  } @ inputs: let
-    lib = nixpkgs.lib;
+  outputs =
+    {
+      self,
+      nixpkgs,
+      lix-module,
+      ...
+    }@inputs:
+    let
+      lib = nixpkgs.lib;
 
-    user = {
-      name = "dvalinn";
-      description = "Tiago Amorim";
-      email = "tiago.andre.amorim@gmail.com";
-      uid = 1000;
-    };
+      user = {
+        name = "dvalinn";
+        description = "Tiago Amorim";
+        email = "tiago.andre.amorim@gmail.com";
+        uid = 1000;
+      };
 
-    homeConfig = homeConfigPath: [
-      ./nixosModules
-      inputs.stylix.nixosModules.stylix
+      homeConfig = homeConfigPath: [
+        ./nixosModules
+        inputs.stylix.nixosModules.stylix
 
-      inputs.home-manager.nixosModules.home-manager
-      {
-        home-manager = {
-          useGlobalPkgs = true;
-          useUserPackages = true;
+        inputs.home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
 
-          extraSpecialArgs = {
+            extraSpecialArgs = {
+              inherit inputs user;
+            };
+
+            users.${user.name} = import homeConfigPath;
+          };
+        }
+      ];
+    in
+    {
+      nixosConfigurations = {
+        nix-laptop = lib.nixosSystem {
+          specialArgs = {
             inherit inputs user;
           };
 
-          users.${user.name} = import homeConfigPath;
-        };
-      }
-    ];
-  in {
-    nixosConfigurations = {
-      nix-laptop = lib.nixosSystem {
-        specialArgs = {
-          inherit inputs user;
-        };
-
-        modules =
-          [
+          modules = [
             lix-module.nixosModules.default
             ./hosts/nix-laptop
-          ]
-          ++ homeConfig ./homeManagerModules/laptop.nix;
-      };
-
-      nix-desktop = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs user;
+          ] ++ homeConfig ./homeManagerModules/laptop.nix;
         };
 
-        modules =
-          [
+        nix-desktop = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs user;
+          };
+
+          modules = [
             lix-module.nixosModules.default
             ./hosts/nix-desktop
-          ]
-          ++ homeConfig ./homeManagerModules/desktop.nix;
+          ] ++ homeConfig ./homeManagerModules/desktop.nix;
+        };
       };
     };
-  };
 }

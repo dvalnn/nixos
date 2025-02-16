@@ -3,7 +3,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     defaultPackages.enable = lib.mkEnableOption "enables some usefull system packages that are nice to have by default on every system";
   };

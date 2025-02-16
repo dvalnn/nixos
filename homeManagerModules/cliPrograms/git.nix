@@ -3,7 +3,8 @@
   config,
   user,
   ...
-}: {
+}:
+{
   options = {
     git.enable = lib.mkEnableOption "enable zoxide with zsh integration";
   };

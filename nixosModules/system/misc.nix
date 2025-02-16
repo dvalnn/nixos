@@ -2,20 +2,24 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     misc.enable = lib.mkEnableOption "enable miscelaneous essentials";
   };
 
   config = lib.mkIf config.misc.enable {
     nix.settings = {
-      experimental-features = ["nix-command" "flakes"];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
 
       substituters = [
         # Alternative nixpkgs mirrors
       ];
 
-      trusted-public-keys = [];
+      trusted-public-keys = [ ];
       builders-use-substitutes = true;
     };
 

@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     hamachi.enable = lib.mkEnableOption "enable logmein-hamachi vpn service";
   };

@@ -4,7 +4,8 @@
   config,
   user,
   ...
-}: {
+}:
+{
   options = {
     nh.enable = lib.mkEnableOption "enables nh (nix helper) config and dependencies";
   };

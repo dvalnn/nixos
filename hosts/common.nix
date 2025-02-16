@@ -2,7 +2,8 @@
   pkgs,
   user,
   ...
-}: {
+}:
+{
   nixpkgs.config.allowUnfree = true;
 
   # Bootloader.
@@ -37,7 +38,7 @@
   # Keymap configuration for console
   console.keyMap = "pt-latin1";
 
-  autoStyling.enable = true; ## stylix module
+  autoStyling.enable = true; # # stylix module
 
   environment.systemPackages = with pkgs; [
     xorg.xinit
@@ -79,9 +80,11 @@
   };
 
   # make the user not have to type the sudo password for poweroff/reboot
-  security.sudo.extraConfig = let
-    systemctl = "/run/current-system/sw/bin/systemctl";
-  in ''
-    ${user.name} ALL=NOPASSWD: ${systemctl} poweroff, ${systemctl} reboot
-  '';
+  security.sudo.extraConfig =
+    let
+      systemctl = "/run/current-system/sw/bin/systemctl";
+    in
+    ''
+      ${user.name} ALL=NOPASSWD: ${systemctl} poweroff, ${systemctl} reboot
+    '';
 }

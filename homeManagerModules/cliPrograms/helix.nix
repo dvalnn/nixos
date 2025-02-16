@@ -3,7 +3,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     helix.enable = lib.mkEnableOption "enable helix editor";
   };
@@ -20,7 +21,10 @@
 
       languages = {
         use-grammars = {
-          only = ["nix" "lua"];
+          only = [
+            "nix"
+            "lua"
+          ];
         };
       };
 

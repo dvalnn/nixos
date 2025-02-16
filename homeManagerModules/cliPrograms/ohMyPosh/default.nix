@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     ohMyPosh.enable = lib.mkEnableOption "enable oh-my-posh configuration";
   };

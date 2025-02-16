@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     zoxide.enable = lib.mkEnableOption "enable zoxide";
     zoxide.zshIntegration = lib.mkEnableOption "enable zoxide integration with Zsh";

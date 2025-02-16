@@ -3,14 +3,16 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   catppuccin = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
-in {
+in
+{
   options = {
     autoStyling = {
       enable = lib.mkEnableOption "enables stylix auto styling";
-      colorScheme = lib.mkOption {default = catppuccin;};
-      image = lib.mkOption {default = ./default.png;};
+      colorScheme = lib.mkOption { default = catppuccin; };
+      image = lib.mkOption { default = ./default.png; };
     };
   };
 

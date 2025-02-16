@@ -3,7 +3,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     steam.enable = lib.mkEnableOption "enables steam and proton";
   };

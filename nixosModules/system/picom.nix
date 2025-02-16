@@ -3,7 +3,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   options = {
     picom.enable = lib.mkEnableOption "enables picom";
   };

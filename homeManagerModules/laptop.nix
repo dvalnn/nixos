@@ -1,8 +1,12 @@
 {...}: {
   imports = [
     ./common.nix
+    ./neovim
   ];
 
-  nvim.enable = true;
+  nvim.enable = false;
   nvf.enable = false;
+
+  # Testing
+  dvalinn.neovim.enable = true;
 }

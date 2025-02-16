@@ -3,7 +3,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   options = {
     nvim.enable = lib.mkEnableOption "enable neovim";
   };
@@ -16,16 +17,25 @@
       };
     };
 
+    home.sessionVariables = {
+      EDITOR = "nvim";
+    };
+
     programs.neovim = {
       enable = true;
       vimAlias = true;
       defaultEditor = true;
 
       extraPackages = with pkgs; [
-        # Language servers
+        # global servers
+
         nil # nix
+        nixfmt-rfc-style
+
         taplo # TOML
+
         lua-language-server
+
         python312Packages.python-lsp-server
       ];
 
@@ -61,23 +71,10 @@
         telescope-fzf-native-nvim
 
         # Treesitter and language grammar packs
-        (nvim-treesitter.withPlugins (
-          p: [
-            p.c
-            p.cpp
-            p.rust
-            p.go
-            p.lua
-            p.nix
-            p.markdown
-            p.python
-            p.javascript
-            p.zig
-            p.kdl
-          ]
-        ))
+        nvim-treesitter.withAllGrammars
+        nvim-treesitter-textobjects
+        nvim-ts-autotag
 
-        #LSP and completion
         lsp-zero-nvim
         nvim-lspconfig
         luasnip

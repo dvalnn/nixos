@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
     #network management
     networkmanagerapplet
@@ -9,7 +10,6 @@
     xl2tpd
 
     # other Cli tools
-    alejandra # nix formatter
     fastfetch
     ripgrep
     repgrep

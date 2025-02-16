@@ -26,6 +26,14 @@ require 'lspconfig'.taplo.setup {}  -- TOML
 require 'lspconfig'.pylsp.setup {}  -- python
 require 'lspconfig'.gopls.setup {}  -- go
 require 'lspconfig'.lua_ls.setup {} -- lua 
-require 'lspconfig'.nil_ls.setup {} -- nix
 require 'lspconfig'.clangd.setup {} -- c / cpp
 require 'lspconfig'.biome.setup {} -- js / ts
+require 'lspconfig'.nil_ls.setup({ -- nix
+   settings = {
+      ['nil'] = {
+         formatting = {
+            command = { "nixfmt" },
+         },
+      },
+   },
+})

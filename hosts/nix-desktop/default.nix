@@ -28,6 +28,7 @@ in
     firewall.allowedUDPPorts = [ ];
   };
 
+  gnomeDE.enable = true;
   services = {
     # enable nvidia drivers for x11 and wayland
     xserver = {
@@ -41,16 +42,9 @@ in
         '';
 
         defaultSession = "gnome-xorg";
-        gdm = {
-          enable = true;
-          wayland = false;
-        };
+        gdm.wayland = false;
       };
-
-      desktopManager.gnome.enable = true;
     };
-
-    udev.packages = with pkgs; [ gnome-settings-daemon ];
 
     zerotierone = {
       enable = true;

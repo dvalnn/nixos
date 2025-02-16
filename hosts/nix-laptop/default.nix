@@ -23,6 +23,8 @@ in {
 
   # Enable bluetooth
   hardware.bluetooth.enable = true;
+
+  gnomeDE.enable = true;
   services = {
     # Enable touchpad support (enabled default in most desktopManager).
     libinput.enable = true;
@@ -30,13 +32,8 @@ in {
 
     xserver.displayManager = {
       defaultSession = "gnome-xorg";
-      gdm = {
-        wayland = false;
-        enable = true;
-      };
+      gdm.wayland = false;
     };
-    xserver.desktopManager.gnome.enable = true;
-    udev.packages = with pkgs; [gnome-settings-daemon];
 
     zerotierone = {
       enable = true;

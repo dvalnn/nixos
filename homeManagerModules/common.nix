@@ -2,13 +2,20 @@
   imports = [
     ./cliPrograms
     ./otherPackages.nix
-    ./gnome.nix
   ];
 
   cliPrograms.enable = true;
 
   home.username = user.name;
   home.homeDirectory = "/home/${user.name}";
+
+  xdg = {
+    enable = true;
+    userDirs = {
+      enable = true;
+      createDirectories = true;
+    };
+  };
 
   home.sessionVariables = {};
 

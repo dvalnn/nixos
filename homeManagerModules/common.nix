@@ -1,14 +1,18 @@
-{ user, ... }:
+{ user, lib, ... }:
 {
   imports = [
     ./cliPrograms
     ./otherPackages.nix
   ];
 
-  cliPrograms.enable = true;
+  # NOTE: fixes https://github.com/danth/stylix/issues/865
+  nixpkgs.overlays = lib.mkForce null;
 
-  home.username = user.name;
-  home.homeDirectory = "/home/${user.name}";
+  home = {
+    username = user.name;
+    homeDirectory = "/home/${user.name}";
+    sessionVariables = { };
+  };
 
   xdg = {
     enable = true;
@@ -18,7 +22,7 @@
     };
   };
 
-  home.sessionVariables = { };
+  cliPrograms.enable = true;
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release

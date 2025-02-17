@@ -33,7 +33,7 @@ in
     displayManager.defaultSession = "gnome-xorg";
 
     xserver = {
-    # enable nvidia drivers for x11 and wayland
+      # enable nvidia drivers for x11 and wayland
       videoDrivers = [ "nvidia" ];
 
       displayManager = {

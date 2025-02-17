@@ -10,8 +10,7 @@
     };
 
     home-manager = {
-      #FIXME: This is a temporary fix until https://github.com/danth/stylix/issues/865 is resolved
-      url = "github:nix-community/home-manager/45c07fcf7d28b5fb3ee189c260dee0a2e4d14317";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

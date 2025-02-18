@@ -20,6 +20,7 @@
         "gamemode"
         "docker"
         "plugdev"
+        "wireshark"
       ];
       openssh.authorizedKeys.keys = [ ];
       shell = pkgs.zsh;

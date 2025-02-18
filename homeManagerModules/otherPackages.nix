@@ -35,6 +35,8 @@
     google-chrome
     mendeley # for master's thesis
     drawio
+    postman
+    wireshark
 
     # remote desktop
     rustdesk

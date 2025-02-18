@@ -21,14 +21,19 @@ lsp_zero.on_attach(function(client, bufnr)
     vim.keymap.set("n", "gt", function() builtin.lsp_type_definitions({ reuse_win = true }) end, opts("Goto Type Definition"))
 end)
 
-require 'lspconfig'.zls.setup {} -- zig
-require 'lspconfig'.taplo.setup {}  -- TOML
-require 'lspconfig'.pylsp.setup {}  -- python
-require 'lspconfig'.gopls.setup {}  -- go
-require 'lspconfig'.lua_ls.setup {} -- lua 
-require 'lspconfig'.clangd.setup {} -- c / cpp
-require 'lspconfig'.biome.setup {} -- js / ts
-require 'lspconfig'.nil_ls.setup({ -- nix
+local nvim_lsp = require('lspconfig')
+
+nvim_lsp.zls.setup {} -- zig
+nvim_lsp.taplo.setup {}  -- TOML
+nvim_lsp.pylsp.setup {}  -- python
+nvim_lsp.gopls.setup {}  -- go
+nvim_lsp.lua_ls.setup {} -- lua 
+nvim_lsp.clangd.setup {} -- c / cpp
+
+nvim_lsp.biome.setup {} -- js / ts
+nvim_lsp.denols.setup {} -- deno
+
+nvim_lsp.nil_ls.setup({ -- nix
    settings = {
       ['nil'] = {
          formatting = {

@@ -17,28 +17,57 @@ lsp_zero.on_attach(function(client, bufnr)
 
     vim.keymap.set("n", "gd", function() builtin.lsp_definitions({ reuse_win = true }) end, opts("Goto definition"))
     vim.keymap.set("n", "gr", function() builtin.lsp_references({ reuse_win = true }) end, opts("Goto references"))
-    vim.keymap.set("n", "gi", function() builtin.lsp_implementations({ reuse_win = true }) end, opts("Goto Implementation"))
-    vim.keymap.set("n", "gt", function() builtin.lsp_type_definitions({ reuse_win = true }) end, opts("Goto Type Definition"))
+    vim.keymap.set("n", "gi", function() builtin.lsp_implementations({ reuse_win = true }) end,
+        opts("Goto Implementation"))
+    vim.keymap.set("n", "gt", function() builtin.lsp_type_definitions({ reuse_win = true }) end,
+        opts("Goto Type Definition"))
 end)
 
 local nvim_lsp = require('lspconfig')
 
-nvim_lsp.zls.setup {} -- zig
+nvim_lsp.zls.setup {}    -- zig
 nvim_lsp.taplo.setup {}  -- TOML
-nvim_lsp.pylsp.setup {}  -- python
+-- python
 nvim_lsp.gopls.setup {}  -- go
-nvim_lsp.lua_ls.setup {} -- lua 
+nvim_lsp.lua_ls.setup {} -- lua
 nvim_lsp.clangd.setup {} -- c / cpp
 
-nvim_lsp.biome.setup {} -- js / ts
+nvim_lsp.biome.setup {}  -- js / ts
 nvim_lsp.denols.setup {} -- deno
 
-nvim_lsp.nil_ls.setup({ -- nix
-   settings = {
-      ['nil'] = {
-         formatting = {
-            command = { "nixfmt" },
-         },
-      },
-   },
+nvim_lsp.nil_ls.setup({  -- nix
+    settings = {
+        ['nil'] = {
+            formatting = {
+                command = { "nixfmt" },
+            },
+        },
+    },
 })
+
+nvim_lsp.pylsp.setup {
+    pylsp = {
+        plugins = {
+            ruff = {
+                enabled = true,                        -- Enable the plugin
+                formatEnabled = true,                  -- Enable formatting using ruffs formatter
+                executable = "<path-to-ruff-bin>",     -- Custom path to ruff
+                config = "<path_to_custom_ruff_toml>", -- Custom config for ruff to use
+                extendSelect = { "I" },                -- Rules that are additionally used by ruff
+                extendIgnore = { "C90" },              -- Rules that are additionally ignored by ruff
+                format = { "I" },                      -- Rules that are marked as fixable by ruff that should be fixed when running textDocument/formatting
+                severities = { ["D212"] = "I" },       -- Optional table of rules where a custom severity is desired
+                unsafeFixes = false,                   -- Whether or not to offer unsafe fixes as code actions. Ignored with the "Fix All" action
+
+                -- Rules that are ignored when a pyproject.toml or ruff.toml is present:
+                lineLength = 88,                                 -- Line length to pass to ruff checking and formatting
+                exclude = { "__about__.py" },                    -- Files to be excluded by ruff checking
+                select = { "F" },                                -- Rules to be enabled by ruff
+                ignore = { "D210" },                             -- Rules to be ignored by ruff
+                perFileIgnores = { ["__init__.py"] = "CPY001" }, -- Rules that should be ignored for specific files
+                preview = false,                                 -- Whether to enable the preview style linting and formatting.
+                targetVersion = "py310",                         -- The minimum python version to target (applies for both linting and formatting).
+            },
+        }
+    }
+}

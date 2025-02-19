@@ -32,11 +32,11 @@
         nil # nix
         nixfmt-rfc-style
 
-        taplo # TOML
-
         lua-language-server
 
+        # python
         python312Packages.python-lsp-server
+        python312Packages.python-lsp-ruff
       ];
 
       plugins = with pkgs.vimPlugins; [

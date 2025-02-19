@@ -52,7 +52,7 @@
         gitsigns-nvim
         todo-comments-nvim
         rainbow-delimiters-nvim
-        indent-blankline-nvim
+        # indent-blankline-nvim
 
         catppuccin-nvim
         gruvbox-nvim

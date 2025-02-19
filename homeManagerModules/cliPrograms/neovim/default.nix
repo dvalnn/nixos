@@ -47,11 +47,12 @@
         zellij-nav-nvim
 
         # user interface
-        indentLine # vertical indentation guides
         lualine-nvim
         vim-startify # starter page
         gitsigns-nvim
         todo-comments-nvim
+        rainbow-delimiters-nvim
+        indent-blankline-nvim
 
         catppuccin-nvim
         gruvbox-nvim

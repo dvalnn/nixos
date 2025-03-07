@@ -37,8 +37,5 @@
     drawio
     postman
     wireshark
-
-    # remote desktop
-    rustdesk
   ];
 }

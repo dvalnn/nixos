@@ -5,7 +5,7 @@
 }:
 {
   options = {
-    direnv.enable = lib.mkEnableOption "enable zoxide with zsh integration";
+    direnv.enable = lib.mkEnableOption "enable direnv";
   };
 
   config = lib.mkIf config.direnv.enable {

@@ -20,7 +20,6 @@
     less
     dust
     bat
-    eza
     jq
     fd
     gh

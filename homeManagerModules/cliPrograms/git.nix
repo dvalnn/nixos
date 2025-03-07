@@ -14,6 +14,10 @@
       enable = true;
       userName = user.name;
       userEmail = user.email;
+
+      signing = {
+        signByDefault = false;
+      };
     };
   };
 }

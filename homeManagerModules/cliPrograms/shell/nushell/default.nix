@@ -11,7 +11,8 @@
   config = lib.mkIf config.nushell.enable {
     programs.nushell = {
       enable = true;
-      
+      configFile.source = ./config.nu;
+
       shellAliases = {
         ".." = "cd ..";
         "..." = "cd ../..";
@@ -41,4 +42,3 @@
     };
   };
 }
-

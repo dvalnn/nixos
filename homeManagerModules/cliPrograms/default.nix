@@ -8,9 +8,10 @@
     # shell configuration
     ./shell/zsh.nix
     ./shell/ohMyPosh
+    ./shell/nushell
+
     ./shell/direnv.nix
     ./shell/zoxide.nix
-    ./shell/nushell.nix
     ./shell/eza.nix
 
     # terminals

@@ -1,3 +1,4 @@
+$env.config.show_banner = false
 $env.config.edit_mode = "vi"
 $env.config.buffer_editor = "vim"
 
@@ -30,9 +31,8 @@ let paths = [
     "XCURSOR_PATH"
 ]
 
-$env.ENV_CONVERSIONS = $env.ENV_CONVERSIONS | merge ($paths | reduce -f {} {|it, acc| $acc | insert $it $default_converter })
-
-$env.config.show_banner = false
+$env.ENV_CONVERSIONS = $env.ENV_CONVERSIONS | 
+merge ($paths | reduce -f {} {|it, acc| $acc | insert $it $default_converter })
 
 const NU_LIB_DIRS = [
     ($nu.default-config-dir | path join "modules")
@@ -40,4 +40,7 @@ const NU_LIB_DIRS = [
 ]
 
 use task.nu
-use scripts.nu
+use scd.nu
+
+alias ll = ls -l
+alias la = ls -a

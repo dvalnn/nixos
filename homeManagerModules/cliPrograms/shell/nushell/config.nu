@@ -36,6 +36,8 @@ $env.config.show_banner = false
 
 const NU_LIB_DIRS = [
     ($nu.default-config-dir | path join "modules")
+    ($nu.default-config-dir | path join "scripts")
 ]
 
 use task.nu
+use scd.nu

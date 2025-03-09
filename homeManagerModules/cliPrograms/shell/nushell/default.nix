@@ -17,7 +17,14 @@
         source = ./modules;
         recursive = true;
       };
+
+      ".config/nushell/scripts" = {
+        source = ./scripts;
+        recursive = true;
+      };
     };
+
+    programs.skim.enable = true;
 
     programs.nushell = {
       enable = true;
@@ -27,6 +34,11 @@
         skim
         gstat
       ];
+
+      extraConfig = with pkgs.nushellPlugins; /*nu*/ ''
+      $env.Path = ($env.Path | append ${skim}/bin);
+      $env.Path = ($env.Path | append ${gstat}/bin);
+      '';
 
       shellAliases = {
         ".." = "cd ..";

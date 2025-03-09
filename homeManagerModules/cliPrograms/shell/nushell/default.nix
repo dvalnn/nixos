@@ -1,5 +1,6 @@
 {
   lib,
+  pkgs,
   config,
   ...
 }:
@@ -9,9 +10,16 @@
   };
 
   config = lib.mkIf config.nushell.enable {
+    services.pueue.enable = true; # for background jobs in nushell
+
     programs.nushell = {
       enable = true;
-      configFile.source = ./config.nu;
+      configFile.source = ./nu/config.nu;
+
+      plugins = with pkgs.nushellPlugins; [
+        skim
+        gstat
+      ];
 
       shellAliases = {
         ".." = "cd ..";

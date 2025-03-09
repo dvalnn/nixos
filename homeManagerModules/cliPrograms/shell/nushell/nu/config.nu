@@ -1,3 +1,5 @@
+use ./task.nu
+
 $env.config.edit_mode = "vi"
 $env.config.buffer_editor = "vim"
 

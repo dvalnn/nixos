@@ -13,12 +13,23 @@ let default_converter = {
     to_string: {|v| $v | path expand --no-symlink | str join (char esep) }
 }
 
-$env.ENV_CONVERSIONS = $env.ENV_CONVERSIONS | merge {
-    "PATH": $default_converter
-    "PYTHONPATH": $default_converter
+let paths = [
+    "XDG_DATA_DIRS"
+    "XDG_CONFIG_DIRS"
 
-    "XDG_DATA_DIRS": $default_converter
-    "XDG_CONFIG_DIRS": $default_converter
-}
+    "PATH"
+    "INFOPATH"
+    "LD_LIBRARY_PATH"
+    "LIBEXEC_PATH"
+    "NIX_PATH"
+    "GTK_PATH"
+    "QML2_IMPORT_PATH"
+    "QTWEBKIT_PLUGIN_PATH"
+    "QT_PLUGIN_PATH"
+    "WINDOWPATH"
+    "XCURSOR_PATH"
+]
+
+$env.ENV_CONVERSIONS = $env.ENV_CONVERSIONS | merge ($paths | reduce -f {} {|it, acc| $acc | insert $it $default_converter })
 
 $env.config.show_banner = false

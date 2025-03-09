@@ -1,5 +1,3 @@
-use ./task.nu
-
 $env.config.edit_mode = "vi"
 $env.config.buffer_editor = "vim"
 
@@ -35,3 +33,9 @@ let paths = [
 $env.ENV_CONVERSIONS = $env.ENV_CONVERSIONS | merge ($paths | reduce -f {} {|it, acc| $acc | insert $it $default_converter })
 
 $env.config.show_banner = false
+
+const NU_LIB_DIRS = [
+    ($nu.default-config-dir | path join "modules")
+]
+
+use task.nu

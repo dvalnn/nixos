@@ -12,9 +12,16 @@
   config = lib.mkIf config.nushell.enable {
     services.pueue.enable = true; # for background jobs in nushell
 
+    home.file = {
+      ".config/nushell/modules" = {
+        source = ./modules;
+        recursive = true;
+      };
+    };
+
     programs.nushell = {
       enable = true;
-      configFile.source = ./nu/config.nu;
+      configFile.source = ./config.nu;
 
       plugins = with pkgs.nushellPlugins; [
         skim

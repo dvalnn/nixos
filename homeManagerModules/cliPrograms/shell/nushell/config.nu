@@ -8,19 +8,17 @@ $env.config.history = {
   isolation: true
 }
 
-def default_converter [] {
-    {
-        from_string: {|s| $s | split row (char esep) | path expand --no-symlink }
-        to_string: {|v| $v | path expand --no-symlink | str join (char esep) }
-    }
+let default_converter = {
+    from_string: {|s| $s | split row (char esep) | path expand --no-symlink }
+    to_string: {|v| $v | path expand --no-symlink | str join (char esep) }
 }
 
 $env.ENV_CONVERSIONS = $env.ENV_CONVERSIONS | merge {
-    "PATH": default_converter
-    "PYTHONPATH": default_converter
+    "PATH": $default_converter
+    "PYTHONPATH": $default_converter
 
-    "XDG_DATA_DIRS": default_converter
-    "XDG_CONFIG_DIRS": default_converter
+    "XDG_DATA_DIRS": $default_converter
+    "XDG_CONFIG_DIRS": $default_converter
 }
 
 $env.config.show_banner = false

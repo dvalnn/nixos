@@ -28,7 +28,6 @@
   };
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
     supportedFilesystems = lib.mkForce [
       "btrfs"
       "reiserfs"
@@ -55,5 +54,6 @@
     };
   };
 
+  users.mutableUsers = true;
   users.extraUsers.root.password = "nixos";
 }

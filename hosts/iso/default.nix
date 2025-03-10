@@ -6,7 +6,7 @@
 {
   imports = [
     ./install-script.nix
-    ../../common.nix
+    ./../common.nix
   ];
 
   nixpkgs = {

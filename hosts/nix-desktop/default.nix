@@ -89,6 +89,16 @@ in
   };
   users.extraGroups.vboxusers.members = [ user.name ];
 
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
+
+  programs.wireshark.enable = true;
+
   # Module configuration options
   gaming.enable = true;
   sunshine.enable = false;

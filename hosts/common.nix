@@ -71,16 +71,6 @@
     };
   };
 
-  virtualisation.docker = {
-    enable = true;
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
-  };
-
-  programs.wireshark.enable = true;
-
   # make the user not have to type the sudo password for poweroff/reboot
   security.sudo.extraConfig =
     let

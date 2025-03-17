@@ -25,17 +25,19 @@ end)
 
 local nvim_lsp = require('lspconfig')
 
-nvim_lsp.zls.setup {}    -- zig
-nvim_lsp.taplo.setup {}  -- TOML
--- python
-nvim_lsp.gopls.setup {}  -- go
-nvim_lsp.lua_ls.setup {} -- lua
-nvim_lsp.clangd.setup {} -- c / cpp
+nvim_lsp.taplo.setup {}   -- TOML
+nvim_lsp.nushell.setup {} -- nushell
+nvim_lsp.jsonls.setup {}  -- json
 
-nvim_lsp.biome.setup {}  -- js / ts
-nvim_lsp.denols.setup {} -- deno
+nvim_lsp.gopls.setup {}   -- go
+nvim_lsp.zls.setup {}     -- zig
+nvim_lsp.clangd.setup {}  -- c / cpp
 
-nvim_lsp.nil_ls.setup({  -- nix
+nvim_lsp.lua_ls.setup {}  -- lua
+nvim_lsp.biome.setup {}   -- js / ts
+nvim_lsp.denols.setup {}  -- deno
+
+nvim_lsp.nil_ls.setup({   -- nix
     settings = {
         ['nil'] = {
             formatting = {
@@ -45,19 +47,18 @@ nvim_lsp.nil_ls.setup({  -- nix
     },
 })
 
+-- python
 nvim_lsp.pylsp.setup {
     pylsp = {
         plugins = {
             ruff = {
-                enabled = true,                        -- Enable the plugin
-                formatEnabled = true,                  -- Enable formatting using ruffs formatter
-                executable = "<path-to-ruff-bin>",     -- Custom path to ruff
-                config = "<path_to_custom_ruff_toml>", -- Custom config for ruff to use
-                extendSelect = { "I" },                -- Rules that are additionally used by ruff
-                extendIgnore = { "C90" },              -- Rules that are additionally ignored by ruff
-                format = { "I" },                      -- Rules that are marked as fixable by ruff that should be fixed when running textDocument/formatting
-                severities = { ["D212"] = "I" },       -- Optional table of rules where a custom severity is desired
-                unsafeFixes = false,                   -- Whether or not to offer unsafe fixes as code actions. Ignored with the "Fix All" action
+                enabled = true,                  -- Enable the plugin
+                formatEnabled = true,            -- Enable formatting using ruffs formatter
+                extendSelect = { "I" },          -- Rules that are additionally used by ruff
+                extendIgnore = { "C90" },        -- Rules that are additionally ignored by ruff
+                format = { "I" },                -- Rules that are marked as fixable by ruff that should be fixed when running textDocument/formatting
+                severities = { ["D212"] = "I" }, -- Optional table of rules where a custom severity is desired
+                unsafeFixes = false,             -- Whether or not to offer unsafe fixes as code actions. Ignored with the "Fix All" action
 
                 -- Rules that are ignored when a pyproject.toml or ruff.toml is present:
                 lineLength = 88,                                 -- Line length to pass to ruff checking and formatting
@@ -66,8 +67,8 @@ nvim_lsp.pylsp.setup {
                 ignore = { "D210" },                             -- Rules to be ignored by ruff
                 perFileIgnores = { ["__init__.py"] = "CPY001" }, -- Rules that should be ignored for specific files
                 preview = false,                                 -- Whether to enable the preview style linting and formatting.
-                targetVersion = "py310",                         -- The minimum python version to target (applies for both linting and formatting).
-            },
+                targetVersion = "py312",                         -- The minimum python version to target (applies for both linting and formatting).
+            }
         }
     }
 }

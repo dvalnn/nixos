@@ -37,6 +37,9 @@
         # python
         python312Packages.python-lsp-server
         python312Packages.python-lsp-ruff
+
+        # html, css, json, eslint
+        vscode-langservers-extracted
       ];
 
       plugins = with pkgs.vimPlugins; [

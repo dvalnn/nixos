@@ -24,21 +24,19 @@
       };
     };
 
-    programs.skim.enable = true;
-
     programs.nushell = {
       enable = true;
       configFile.source = ./config.nu;
 
       plugins = with pkgs.nushellPlugins; [
-        skim
         gstat
       ];
 
-      extraConfig = with pkgs.nushellPlugins; /*nu*/ ''
-      $env.Path = ($env.Path | append ${skim}/bin);
-      $env.Path = ($env.Path | append ${gstat}/bin);
-      '';
+      extraConfig =
+        with pkgs.nushellPlugins; # nu
+        ''
+          $env.Path = ($env.Path | append ${gstat}/bin);
+        '';
 
       shellAliases = {
         ".." = "cd ..";

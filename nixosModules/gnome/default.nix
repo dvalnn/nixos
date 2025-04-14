@@ -72,7 +72,7 @@
             "org/gnome/desktop/wm/preferences" = {
               auto-raise = true;
               button-layout = "icon:minimize,maximize,close";
-              focus-mode = "mouse";
+              focus-mode = "click";
               num-workspaces = 4;
               resize-with-right-button = true;
             };

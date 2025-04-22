@@ -21,9 +21,11 @@ end
 
 local builtin = require "telescope.builtin"
 vim.keymap.set('n', '<leader><space>', builtin.find_files, opts("Find files (root dir)"))
-vim.keymap.set('n', '<leader>fg', builtin.git_files, opts("Find git files"))
+vim.keymap.set('n', '<leader>fG', builtin.git_files, opts("Find git files"))
 vim.keymap.set('n', '<leader>fb', builtin.buffers, opts("Find buffers"))
-vim.keymap.set('n', '<leader>/', builtin.live_grep, opts("Live grep (rg)"))
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, opts("Current buffer fuzzy search"))
+vim.keymap.set('n', '<leader>/', builtin.current_buffer_fuzzy_find, opts("Current buffer fuzzy search"))
+vim.keymap.set('n', '<leader>fd', builtin.diagnostics, opts("Find diagnostics"))
 vim.keymap.set('n', '<leader>fr', builtin.resume, opts("Resume last picker"))
 
 require('telescope').load_extension('fzf')

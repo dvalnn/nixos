@@ -10,18 +10,70 @@ lsp_zero.on_attach(function(client, bufnr)
 
     local builtin = require "telescope.builtin"
 
-    vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts("Code action"))
-    vim.keymap.set("n", "<leader>R", function() vim.lsp.buf.rename() end, opts("Rename"))
-    vim.keymap.set("n", "<leader>cf", function() vim.lsp.buf.format() end, opts("Format buffer"))
-    vim.keymap.set('n', '<leader>cs', builtin.lsp_document_symbols, opts("Find git files"))
+    -- Enable inlay hints if the server supports it
+    if client.server_capabilities.inlayHintProvider then
+        vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+    end
 
-    vim.keymap.set("n", "gd", function() builtin.lsp_definitions({ reuse_win = true }) end, opts("Goto definition"))
-    vim.keymap.set("n", "gr", function() builtin.lsp_references({ reuse_win = true }) end, opts("Goto references"))
-    vim.keymap.set("n", "gi", function() builtin.lsp_implementations({ reuse_win = true }) end,
+    vim.keymap.set('n', '<leader>ch',
+        function()
+            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(), { bufnr = bufnr })
+        end,
+        opts('Toggle Inlay Hints'))
+
+    vim.keymap.set("n", "<leader>ca",
+        function()
+            vim.lsp.buf.code_action()
+        end,
+        opts("Code action"))
+
+    vim.keymap.set("n", "<leader>R",
+        function()
+            vim.lsp.buf.rename()
+        end,
+        opts("Rename"))
+
+    vim.keymap.set("n", "<leader>cf",
+        function()
+            vim.lsp.buf.format()
+        end,
+        opts("Format buffer"))
+
+    vim.keymap.set('n', '<leader>cs', builtin.lsp_document_symbols, opts("Find document symbols"))
+    vim.keymap.set('n', '<leader>cS', builtin.lsp_workspace_symbols, opts("Find workspace symbols"))
+
+    vim.keymap.set("n", "gd",
+        function()
+            builtin.lsp_definitions({ reuse_win = true })
+        end,
+        opts("Goto definition"))
+
+    vim.keymap.set("n", "gr",
+        function()
+            builtin.lsp_references({ reuse_win = true })
+        end,
+        opts("Goto references"))
+
+    vim.keymap.set("n", "gi",
+        function()
+            builtin.lsp_implementations({ reuse_win = true })
+        end,
         opts("Goto Implementation"))
-    vim.keymap.set("n", "gt", function() builtin.lsp_type_definitions({ reuse_win = true }) end,
+
+    vim.keymap.set("n", "gt",
+        function()
+            builtin.lsp_type_definitions({ reuse_win = true })
+        end,
         opts("Goto Type Definition"))
 end)
+
+vim.diagnostic.config({
+    virtual_text = true,      -- Show inline/virtual text diagnostics
+    signs = true,             -- Show signs in the gutter
+    underline = true,         -- Underline diagnostics
+    update_in_insert = false, -- Don't update diagnostics while typing
+    severity_sort = true,     -- Sort diagnostics by severity
+})
 
 local nvim_lsp = require('lspconfig')
 

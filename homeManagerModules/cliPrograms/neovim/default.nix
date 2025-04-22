@@ -73,6 +73,7 @@
         dressing-nvim # better telescope ui
         telescope-nvim
         telescope-fzf-native-nvim
+        # trouble-nvim
 
         # Treesitter and language grammar packs
         nvim-treesitter.withAllGrammars

@@ -24,14 +24,17 @@
     fd
     gh
 
-    # GUI apps
+    # Browsers
     firefox
+    opera # switching from firefox to opera
+    google-chrome
+
+    # GUI apps
     vesktop # alternative discord client
     stremio
     obsidian
     vscode-fhs
     spotify
-    google-chrome
     mendeley # for master's thesis
     drawio
     postman

@@ -26,7 +26,6 @@
 
     # Browsers
     firefox
-    opera # switching from firefox to opera
     google-chrome
 
     # GUI apps

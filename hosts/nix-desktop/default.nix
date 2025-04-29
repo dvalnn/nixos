@@ -51,6 +51,12 @@ in
       enable = true;
       joinNetworks = [ ];
     };
+
+    xrdp = {
+      enable = true;
+      defaultWindowManager = "${pkgs.gnome.gnome-session}/bin/gnome-session";
+      openFirewall = true;
+    };
   };
 
   awesomeWM.enable = false;

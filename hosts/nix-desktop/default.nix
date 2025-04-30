@@ -37,11 +37,11 @@ in
       videoDrivers = [ "nvidia" ];
 
       displayManager = {
-        sessionCommands = ''
-          xrandr \
-          --output DP-0  --mode 1920x1080 --rate 144 --pos 1920x0 --rotate normal \
-          --output DP-4 --primary --mode 1920x1080 --rate 144 --pos 0x0 --rotate normal \
-        '';
+        # sessionCommands = ''
+        #   xrandr \
+        #   --output DP-0  --mode 1920x1080 --rate 144 --pos 1920x0 --rotate normal \
+        #   --output DP-4 --primary --mode 1920x1080 --rate 144 --pos 0x0 --rotate normal \
+        # '';
 
         gdm.wayland = false;
       };

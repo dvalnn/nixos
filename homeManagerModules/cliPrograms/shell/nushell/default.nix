@@ -57,6 +57,9 @@
         py = "nix run nixpkgs#python3"; # run python3 repl
 
         home-log = "sudo journalctl -xeu home-manager-dvalinn.service";
+
+        # have fg behave like bash
+        fg = "job list | last | get id | job unfreeze $in";
       };
     };
   };

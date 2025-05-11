@@ -41,7 +41,6 @@ const NU_LIB_DIRS = [
 
 use task.nu
 
+use fg.nu
 use devshell.nu
 
-alias ll = ls -l
-alias la = ls -a

@@ -31,12 +31,12 @@
     # GUI apps
     vesktop # alternative discord client
     stremio
-    obsidian
-    vscode-fhs
+    # obsidian
+    # vscode-fhs
     spotify
     mendeley # for master's thesis
     drawio
-    postman
-    wireshark
+    # postman
+    # wireshark
   ];
 }

@@ -84,6 +84,7 @@
         nvim-lspconfig
         luasnip
 
+        tiny-inline-diagnostic-nvim
         cmp-nvim-lsp
         cmp-buffer
         cmp-path

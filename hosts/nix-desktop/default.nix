@@ -82,6 +82,16 @@ in
     };
   };
 
+  systemd = {
+    services.sshd.wantedBy = pkgs.lib.mkForce [ "multi-user.target" ];
+    targets = {
+      sleep.enable = false;
+      suspend.enable = false;
+      hibernate.enable = false;
+      hybrid-sleep.enable = false;
+    };
+  };
+
   # TODO: make this a module
   virtualisation.virtualbox = {
     host = {

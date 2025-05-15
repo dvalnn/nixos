@@ -15,7 +15,7 @@ lsp_zero.on_attach(function(client, bufnr)
         vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
     end
 
-    vim.keymap.set('n', '<leader>ch',
+    vim.keymap.set('n', '<leader>cih',
         function()
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(), { bufnr = bufnr })
         end,
@@ -26,6 +26,12 @@ lsp_zero.on_attach(function(client, bufnr)
             vim.lsp.buf.code_action()
         end,
         opts("Code action"))
+
+    vim.keymap.set("n", "cd",
+        function()
+            builtin.diagnostics({ reuse_win = true })
+        end,
+        opts("Show diagnostics"))
 
     vim.keymap.set("n", "<leader>R",
         function()
@@ -68,11 +74,17 @@ lsp_zero.on_attach(function(client, bufnr)
 end)
 
 vim.diagnostic.config({
-    virtual_text = true,      -- Show inline/virtual text diagnostics
+    virtual_text = false,     -- Show inline/virtual text diagnostics
     signs = true,             -- Show signs in the gutter
     underline = true,         -- Underline diagnostics
     update_in_insert = false, -- Don't update diagnostics while typing
     severity_sort = true,     -- Sort diagnostics by severity
+})
+
+require("tiny-inline-diagnostic").setup({
+    preset = "classic",
+    transparent_bg = true,
+    transparent_cursorline = true,
 })
 
 local nvim_lsp = require('lspconfig')

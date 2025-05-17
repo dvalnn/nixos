@@ -24,6 +24,38 @@
       udev.packages = with pkgs; [ gnome-settings-daemon ];
     };
 
+    environment.gnome.excludePackages = with pkgs; [
+      epiphany    # web browser
+      gedit       # text editor
+      yelp        # help viewer
+      geary       # email client
+      seahorse    # password manager
+      simple-scan # document scanner
+
+      gnome-characters
+      gnome-clocks
+      gnome-contacts
+      gnome-maps
+      gnome-font-viewer
+      gnome-maps
+      gnome-music
+      gnome-weather
+
+      # Still included
+
+      # baobab      # disk usage analyzer
+      # cheese      # photo booth
+      # eog         # image viewer
+      # totem       # video player
+      # evince      # document viewer
+      # file-roller # archive manager
+
+      # these should be self explanatory
+      # gnome-calculator gnome-calendar gnome-logs gnome-maps gnome-photos
+      # gnome-screenshot gnome-system-monitor  gnome-disk-utility gnome-connections
+    ];
+
+
     hm =
       { lib, ... }:
       {

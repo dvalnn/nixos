@@ -47,7 +47,6 @@
         mini-nvim
         persistence-nvim
         vim-tmux-navigator
-        zellij-nav-nvim
 
         # user interface
         lualine-nvim
@@ -56,6 +55,7 @@
         todo-comments-nvim
         rainbow-delimiters-nvim
         indent-blankline-nvim
+        guess-indent-nvim
 
         catppuccin-nvim
         gruvbox-nvim

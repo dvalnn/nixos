@@ -1,5 +1,6 @@
 require("after.plugin.color")
 require("after.plugin.gitsigns")
+require("after.plugin.guess-indent")
 require("after.plugin.harpoon")
 require("after.plugin.lualine")
 require("after.plugin.mini")

@@ -40,6 +40,7 @@
       gnome-maps
       gnome-music
       gnome-weather
+      gnome-text-editor
 
       # Still included
 

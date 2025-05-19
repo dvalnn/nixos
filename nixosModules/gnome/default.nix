@@ -25,11 +25,11 @@
     };
 
     environment.gnome.excludePackages = with pkgs; [
-      epiphany    # web browser
-      gedit       # text editor
-      yelp        # help viewer
-      geary       # email client
-      seahorse    # password manager
+      epiphany # web browser
+      gedit # text editor
+      yelp # help viewer
+      geary # email client
+      seahorse # password manager
       simple-scan # document scanner
 
       gnome-characters
@@ -56,7 +56,6 @@
       # gnome-screenshot gnome-system-monitor  gnome-disk-utility gnome-connections
     ];
 
-
     hm =
       { lib, ... }:
       {
@@ -67,6 +66,8 @@
               disable-user-extensions = false;
               enabled-extensions = with pkgs.gnomeExtensions; [
                 system-monitor.extensionUuid
+                user-themes.extensionUuid
+                user-themes-x.extensionUuid
               ];
             };
 

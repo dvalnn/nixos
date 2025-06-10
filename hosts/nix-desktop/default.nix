@@ -70,6 +70,8 @@ in
       enable32Bit = true; # renamed from driSupport32Bit
     };
 
+    bluetooth.enable = true;
+
     nvidia = {
       modesetting.enable = true;
       powerManagement.enable = false;

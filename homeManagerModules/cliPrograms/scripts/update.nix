@@ -3,6 +3,7 @@
   home.packages = [
     (pkgs.writeShellScriptBin "update" ''
       function reset_flake {
+        echo "[ERROR] Resetting flake..."
         pushd ~/nixos/
         git reset --hard
         popd

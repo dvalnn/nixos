@@ -47,7 +47,7 @@
     direnv.enable = lib.mkDefault true;
     zoxide.enable = lib.mkDefault true;
     eza.enable = lib.mkDefault true;
-    fzf.enable = lib.mkDefault false;
+    fzf.enable = lib.mkDefault true;
 
     alacritty.enable = lib.mkDefault true;
     kitty.enable = lib.mkDefault false;

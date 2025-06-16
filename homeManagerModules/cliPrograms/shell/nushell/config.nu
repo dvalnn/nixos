@@ -43,4 +43,5 @@ use task.nu
 
 use fg.nu
 use devshell.nu
-
+use system-update.nu
+use nufzf.nu

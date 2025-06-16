@@ -8,7 +8,7 @@ export def main [ ] {
     nh os switch --update --ask
 
     # get the current generation of the system
-    let commit_msg = nixos-rebuild list-generations                                    14/06/2025 13:36:30
+    let commit_msg = nixos-rebuild list-generations
     | detect columns
     | reject NixOS Configuration Revision Specialisation
     | filter { |gen| $gen.Current == True }

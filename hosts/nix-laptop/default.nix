@@ -33,7 +33,7 @@ in
     libinput.touchpad.naturalScrolling = true;
 
     displayManager.defaultSession = "gnome-xorg";
-    xserver.displayManager.gdm.wayland = false;
+    displayManager.gdm.wayland = false;
 
     zerotierone = {
       enable = true;

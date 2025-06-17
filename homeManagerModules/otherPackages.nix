@@ -38,5 +38,7 @@
     drawio
     # postman
     # wireshark
+
+    bitwarden-cli
   ];
 }

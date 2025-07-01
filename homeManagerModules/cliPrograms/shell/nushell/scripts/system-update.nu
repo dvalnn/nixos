@@ -11,7 +11,7 @@ export def main [ ] {
     let commit_msg = nixos-rebuild list-generations
     | detect columns
     | reject NixOS Configuration Revision Specialisation
-    | filter { |gen| $gen.Current == True }
+    | where { |gen| $gen.Current == True }
     | format pattern "{Generation} current {Build-date} {version} {Kernel}"
     | get 0
 

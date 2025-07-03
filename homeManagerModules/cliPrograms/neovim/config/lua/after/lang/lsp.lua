@@ -111,6 +111,8 @@ nvim_lsp.nil_ls.setup({   -- nix
     },
 })
 
+nvim_lsp.svelte.setup {} -- svelte
+
 -- python
 nvim_lsp.pylsp.setup {
     pylsp = {

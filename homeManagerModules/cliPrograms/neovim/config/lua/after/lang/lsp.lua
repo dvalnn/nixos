@@ -15,7 +15,7 @@ lsp_zero.on_attach(function(client, bufnr)
         vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
     end
 
-    vim.keymap.set('n', '<leader>cih',
+    vim.keymap.set('n', '<leader>h',
         function()
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }), { bufnr = bufnr })
         end,

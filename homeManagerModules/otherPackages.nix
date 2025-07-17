@@ -34,7 +34,6 @@
     # obsidian
     # vscode-fhs
     spotify
-    mendeley # for master's thesis
     drawio
     # postman
     # wireshark

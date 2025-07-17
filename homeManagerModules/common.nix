@@ -3,7 +3,7 @@
   imports = [
     ./cliPrograms
     ./otherPackages.nix
-    # ./opera.nix
+    ./emacs.nix
   ];
 
   # NOTE: fixes https://github.com/danth/stylix/issues/865

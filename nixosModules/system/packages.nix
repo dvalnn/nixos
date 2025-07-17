@@ -11,6 +11,8 @@
 
   config = lib.mkIf config.defaultPackages.enable {
     environment.systemPackages = with pkgs; [
+      cachix # cachix client
+
       vim
       wget
       curl

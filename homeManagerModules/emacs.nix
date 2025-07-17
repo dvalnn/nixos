@@ -1,9 +1,14 @@
 { pkgs, ... }:
+let
+  myEmacs = pkgs.emacs.pkgs.withPackages (epkgs: [ epkgs.vterm ]);
 
+in
 {
+  stylix.targets.emacs.enable = false;
+
   programs.emacs = {
     enable = true;
-    package = pkgs.emacs; # Use plain Emacs package
+    package = myEmacs;
   };
 
   home.packages = with pkgs; [
@@ -17,7 +22,7 @@
     glslang
     libxml2
     pandoc
-    nixfmt
+    nixfmt-rfc-style
     plantuml
     graphviz
     openjdk

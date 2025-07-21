@@ -2,7 +2,7 @@ $env.config.show_banner = false
 $env.config.edit_mode = "vi"
 $env.config.buffer_editor = "vim"
 $env.EDITOR = "nvim"
-$env.PATH ++= ['~/.emacs.d/bin']
+$env.PATH ++= ['~/.config/emacs/bin']
 
 $env.config.history = {
   file_format: sqlite

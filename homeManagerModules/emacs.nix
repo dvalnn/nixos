@@ -35,5 +35,7 @@ in
     python3Packages.ruamel-yaml
     jq
     taplo-cli
+
+    source-code-pro
   ];
 }

@@ -38,6 +38,12 @@
     # postman
     # wireshark
 
+    # Office
+    libreoffice-fresh
+    hunspell # spell checking
+    hunspellDicts.pt-pt
+    hunspellDicts.en-us
+
     bitwarden-cli
   ];
 }

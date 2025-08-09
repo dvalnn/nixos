@@ -1,6 +1,9 @@
 { pkgs, ... }:
 let
-  myEmacs = pkgs.emacs.pkgs.withPackages (epkgs: [ epkgs.vterm ]);
+  myEmacs = pkgs.emacs.pkgs.withPackages (epkgs: [
+    epkgs.vterm
+    epkgs.typst-ts-mode
+  ]);
 
 in
 {
@@ -35,6 +38,10 @@ in
     python3Packages.ruamel-yaml
     jq
     taplo-cli
+
+    # language servers
+    cmake-language-server
+    yaml-language-server
 
     source-code-pro
   ];

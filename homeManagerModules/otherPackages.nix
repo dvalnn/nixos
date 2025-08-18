@@ -31,10 +31,10 @@
     # GUI apps
     vesktop # alternative discord client
     stremio
+    spotify
     # obsidian
     # vscode-fhs
-    spotify
-    drawio
+    # drawio
     # postman
     # wireshark
 

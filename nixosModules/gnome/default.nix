@@ -13,6 +13,11 @@
     environment.systemPackages = with pkgs; [
       gnome-tweaks
       adwaita-icon-theme
+
+      # Extensions
+      gnomeExtensions.system-monitor
+      gnomeExtensions.user-themes
+      gnomeExtensions.user-themes-x
     ];
 
     services = {

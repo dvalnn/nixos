@@ -15,7 +15,7 @@
       adwaita-icon-theme
 
       # Extensions
-      gnomeExtensions.system-monitor
+      gnomeExtensions.system-monitor-tray-indicator
       gnomeExtensions.user-themes
       gnomeExtensions.user-themes-x
     ];
@@ -69,7 +69,7 @@
             "org/gnome/shell" = {
               disable-user-extensions = false;
               enabled-extensions = with pkgs.gnomeExtensions; [
-                system-monitor.extensionUuid
+                system-monitor-tray-indicator.extensionUuid
                 user-themes.extensionUuid
                 user-themes-x.extensionUuid
               ];

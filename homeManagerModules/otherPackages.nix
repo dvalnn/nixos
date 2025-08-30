@@ -30,7 +30,7 @@
 
     # GUI apps
     vesktop # alternative discord client
-    stremio
+    # stremio
     spotify
     # obsidian
     # vscode-fhs

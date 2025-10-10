@@ -37,6 +37,7 @@
     # drawio
     # postman
     # wireshark
+    keymapp
 
     # Office
     libreoffice-fresh

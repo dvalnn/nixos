@@ -36,7 +36,7 @@
   };
 
   # Keymap configuration for console
-  console.keyMap = "pt-latin1";
+  console.keyMap = "us";
 
   autoStyling.enable = true; # # stylix module
 
@@ -48,7 +48,7 @@
   services.xserver = {
     enable = true;
     xkb = {
-      layout = "pt";
+      layout = "us";
       variant = "";
     };
   };

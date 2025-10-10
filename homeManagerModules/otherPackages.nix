@@ -33,7 +33,7 @@
     # stremio
     spotify
     # obsidian
-    # vscode-fhs
+    vscode
     # drawio
     # postman
     # wireshark

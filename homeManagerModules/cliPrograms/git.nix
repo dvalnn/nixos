@@ -12,8 +12,10 @@
   config = lib.mkIf config.git.enable {
     programs.git = {
       enable = true;
-      userName = user.name;
-      userEmail = user.email;
+      settings = {
+        user.name = user.name;
+        user.email = user.email;
+      };
 
       signing = {
         signByDefault = false;

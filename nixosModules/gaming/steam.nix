@@ -16,7 +16,7 @@
     };
 
     environment.systemPackages = with pkgs; [
-      protonup # used to install proton ge compatibility layer
+      protonup-ng # used to install proton ge compatibility layer
     ];
 
     environment.sessionVariables = {

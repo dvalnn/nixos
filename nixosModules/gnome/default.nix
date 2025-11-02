@@ -45,19 +45,20 @@
       gnome-music
       gnome-weather
       gnome-text-editor
+      gnome-tour
 
       # Still included
 
-      # baobab      # disk usage analyzer
-      # cheese      # photo booth
-      # eog         # image viewer
-      # totem       # video player
-      # evince      # document viewer
-      # file-roller # archive manager
+      baobab      # disk usage analyzer
+      cheese      # photo booth
+      eog         # image viewer
+      totem       # video player
+      evince      # document viewer
+      file-roller # archive manager
 
       # these should be self explanatory
-      # gnome-calculator gnome-calendar gnome-logs gnome-maps gnome-photos
-      # gnome-screenshot gnome-system-monitor  gnome-disk-utility gnome-connections
+      gnome-calculator gnome-calendar gnome-logs gnome-maps gnome-photos
+      gnome-screenshot gnome-system-monitor  gnome-disk-utility gnome-connections
     ];
 
     hm =

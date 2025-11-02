@@ -37,7 +37,7 @@ in
     python3
     python3Packages.ruamel-yaml
     jq
-    taplo-cli
+    taplo
 
     # language servers
     cmake-language-server

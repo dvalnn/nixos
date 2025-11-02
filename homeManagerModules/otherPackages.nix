@@ -25,7 +25,6 @@
     gh
 
     # Browsers
-    firefox
     google-chrome
 
     # GUI apps

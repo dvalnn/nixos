@@ -5,6 +5,8 @@
 }:
 {
   imports = [
+    ./overlays.nix
+
     # desktop environments / window managers
     ./awesome
     ./gnome

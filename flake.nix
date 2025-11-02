@@ -3,17 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    lix = {
-      url = "https://git.lix.systems/lix-project/lix/archive/main.tar.gz";
-      flake = false;
-    };
-
-    lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.lix.follows = "lix";
-    };
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -27,7 +17,6 @@
     {
       self,
       nixpkgs,
-      lix-module,
       ...
     }@inputs:
     let
@@ -43,7 +32,6 @@
       homeConfig = homeConfigPath: [
         ./nixosModules
         inputs.stylix.nixosModules.stylix
-
         inputs.home-manager.nixosModules.home-manager
         {
           home-manager = {
@@ -67,7 +55,6 @@
           };
 
           modules = [
-            lix-module.nixosModules.default
             ./hosts/nix-laptop
           ]
           ++ homeConfig ./homeManagerModules/laptop.nix;
@@ -79,7 +66,6 @@
           };
 
           modules = [
-            lix-module.nixosModules.default
             ./hosts/nix-desktop
           ]
           ++ homeConfig ./homeManagerModules/desktop.nix;

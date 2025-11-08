@@ -28,17 +28,17 @@ in
     firewall.allowedUDPPorts = [ ];
   };
 
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 16 * 1024; # size in MB
+    }
+  ];
+
   gnomeDE.enable = false;
   services = {
     desktopManager.plasma6.enable = true;
     displayManager = {
-      # sessionCommands = ''
-      #   xrandr \
-      #   --output DP-0  --mode 1920x1080 --rate 144 --pos 1920x0 --rotate normal \
-      #   --output DP-4 --primary --mode 1920x1080 --rate 144 --pos 0x0 --rotate normal \
-      # '';
-      # defaultSession = "gnome-xorg";
-      # gdm.wayland = false;
       sddm = {
         enable = true;
         wayland.enable = true;
@@ -55,12 +55,6 @@ in
       enable = true;
       joinNetworks = [ ];
     };
-
-    # xrdp = {
-    #   enable = true;
-    #   # defaultWindowManager = "${pkgs.gnome-session}/bin/gnome-session";
-    #   openFirewall = true;
-    # };
   };
 
   awesomeWM.enable = false;
